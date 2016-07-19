@@ -39,7 +39,7 @@
     <Compile Include="Data\CustomController.cs" />
     <Compile Include="Data\TPhanAnhController.cs" />
     <Compile Include="Model\DM_PHUONG.cs" />
-    <Compile Include="View\App.xaml.cs">
+    <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DanhSachPage.xaml.cs">
@@ -70,7 +70,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\App.xaml">
+    <EmbeddedResource Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -112,10 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <EmbeddedResource Include="View\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
-    </Page>
+    </EmbeddedResource>
     <Page Include="View\PageLayAnh.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

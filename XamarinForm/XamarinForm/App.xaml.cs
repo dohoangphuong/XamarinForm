@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using XamarinForm.View;
 
-namespace XamarinForm.View
+namespace XamarinForm
 {
     public partial class App : Application
     {
