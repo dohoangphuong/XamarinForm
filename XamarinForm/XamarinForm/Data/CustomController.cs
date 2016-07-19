@@ -8,7 +8,8 @@ using Newtonsoft.Json;
 using XamarinForm.Models;
 
 namespace XamarinForm.Data
-{ 
+{
+    
     public class CustomController
     {
         string apiBaseUri = "http://192.168.1.250:8088/";

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace _1022_Mobile
+namespace XamarinForm.View
 {
     public partial class PageLayAnh : ContentPage
     {

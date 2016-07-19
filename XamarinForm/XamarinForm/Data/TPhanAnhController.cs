@@ -25,5 +25,20 @@ namespace XamarinForm.Data
                 return null;
             }
         }
+
+        public List<DM_PHUONG> GetTown(string iIdDistrict)
+        {
+            try
+            {
+                CustomController _CustomController = new CustomController();
+                string apiBaseUri = "http://192.168.1.250:8088/API/DmPhuong/Get?portalId=0" + "&quanId=" + iIdDistrict;
+                var rs = _CustomController.GetRequest<DM_PHUONG>(_CustomController.GetAPIToken(), apiBaseUri);
+                return (List<DM_PHUONG>)rs.ClassResult;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

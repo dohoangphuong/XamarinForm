@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:_1022_Mobile"
+             x:Class="_1022_Mobile.MainPage">
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness"
+                iOS="20, 40, 20, 20"
+                Android="20, 20, 20, 20"
+                WinPhone="20, 20, 20, 20" />
+  </ContentPage.Padding>
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   Orientation="Vertical"
+                   Spacing="15">
+      <Label Text="Chào mừng bạn đến với tổng đài 1022"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" x:Name="MyLabel"/>
+
+      <Button Text="Hiện Quận"
+            Clicked="OnButtonClicked"  />
+
+      <Button Text="Tạo nội dung phản ánh" ClassId="btnThemPhanAnh"
+            Clicked="OnButtonPhanAnhClicked"  />
+
+      <Button Text="Danh sách" ClassId="btnDanhSach"
+            Clicked="OnButtonPhanAnhClicked"  />
+
+      <ListView x:Name="listView"
+        ItemTapped="OnItemTapped"
+        ItemsSource="{Binding .}" />
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

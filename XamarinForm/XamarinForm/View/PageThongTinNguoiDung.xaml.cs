@@ -5,14 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using XamarinForm.Model;
 
-namespace _1022_Mobile
+namespace XamarinForm.View
 {
     public partial class PageThongTinNguoiDung : ContentPage
     {
+        Picker pickerDistrict;
+        Picker pickerTown;
         public PageThongTinNguoiDung()
         {
-
             Label header = new Label
             {
                 Text = "THÔNG TIN CÁ NHÂN",
@@ -74,6 +76,18 @@ namespace _1022_Mobile
                 FontSize = 20
             };
 
+            pickerDistrict = new Picker
+            {
+                Title = "Vui lòng chọn quận",
+                VerticalOptions = LayoutOptions.Center
+            };
+
+            pickerTown = new Picker
+            {
+                Title = "Vui lòng chọn phường",
+                VerticalOptions = LayoutOptions.Center,
+            };
+
             Button btnTiepTuc = new Button
             {
                 Text = "Tiếp tục",
@@ -84,7 +98,18 @@ namespace _1022_Mobile
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
             btnTiepTuc.Clicked += btnTiepTucClick;
-
+            //chọn loại quận trong picker
+            pickerDistrict.SelectedIndexChanged += pickerDistrictSelectedIndexChanged;
+            //chọn loại phường trong picker
+            pickerTown.SelectedIndexChanged += pickerTownSelectedIndexChanged;
+            //get listDistrict
+            if (Constants.lstDistrict.Count > 0)
+            {
+                foreach (DM_QUAN itemlstQuan in Constants.lstDistrict)
+                {
+                    pickerDistrict.Items.Add(itemlstQuan.TenQuan);
+                }
+            }
             // Build the page.
             this.Content = new StackLayout
             {
@@ -98,8 +123,8 @@ namespace _1022_Mobile
                     entHoTen,
                     entDiaChi,
                     entDuong,
-                    entQuan,
-                    entPhuong,
+                    pickerDistrict,
+                    pickerTown,
                     btnTiepTuc
                 }
             };
@@ -109,13 +134,36 @@ namespace _1022_Mobile
             //await Navigation.PushModalAsync(new PageLayAnh());
             //Navigation.InsertPageBefore(new PageLayAnh(), this);
             //await Navigation.PopAsync();
-            await Navigation.PushModalAsync(new PageLayAnh());
+            await Navigation.PushAsync(new PageLayAnh());
+        }
+        async void pickerDistrictSelectedIndexChanged(object sender, EventArgs args)
+        {
+            if (pickerDistrict.SelectedIndex == -1)
+            {
+                pickerDistrict.SelectedIndex = 0;
+                //entDistrict.Text = pickerDistrict.Items[0];
+            }
+            else
+            {
+                //entDistrict.Text = pickerDistrict.Items[pickerDistrict.SelectedIndex];
+            }
+
+            Constants.lstTown = null;
+            //get list town is id of district
+            Constants.lstTown = Constants._TPhanAnhController.GetTown(Constants.lstDistrict[pickerDistrict.SelectedIndex].QuanID);
         }
 
-        async void btnPreClick(object sender, EventArgs e)
+        async void pickerTownSelectedIndexChanged(object sender, EventArgs args)
         {
-            Navigation.InsertPageBefore(new PageThemPhanAnh(), this);
-            await Navigation.PopModalAsync();
+            if (pickerTown.SelectedIndex == -1)
+            {
+                pickerTown.SelectedIndex = 0;
+                //entDistrict.Text = pickerDistrict.Items[0];
+            }
+            else
+            {
+                //entDistrict.Text = pickerDistrict.Items[pickerDistrict.SelectedIndex];
+            }
         }
     }
 }

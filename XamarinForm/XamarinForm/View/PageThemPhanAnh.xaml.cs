@@ -1,16 +1,19 @@
-﻿using System;
+﻿using Android.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using XamarinForm.Model;
 
-namespace _1022_Mobile
+namespace XamarinForm.View
 {
     public partial class PageThemPhanAnh : ContentPage
     {
         Picker pickerDistrict;
+        Picker pickerTown;
         public PageThemPhanAnh()
         {
 
@@ -54,44 +57,42 @@ namespace _1022_Mobile
 
             pickerDistrict = new Picker
             {
-                Title = "Quận",
+                Title = "Vui lòng chọn quận",
                 VerticalOptions = LayoutOptions.Center
             };
 
-            Entry entQuan = new Entry
+            pickerTown = new Picker
             {
-                Keyboard = Keyboard.Text,
-                Placeholder = "Vui lòng chọn quận ",
+                Title = "Vui lòng chọn phường",
                 VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
-            };
-            Entry entPhuong = new Entry
-            {
-                Keyboard = Keyboard.Text,
-                Placeholder = "Vui lòng chọn phường",
-                VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
             };
 
             Button btnTiepTuc = new Button
             {
                 Text = "Tiếp tục",
-                FontSize = 20,
+                //FontSize = 20,
                 Font = Font.SystemFontOfSize(NamedSize.Large),
-                BorderWidth = 1,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.CenterAndExpand
+                //BorderWidth = 1,
+                //HorizontalOptions = LayoutOptions.Center,
+                //VerticalOptions = LayoutOptions.CenterAndExpand
             };
 
             btnTiepTuc.Clicked += btnTiepTucClick;
             //chọn loại quận trong picker
             pickerDistrict.SelectedIndexChanged += pickerDistrictSelectedIndexChanged;
+            //chọn loại phường trong picker
+            pickerTown.SelectedIndexChanged += pickerTownSelectedIndexChanged;
+
             //get listDistrict
-            foreach (DM_QUAN itemlstQuan in Constants.lstDistrict)
+            if (Constants.lstDistrict.Count > 0)
             {
-                pickerDistrict.Items.Add(itemlstQuan.TenQuan);
+                foreach (DM_QUAN itemlstDistrict in Constants.lstDistrict)
+                {
+                    pickerDistrict.Items.Add(itemlstDistrict.TenQuan);
+                }
             }
 
+            
             // Build the page.
             this.Content = new StackLayout
             {
@@ -105,8 +106,7 @@ namespace _1022_Mobile
                     entDiaChi,
                     entDuong,
                     pickerDistrict,
-                    entQuan,
-                    entPhuong,
+                    pickerTown,
                     btnTiepTuc
                 }
             };
@@ -114,32 +114,40 @@ namespace _1022_Mobile
         }
         async void btnTiepTucClick(object sender, EventArgs e)
         {
-            //await Navigation.PushModalAsync(new PageLayAnh());
-            //Navigation.InsertPageBefore(new PageLayAnh(), this);
-            //await Navigation.PopAsync();
-            await Navigation.PushModalAsync(new PageThongTinNguoiDung());
+            await Navigation.PushAsync(new PageThongTinNguoiDung());
         }
-
-        async void btnPreClick(object sender, EventArgs e)
-        {
-            Navigation.InsertPageBefore(new MainPage(), this);
-            await Navigation.PopModalAsync();
-        }
-
-        //async void btnDistrictClick(object sender, EventArgs args)
-        //{
-        //    TPhanAnhController _TPhanAnhController = new TPhanAnhController();
-        //    List<DM_QUAN> lstQuan = _TPhanAnhController.GetQuan();
-        //    foreach (DM_QUAN itemlstQuan in lstQuan)
-        //    {
-        //        pickerDistrict.Items.Add(itemlstQuan.TenQuan);
-        //    }
-
-        //}
-
+        
         async void pickerDistrictSelectedIndexChanged(object sender, EventArgs args)
         {
             if (pickerDistrict.SelectedIndex == -1)
+            {
+                //entDistrict.Text = pickerDistrict.Items[0];
+            }
+            else
+            {
+                //entDistrict.Text = pickerDistrict.Items[pickerDistrict.SelectedIndex];
+            }
+
+            Constants.lstTown = null;
+            Constants.lstTown = Constants._TPhanAnhController.GetTown(Constants.lstDistrict[pickerDistrict.SelectedIndex].QuanID);
+
+            //get listTown
+
+            Log.Warn("aaaaaaaaaaaaaaaaaaaaaaaaaaaa", Constants.lstTown.Count.ToString());
+            if (Constants.lstTown.Count > 0)
+            {
+                foreach (DM_PHUONG itemlstTown in Constants.lstTown)
+                {
+                    pickerDistrict.Items.Add(itemlstTown.TenPhuong);
+                }
+            }
+
+
+        }
+
+        async void pickerTownSelectedIndexChanged(object sender, EventArgs args)
+        {
+            if (pickerTown.SelectedIndex == -1)
             {
                 //entDistrict.Text = pickerDistrict.Items[0];
             }

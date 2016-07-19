@@ -35,34 +35,50 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Data\CustomController.cs" />
     <Compile Include="Data\TPhanAnhController.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Model\DM_PHUONG.cs" />
+    <Compile Include="View\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DanhSachPage.xaml.cs">
+      <DependentUpon>DanhSachPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\DM_QUAN.cs" />
     <Compile Include="Model\ListResult.cs" />
     <Compile Include="Model\PagingResult.cs" />
     <Compile Include="Model\UpdateResult.cs" />
-    <Compile Include="PagePickerDatabase.xaml.cs">
-      <DependentUpon>PagePickerDatabase.xaml</DependentUpon>
+    <Compile Include="View\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageLayAnh.xaml.cs">
+      <DependentUpon>PageLayAnh.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PagePicker.xaml.cs">
+    <Compile Include="View\PagePicker.xaml.cs">
       <DependentUpon>PagePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PagePickerDatabase.xaml.cs">
+      <DependentUpon>PagePickerDatabase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageThemPhanAnh.xaml.cs">
+      <DependentUpon>PageThemPhanAnh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageThongTinNguoiDung.xaml.cs">
+      <DependentUpon>PageThongTinNguoiDung.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App.xaml">
+    <EmbeddedResource Include="View\App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v6.0\Mono.Android.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -85,22 +101,34 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PagePicker.xaml">
+    <EmbeddedResource Include="View\PagePicker.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="PagePickerDatabase.xaml">
+    <Page Include="View\DanhSachPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PageLayAnh.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <EmbeddedResource Include="View\PagePickerDatabase.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="MainPage.xaml">
+    <Page Include="View\PageThemPhanAnh.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PageThongTinNguoiDung.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
