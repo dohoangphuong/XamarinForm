@@ -52,6 +52,15 @@
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Page1Xaml.xaml.cs">
+      <DependentUpon>Page1Xaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page2Xaml.xaml.cs">
+      <DependentUpon>Page2Xaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page3Xaml.xaml.cs">
+      <DependentUpon>Page3Xaml.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PageLayAnh.xaml.cs">
       <DependentUpon>PageLayAnh.xaml</DependentUpon>
     </Compile>
@@ -113,6 +122,18 @@
       <SubType>Designer</SubType>
     </Page>
     <EmbeddedResource Include="View\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Page1Xaml.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Page2Xaml.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Page3Xaml.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
