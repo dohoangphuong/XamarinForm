@@ -10,6 +10,9 @@ namespace XamarinForm.View
 {
     public partial class Page3Xaml : ContentPage
     {
+        //----------------------------------------------------------------------------------------------
+        // Tập hợp các page có button pre ở thanh công cụ phía trên: App->Page1Xaml->Page2Xaml->Page3Xaml
+        //----------------------------------------------------------------------------------------------
         public Page3Xaml()
         {
             InitializeComponent();
