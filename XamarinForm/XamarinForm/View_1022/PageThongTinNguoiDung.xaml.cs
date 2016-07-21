@@ -11,8 +11,10 @@ namespace XamarinForm.View
 {
     public partial class PageThongTinNguoiDung : ContentPage
     {
-        Picker pickerDistrict;
-        Picker pickerTown;
+        Entry entFullName;
+        Entry entEmail;
+        Entry entPhone;
+
         public PageThongTinNguoiDung()
         {
             Label header = new Label
@@ -25,11 +27,11 @@ namespace XamarinForm.View
 
             Label lbFullName = new Label()
             {
-                Text = "Nhập họ tên (*)",
+                Text = "Họ tên (*)",
                 FontSize = 20,
             };
 
-            Entry entFullName = new Entry
+            entFullName = new Entry
             {
                 Keyboard = Keyboard.Text,
                 Placeholder = "Nhập họ tên",
@@ -40,11 +42,11 @@ namespace XamarinForm.View
 
             Label lbEmail = new Label()
             {
-                Text = "Nhập Email (*)",
+                Text = "Email (*)",
                 FontSize = 20,
             };
 
-            Entry entEmail = new Entry
+            entEmail = new Entry
             {
                 Keyboard = Keyboard.Email,
                 Placeholder = "Nhập Email",
@@ -52,16 +54,16 @@ namespace XamarinForm.View
                 FontSize = 20
             };
 
-            Label lbAddres = new Label()
+            Label lbPhone = new Label()
             {
-                Text = "Nhập địa chỉ người dùng (*)",
+                Text = "Số điện thoại (*)",
                 FontSize = 20,
             };
 
-            Entry entAddres = new Entry
+            entPhone = new Entry
             {
-                Keyboard = Keyboard.Text,
-                Placeholder = "Nhập địa chỉ",
+                Keyboard = Keyboard.Telephone,
+                Placeholder = "Nhập số điện thoại",
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = 20
             };
@@ -89,8 +91,8 @@ namespace XamarinForm.View
                     entFullName,
                     lbEmail,
                     entEmail,
-                    lbAddres,
-                    entAddres,
+                    lbPhone,
+                    entPhone,
                     btnNext
                 }
             };
@@ -100,6 +102,14 @@ namespace XamarinForm.View
             //await Navigation.PushModalAsync(new PageLayAnh());
             //Navigation.InsertPageBefore(new PageLayAnh(), this);
             //await Navigation.PopAsync();
+
+            Constants.phanAnh.NguoiBao_Email = entEmail.Text;
+            Constants.phanAnh.NguoiBao_HoTen = entFullName.Text;
+            Constants.phanAnh.NguoiBao_DienThoai = entPhone.Text;
+            Constants.phanAnh.PortalID = Constants.PortailID;
+            Constants.phanAnh.MaKenhTiepNhan = Constants.MaKenhTiepNhan;
+            var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(Constants.phanAnh);
+            Constants.phanAnh = new PhanAnhModel();
             await Navigation.PushAsync(new PageLayAnh());
         }
     }

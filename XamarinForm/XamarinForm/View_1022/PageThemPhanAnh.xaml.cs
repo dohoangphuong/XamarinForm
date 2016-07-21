@@ -12,6 +12,9 @@ namespace XamarinForm.View
 {
     public partial class PageThemPhanAnh : ContentPage
     {
+        Editor editDeatail;
+        Entry entAddres;
+
         public PageThemPhanAnh()
         {
 
@@ -29,7 +32,7 @@ namespace XamarinForm.View
                 Text = "Nội dung phản ánh (*)",
                 FontSize = 20,
             };
-            Editor editDeatail = new Editor
+            editDeatail = new Editor
             {
                 Keyboard = Keyboard.Text,
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -38,18 +41,10 @@ namespace XamarinForm.View
 
             Label lbAddres= new Label()
             {
-                Text = "Vị trí phản ánh (*)",
+                Text = "Vị trí sự cố (*)",
                 FontSize = 20,
             };
-            Entry entAddres = new Entry
-            {
-                Keyboard = Keyboard.Text,
-                Placeholder = "Nhập vị trí",
-                VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
-            };
-
-            Entry entDuong = new Entry
+            entAddres = new Entry
             {
                 Keyboard = Keyboard.Text,
                 Placeholder = "Nhập vị trí",
@@ -88,15 +83,20 @@ namespace XamarinForm.View
         }
         async void btnNextClick(object sender, EventArgs e)
         {
-            PhanAnhModel phanAnh = new PhanAnhModel();
-            phanAnh.NoiDungPhanAnh = "Cháy nhà";
-            phanAnh.Duong = "Paster";
-            phanAnh.NguoiBao_Email = "hp.codoc@yahoo.com";
-            phanAnh.NguoiBao_HoTen = "Hoàng Phương";
-            phanAnh.NguoiBao_Duong = "Hàm Nghi";
-            phanAnh.PortalID = Constants.PortailID;
-            phanAnh.MaKenhTiepNhan = Constants.MaKenhTiepNhan;
-            var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(phanAnh);
+            Constants.phanAnh = new PhanAnhModel();
+            Constants.phanAnh.NoiDungPhanAnh = editDeatail.Text; ;
+            Constants.phanAnh.Duong = entAddres.Text;
+            
+            //phanAnh.NoiDungPhanAnh = "Cháy nhà";
+            //phanAnh.Duong = "Paster";
+            //phanAnh.NguoiBao_Email = "hp.codoc@yahoo.com";
+            //phanAnh.NguoiBao_HoTen = "Hoàng Phương";
+            //phanAnh.NguoiBao_Duong = "Hàm Nghi";
+            //phanAnh.PortalID = Constants.PortailID;
+            //phanAnh.MaKenhTiepNhan = Constants.MaKenhTiepNhan;
+            //var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(phanAnh);
+
+            //var text = MyEntry.Text;
 
             await Navigation.PushAsync(new PageThongTinNguoiDung());
         }

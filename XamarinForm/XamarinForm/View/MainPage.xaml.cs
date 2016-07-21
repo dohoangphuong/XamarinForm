@@ -42,6 +42,7 @@ namespace XamarinForm.View
         async void OnButtonPhanAnhClicked(object sender, EventArgs args)
         {
             await Navigation.PushAsync(new PageThemPhanAnh());
+            //await Navigation.PushAsync(new PageLayAnh());
         }
     }
 }
