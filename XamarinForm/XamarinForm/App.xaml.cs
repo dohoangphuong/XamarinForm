@@ -21,10 +21,10 @@ namespace XamarinForm
 
         public App()
         {
-            // MainPage = new XamarinForm.MainPage();
-            //MainPage = new NavigationPage(new MainPage());
+            //MainPage = new XamarinForm.View.MainPage();
+            MainPage = new NavigationPage(new MainPage());
             //MainPage = new NavigationPage(new Page1Xaml());
-            MainPage = new PageMainMaster();
+            //MainPage = new PageMainMaster();
         }
 
         protected override void OnStart()

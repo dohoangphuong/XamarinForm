@@ -15,6 +15,8 @@ namespace XamarinForm
         public static string password = "P@ssw0rd";
 
         public static TPhanAnhController _TPhanAnhController = new TPhanAnhController();
+        public static int PortailID = 0;
+        public static string MaKenhTiepNhan = "Mobile";
         public static List<DM_QUAN> lstDistrict;
         public static List<DM_PHUONG> lstTown;
     }

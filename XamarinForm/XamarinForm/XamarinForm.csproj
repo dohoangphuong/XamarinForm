@@ -42,6 +42,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\FILEDINHKEM.cs" />
+    <Compile Include="Model\PhanAnhModel.cs" />
     <Compile Include="View\ContactsPage.xaml.cs">
       <DependentUpon>ContactsPage.xaml</DependentUpon>
     </Compile>
@@ -68,7 +70,7 @@
     <Compile Include="View\Page3Xaml.xaml.cs">
       <DependentUpon>Page3Xaml.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PageLayAnh.xaml.cs">
+    <Compile Include="View_1022\PageLayAnh.xaml.cs">
       <DependentUpon>PageLayAnh.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,10 +83,10 @@
     <Compile Include="View\PagePickerDatabase.xaml.cs">
       <DependentUpon>PagePickerDatabase.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PageThemPhanAnh.xaml.cs">
+    <Compile Include="View_1022\PageThemPhanAnh.xaml.cs">
       <DependentUpon>PageThemPhanAnh.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PageThongTinNguoiDung.xaml.cs">
+    <Compile Include="View_1022\PageThongTinNguoiDung.xaml.cs">
       <DependentUpon>PageThongTinNguoiDung.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ReminderPage.xaml.cs">
@@ -92,15 +94,6 @@
     </Compile>
     <Compile Include="View\TodoListPage.xaml.cs">
       <DependentUpon>TodoListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_1022\PageLayAnh.xaml.cs">
-      <DependentUpon>PageLayAnh.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_1022\PageThemPhanAnh.xaml.cs">
-      <DependentUpon>PageThemPhanAnh.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_1022\PageThongTinNguoiDung.xaml.cs">
-      <DependentUpon>PageThongTinNguoiDung.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -170,7 +163,7 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Page Include="View\PageLayAnh.xaml">
+    <Page Include="View_1022\PageLayAnh.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -182,11 +175,11 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Page Include="View\PageThemPhanAnh.xaml">
+    <Page Include="View_1022\PageThemPhanAnh.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\PageThongTinNguoiDung.xaml">
+    <Page Include="View_1022\PageThongTinNguoiDung.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -198,18 +191,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Page Include="View_1022\PageLayAnh.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View_1022\PageThemPhanAnh.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View_1022\PageThongTinNguoiDung.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.0.0.6482\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.0.0.6482\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

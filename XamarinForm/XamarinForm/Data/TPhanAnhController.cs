@@ -31,9 +31,24 @@ namespace XamarinForm.Data
             try
             {
                 CustomController _CustomController = new CustomController();
-                string apiBaseUri = "http://192.168.1.250:8088/API/DmPhuong/Get?portalId=0" + "&quanId=" + iIdDistrict;
+                string apiBaseUri = Constants.apiBaseUri + "/API/DmPhuong/Get?portalId=0" + "&quanId=" + iIdDistrict;
                 var rs = _CustomController.GetRequest<DM_PHUONG>(_CustomController.GetAPIToken(), apiBaseUri);
                 return (List<DM_PHUONG>)rs.ClassResult;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public List<PhanAnhModel> SendRequestPhanAnh(PhanAnhModel iPhanAnh)
+        {
+            try
+            {
+                CustomController _CustomController = new CustomController();
+                string apiBaseUri = "http://192.168.1.250:8088/API/TPhanAnhKenhKhac";
+                var rs = _CustomController.PostRequest<PhanAnhModel>(_CustomController.GetAPIToken(), apiBaseUri, iPhanAnh);
+                return (List < PhanAnhModel > )rs.ClassResult;
             }
             catch (Exception)
             {

@@ -17,18 +17,8 @@
              VerticalOptions="Center"
              HorizontalOptions="Center" x:Name="MyLabel"/>
 
-      <Button Text="Hiện Quận"
-            Clicked="OnButtonClicked"  />
-
-      <Button Text="Tạo nội dung phản ánh" ClassId="btnThemPhanAnh"
+      <Button Text="Thêm nội dung phản ánh" ClassId="btnThemPhanAnh"
             Clicked="OnButtonPhanAnhClicked"  />
-
-      <Button Text="Danh sách" ClassId="btnDanhSach"
-            Clicked="OnButtonPhanAnhClicked"  />
-
-      <ListView x:Name="listView"
-        ItemTapped="OnItemTapped"
-        ItemsSource="{Binding .}" />
 
     </StackLayout>
   </ContentPage.Content>

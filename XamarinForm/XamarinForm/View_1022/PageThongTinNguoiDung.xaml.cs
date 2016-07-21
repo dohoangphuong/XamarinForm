@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using XamarinForm.Model;
 
-namespace XamarinForm.Views
+namespace XamarinForm.View
 {
     public partial class PageThongTinNguoiDung : ContentPage
     {
@@ -17,17 +18,32 @@ namespace XamarinForm.Views
             Label header = new Label
             {
                 Text = "THÔNG TIN CÁ NHÂN",
-                FontSize = 60,
+                FontSize = 50,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center
+            };
+
+            Label lbFullName = new Label()
+            {
+                Text = "Nhập họ tên (*)",
+                FontSize = 20,
+            };
+
+            Entry entFullName = new Entry
+            {
+                Keyboard = Keyboard.Text,
+                Placeholder = "Nhập họ tên",
+                VerticalOptions = LayoutOptions.Center,
+                FontSize = 20
             };
 
 
             Label lbEmail = new Label()
             {
-                Text = "Email (*)",
+                Text = "Nhập Email (*)",
                 FontSize = 20,
             };
+
             Entry entEmail = new Entry
             {
                 Keyboard = Keyboard.Email,
@@ -36,15 +52,13 @@ namespace XamarinForm.Views
                 FontSize = 20
             };
 
-            Entry entHoTen = new Entry
+            Label lbAddres = new Label()
             {
-                Keyboard = Keyboard.Text,
-                Placeholder = "Nhập họ tên",
-                VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
+                Text = "Nhập địa chỉ người dùng (*)",
+                FontSize = 20,
             };
 
-            Entry entDiaChi = new Entry
+            Entry entAddres = new Entry
             {
                 Keyboard = Keyboard.Text,
                 Placeholder = "Nhập địa chỉ",
@@ -52,63 +66,17 @@ namespace XamarinForm.Views
                 FontSize = 20
             };
 
-            Entry entDuong = new Entry
-            {
-                Keyboard = Keyboard.Text,
-                Placeholder = "Nhập đường",
-                VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
-            };
-
-            Entry entQuan = new Entry
-            {
-                Keyboard = Keyboard.Text,
-                Placeholder = "Vui lòng chọn quận ",
-                VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
-            };
-            Entry entPhuong = new Entry
-            {
-                Keyboard = Keyboard.Text,
-                Placeholder = "Vui lòng chọn phường",
-                VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
-            };
-
-            pickerDistrict = new Picker
-            {
-                Title = "Vui lòng chọn quận",
-                VerticalOptions = LayoutOptions.Center
-            };
-
-            pickerTown = new Picker
-            {
-                Title = "Vui lòng chọn phường",
-                VerticalOptions = LayoutOptions.Center,
-            };
-
-            Button btnTiepTuc = new Button
+            Button btnNext = new Button
             {
                 Text = "Tiếp tục",
                 FontSize = 20,
                 Font = Font.SystemFontOfSize(NamedSize.Large),
                 BorderWidth = 1,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.CenterAndExpand
+                VerticalOptions = LayoutOptions.EndAndExpand
             };
-            btnTiepTuc.Clicked += btnTiepTucClick;
-            //chọn loại quận trong picker
-            pickerDistrict.SelectedIndexChanged += pickerDistrictSelectedIndexChanged;
-            //chọn loại phường trong picker
-            pickerTown.SelectedIndexChanged += pickerTownSelectedIndexChanged;
-            //get listDistrict
-            if (Constants.lstDistrict.Count > 0)
-            {
-                foreach (DM_QUAN itemlstQuan in Constants.lstDistrict)
-                {
-                    pickerDistrict.Items.Add(itemlstQuan.TenQuan);
-                }
-            }
+
+            btnNext.Clicked += btnNextClick;
+
             // Build the page.
             this.Content = new StackLayout
             {
@@ -117,52 +85,22 @@ namespace XamarinForm.Views
                     header,
                     //--------------------
                     //Màn hình nội dung phản ánh
+                    lbFullName,
+                    entFullName,
                     lbEmail,
                     entEmail,
-                    entHoTen,
-                    entDiaChi,
-                    entDuong,
-                    pickerDistrict,
-                    pickerTown,
-                    btnTiepTuc
+                    lbAddres,
+                    entAddres,
+                    btnNext
                 }
             };
         }
-        async void btnTiepTucClick(object sender, EventArgs e)
+        async void btnNextClick(object sender, EventArgs e)
         {
             //await Navigation.PushModalAsync(new PageLayAnh());
             //Navigation.InsertPageBefore(new PageLayAnh(), this);
             //await Navigation.PopAsync();
             await Navigation.PushAsync(new PageLayAnh());
-        }
-        async void pickerDistrictSelectedIndexChanged(object sender, EventArgs args)
-        {
-            if (pickerDistrict.SelectedIndex == -1)
-            {
-                pickerDistrict.SelectedIndex = 0;
-                //entDistrict.Text = pickerDistrict.Items[0];
-            }
-            else
-            {
-                //entDistrict.Text = pickerDistrict.Items[pickerDistrict.SelectedIndex];
-            }
-
-            Constants.lstTown = null;
-            //get list town is id of district
-            Constants.lstTown = Constants._TPhanAnhController.GetTown(Constants.lstDistrict[pickerDistrict.SelectedIndex].QuanID);
-        }
-
-        async void pickerTownSelectedIndexChanged(object sender, EventArgs args)
-        {
-            if (pickerTown.SelectedIndex == -1)
-            {
-                pickerTown.SelectedIndex = 0;
-                //entDistrict.Text = pickerDistrict.Items[0];
-            }
-            else
-            {
-                //entDistrict.Text = pickerDistrict.Items[pickerDistrict.SelectedIndex];
-            }
         }
     }
 }

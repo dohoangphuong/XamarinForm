@@ -14,8 +14,8 @@ namespace XamarinForm.View
         {
             Label header = new Label
             {
-                Text = "LẤY ẢNH",
-                FontSize = 60,
+                Text = "HÌNH ẢNH PHẢN ÁNH",
+                FontSize = 50,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center
             };
@@ -25,8 +25,7 @@ namespace XamarinForm.View
                 Text = "Máy Ảnh",
                 FontSize = 20,
                 Font = Font.SystemFontOfSize(NamedSize.Large),
-                BorderWidth = 1,
-                HorizontalOptions = LayoutOptions.Center,
+                BorderWidth = 7,
                 VerticalOptions = LayoutOptions.Center
             };
             btnUsingCamera.Clicked += btnUsingCameraClick;
@@ -36,8 +35,7 @@ namespace XamarinForm.View
                 Text = "Mở Ảnh",
                 FontSize = 20,
                 Font = Font.SystemFontOfSize(NamedSize.Large),
-                BorderWidth = 1,
-                HorizontalOptions = LayoutOptions.Center,
+                BorderWidth = 7,
                 VerticalOptions = LayoutOptions.Center
             };
             btnOpenImage.Clicked += btnOpenImageClick;
@@ -52,8 +50,7 @@ namespace XamarinForm.View
                 Text = "Hoàn Tất",
                 FontSize = 20,
                 Font = Font.SystemFontOfSize(NamedSize.Large),
-                BorderWidth = 1,
-                HorizontalOptions = LayoutOptions.Center,
+                BorderWidth = 7,
                 VerticalOptions = LayoutOptions.Center
             };
             btnSave.Clicked += btnSaveClick;
@@ -85,12 +82,6 @@ namespace XamarinForm.View
         async void btnSaveClick(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new MainPage());
-        }
-
-        async void btnPreClick(object sender, EventArgs e)
-        {
-            Navigation.InsertPageBefore(new PageThongTinNguoiDung(), this);
-            await Navigation.PopModalAsync();
         }
     }
 }
