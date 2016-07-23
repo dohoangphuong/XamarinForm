@@ -11,17 +11,29 @@ namespace XamarinForm.View
 {
     public partial class PageThongTinNguoiDung : ContentPage
     {
+        Label lbMessageError;
         Entry entFullName;
         Entry entEmail;
         Entry entPhone;
 
         public PageThongTinNguoiDung()
         {
+            Padding = new Thickness(20, 40, 20, 20);
+            //Icon = "hamburger.png";
+            Title = "Thông tin người dùng";
+
             Label header = new Label
             {
                 Text = "THÔNG TIN CÁ NHÂN",
-                FontSize = 50,
+                FontSize = 30,
                 FontAttributes = FontAttributes.Bold,
+                HorizontalOptions = LayoutOptions.Center
+            };
+
+            lbMessageError = new Label()
+            {
+                FontSize = 20,
+                TextColor = Color.Red,
                 HorizontalOptions = LayoutOptions.Center
             };
 
@@ -87,6 +99,7 @@ namespace XamarinForm.View
                     header,
                     //--------------------
                     //Màn hình nội dung phản ánh
+                    lbMessageError,
                     lbFullName,
                     entFullName,
                     lbEmail,
@@ -102,15 +115,29 @@ namespace XamarinForm.View
             //await Navigation.PushModalAsync(new PageLayAnh());
             //Navigation.InsertPageBefore(new PageLayAnh(), this);
             //await Navigation.PopAsync();
-
-            Constants.phanAnh.NguoiBao_Email = entEmail.Text;
-            Constants.phanAnh.NguoiBao_HoTen = entFullName.Text;
-            Constants.phanAnh.NguoiBao_DienThoai = entPhone.Text;
-            Constants.phanAnh.PortalID = Constants.PortailID;
-            Constants.phanAnh.MaKenhTiepNhan = Constants.MaKenhTiepNhan;
-            var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(Constants.phanAnh);
-            Constants.phanAnh = new PhanAnhModel();
-            await Navigation.PushAsync(new PageLayAnh());
+            if (entEmail.Text == null || entFullName.Text == null || entPhone.Text == null)
+            {
+                lbMessageError.Text = "* Vui lòng nhập đầy đủ";
+            }
+            else
+            {
+                if (entEmail.Text.Trim() == "" || entFullName.Text.Trim() == "" || entPhone.Text.Trim() == "")
+                {
+                    lbMessageError.Text = "* Vui lòng nhập đầy đủ";
+                }
+                else
+                {
+                    lbMessageError.Text = "";
+                    Constants.phanAnh.NguoiBao_Email = entEmail.Text;
+                    Constants.phanAnh.NguoiBao_HoTen = entFullName.Text;
+                    Constants.phanAnh.NguoiBao_DienThoai = entPhone.Text;
+                    Constants.phanAnh.PortalID = Constants.PortailID;
+                    Constants.phanAnh.MaKenhTiepNhan = Constants.MaKenhTiepNhan;
+                    var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(Constants.phanAnh);
+                    Constants.phanAnh = new PhanAnhModel();
+                    await Navigation.PushAsync(new PageLayAnh());
+                }
+            }
         }
     }
 }

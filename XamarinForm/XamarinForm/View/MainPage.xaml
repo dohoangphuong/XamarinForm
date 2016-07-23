@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
-             x:Class="XamarinForm.View.MainPage">
+             x:Class="XamarinForm.View.MainPage"
+             Title="Trang Chủ">
   <ContentPage.Padding>
     <OnPlatform x:TypeArguments="Thickness"
                 iOS="20, 40, 20, 20"
@@ -13,9 +14,10 @@
                    HorizontalOptions="FillAndExpand"
                    Orientation="Vertical"
                    Spacing="15">
-      <Label Text="Chào mừng bạn đến với tổng đài 1022"
+      <Label Text="CHÀO MỪNG BẠN ĐẾN VỚI TỔNG ĐÀI 1022"
              VerticalOptions="Center"
-             HorizontalOptions="Center" x:Name="MyLabel"/>
+             HorizontalOptions="Center" x:Name="MyLabel"
+             FontSize="30" FontAttributes="Bold"/>
 
       <Button Text="Thêm nội dung phản ánh" ClassId="btnThemPhanAnh"
             Clicked="OnButtonPhanAnhClicked"  />

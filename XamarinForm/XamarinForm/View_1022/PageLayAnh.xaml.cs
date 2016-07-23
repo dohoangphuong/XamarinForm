@@ -12,10 +12,13 @@ namespace XamarinForm.View
     {
         public PageLayAnh()
         {
+            Padding = new Thickness(20, 40, 20, 20);
+            //Icon = "hamburger.png";
+            Title = "Hình ảnh phản ánh";
             Label header = new Label
             {
                 Text = "HÌNH ẢNH PHẢN ÁNH",
-                FontSize = 50,
+                FontSize = 30,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center
             };

@@ -17,11 +17,13 @@ namespace XamarinForm.View
 
         public PageThemPhanAnh()
         {
-
+            Padding = new Thickness(20, 40, 20, 20);
+            //Icon = "hamburger.png";
+            Title = "Thêm phản ánh";
             Label header = new Label
             {
                 Text = "NỘI DUNG PHẢN ÁNH",
-                FontSize = 50,
+                FontSize = 30,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center
             };
