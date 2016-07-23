@@ -44,6 +44,11 @@
     </Compile>
     <Compile Include="Model\FILEDINHKEM.cs" />
     <Compile Include="Model\PhanAnhModel.cs" />
+    <Compile Include="Resources\Camera\Common\Annotations.cs" />
+    <Compile Include="Resources\Camera\Common\CameraResult.cs" />
+    <Compile Include="Resources\Camera\Common\ICameraProvider.cs" />
+    <Compile Include="Resources\Camera\Common\ObservableObject.cs" />
+    <Compile Include="Resources\Camera\Model\TakePictureViewModel.cs" />
     <Compile Include="View\ContactsPage.xaml.cs">
       <DependentUpon>ContactsPage.xaml</DependentUpon>
     </Compile>
@@ -69,6 +74,9 @@
     </Compile>
     <Compile Include="View\Page3Xaml.xaml.cs">
       <DependentUpon>Page3Xaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageTakePhoto.xaml.cs">
+      <DependentUpon>PageTakePhoto.xaml</DependentUpon>
     </Compile>
     <Compile Include="View_1022\PageLayAnh.xaml.cs">
       <DependentUpon>PageLayAnh.xaml</DependentUpon>
@@ -160,6 +168,10 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MasterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PageTakePhoto.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
