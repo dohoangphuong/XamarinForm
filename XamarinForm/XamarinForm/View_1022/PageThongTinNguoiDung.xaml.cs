@@ -135,7 +135,8 @@ namespace XamarinForm.View
                     Constants.phanAnh.MaKenhTiepNhan = Constants.MaKenhTiepNhan;
                     var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(Constants.phanAnh);
                     Constants.phanAnh = new PhanAnhModel();
-                    await Navigation.PushAsync(new PageLayAnh());
+                    // await Navigation.PushAsync(new PageLayAnh());
+                    await Navigation.PushAsync(new PageTakePhoto());
                 }
             }
         }

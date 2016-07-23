@@ -85,6 +85,8 @@ namespace XamarinForm.View
         async void btnSaveClick(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new MainPage());
+            //await Navigation.PopToRootAsync();
+            //await Navigation.PopAsync(new MainPage());
         }
     }
 }

@@ -1,14 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinForm.View.PageTakePhoto">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
-  <StackLayout>
-    <Button
-      Text="Take a Picture"
-      Command="{Binding TakePicture}" />
+             x:Class="XamarinForm.View.PageTakePhoto"
+             Title="Hình ảnh phản ánh">
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   Orientation="Vertical"
+                   Spacing="15">
+      <Label Text="HÌNH ẢNH PHẢN ÁNH"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" x:Name="MyLabel"
+             FontSize="30" FontAttributes="Bold"/>
+      <Button
+        Text="Máy ảnh"
+        x:Name="btnUsingCamera"
+        Command="{Binding TakePicture}"
+        FontSize = "20"
+        BorderWidth = "7"
+        VerticalOptions ="Center"/>
+      <Button
+        Text="Chọn ảnh"
+        x:Name="btnOpenImage"
+        FontSize = "20"
+        BorderWidth = "7"
+        VerticalOptions ="Center"/>
 
-    <Image
-      Source="{Binding Picture}"/>
-  </StackLayout>
+      <Button
+       Text="HOÀN TẤT"
+       x:Name="btnSave"
+       FontSize = "20"
+       BorderWidth = "7"
+       VerticalOptions ="Center"
+       Clicked="btnSaveClick"/>
+
+      <Image
+        Source="{Binding Picture}"/>
+    </StackLayout>
+  </ContentPage.Content>
 </ContentPage>

@@ -18,5 +18,10 @@ namespace XamarinForm.View
             InitializeComponent();
             BindingContext = new TakePictureViewModel(DependencyService.Get<ICameraProvider>());
         }
+
+        async void btnSaveClick(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new MainPage());
+        }
     }
 }
