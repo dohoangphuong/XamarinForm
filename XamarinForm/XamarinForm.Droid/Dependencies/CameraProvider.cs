@@ -69,5 +69,21 @@ namespace XamarinForm.Droid.Dependencies
 
             tcs.TrySetResult(res);
         }
+
+        public byte[] ConvertByte()
+        {
+            string path = file.Path;
+            using (var streamReader = new System.IO.StreamReader(path))
+            {
+                var bytes = default(byte[]);
+                using (var memstream = new System.IO.MemoryStream())
+                {
+                    streamReader.BaseStream.CopyTo(memstream);
+                    bytes = memstream.ToArray();
+                }
+
+                return bytes;
+            }
+        }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
 
 using Xamarin.Forms;
 using XamarinForm.Common;
@@ -12,16 +10,21 @@ namespace XamarinForm.View
 {
     public partial class PageTakePhoto : ContentPage
     {
+        TakePictureViewModel soureCamera;
         public PageTakePhoto()
         {
-           
             InitializeComponent();
-            BindingContext = new TakePictureViewModel(DependencyService.Get<ICameraProvider>());
+            soureCamera = new TakePictureViewModel(DependencyService.Get<ICameraProvider>());
+            BindingContext = soureCamera;
         }
 
         async void btnSaveClick(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new MainPage());
+            // Byte[] abc = imgShow.To
+            imgLoad.Source = imgShow.Source;
+            var avc = soureCamera.bytePicture;
+
+            // await Navigation.PushModalAsync(new MainPage());
         }
     }
 }

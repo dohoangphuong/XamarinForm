@@ -11,6 +11,7 @@
     public class TakePictureViewModel : ObservableObject
     {
         private ImageSource picture;
+        public byte[] bytePicture;
 
         public ImageSource Picture
         {
@@ -30,6 +31,7 @@
         }
 
         public ICommand TakePicture { get; set; }
+       
 
         private ICameraProvider cameraProvider;
 
@@ -47,10 +49,16 @@
         private async Task TakePictureAsync()
         {
             var photoResult = await cameraProvider.TakePictureAsync();
+            var bytePictureCamera = cameraProvider.ConvertByte();
 
             if (photoResult != null)
             {
                 Picture = photoResult.Picture;
+            }
+
+            if (bytePictureCamera != null)
+            {
+                bytePicture = bytePictureCamera;
             }
         }
     }

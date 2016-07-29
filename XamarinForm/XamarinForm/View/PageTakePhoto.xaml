@@ -35,7 +35,10 @@
        Clicked="btnSaveClick"/>
 
       <Image
+        x:Name="imgShow"
         Source="{Binding Picture}"/>
+      <Image
+        x:Name="imgLoad"/>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>
