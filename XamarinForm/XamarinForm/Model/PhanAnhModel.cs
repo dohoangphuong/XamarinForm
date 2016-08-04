@@ -40,5 +40,11 @@ namespace XamarinForm.Model
         public int? PortalID { get; set; }
 
         public List<FILEDINHKEM> FileDinhKem { get; set; }
+
+        public PhanAnhModel()
+        {
+            FileDinhKem = new List<FILEDINHKEM>();
+            Active = true;
+        }
     }
 }

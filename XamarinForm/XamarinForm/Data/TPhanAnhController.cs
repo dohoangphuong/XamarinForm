@@ -6,16 +6,17 @@ using System.Text;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using XamarinForm.Model;
+using XamarinForm.Models;
 
 namespace XamarinForm.Data
 {
     public class TPhanAnhController
     {
+        CustomController _CustomController = new CustomController();
         public List<DM_QUAN> GetQuan()
         {
             try
             {
-                CustomController _CustomController = new CustomController();
                 string apiBaseUri = "http://192.168.1.250:8088/API/DmQuan/Get?portalId=0";
                 var rs = _CustomController.GetRequest<DM_QUAN>(_CustomController.GetAPIToken(), apiBaseUri);
                 return (List<DM_QUAN>)rs.ClassResult;
@@ -30,7 +31,6 @@ namespace XamarinForm.Data
         {
             try
             {
-                CustomController _CustomController = new CustomController();
                 string apiBaseUri = Constants.apiBaseUri + "/API/DmPhuong/Get?portalId=0" + "&quanId=" + iIdDistrict;
                 var rs = _CustomController.GetRequest<DM_PHUONG>(_CustomController.GetAPIToken(), apiBaseUri);
                 return (List<DM_PHUONG>)rs.ClassResult;
@@ -41,14 +41,27 @@ namespace XamarinForm.Data
             }
         }
 
-        public List<PhanAnhModel> SendRequestPhanAnh(PhanAnhModel iPhanAnh)
+        public UpdateResult SendRequestPhanAnh(PhanAnhModel iPhanAnh)
+        {
+            try
+            {                
+                string apiBaseUri = "http://192.168.1.250:8088/API/TPhanAnhKenhKhac";
+                var rs = _CustomController.PostRequest(_CustomController.GetAPIToken(), apiBaseUri, iPhanAnh);
+                return rs;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public UpdateResult RequestServer(PhanAnhModel iOject)
         {
             try
             {
-                CustomController _CustomController = new CustomController();
                 string apiBaseUri = "http://192.168.1.250:8088/API/TPhanAnhKenhKhac";
-                var rs = _CustomController.PostRequest<PhanAnhModel>(_CustomController.GetAPIToken(), apiBaseUri, iPhanAnh);
-                return (List < PhanAnhModel > )rs.ClassResult;
+                var rs = _CustomController.PostRequest(_CustomController.GetAPIToken(), apiBaseUri, iOject);
+                return rs;
             }
             catch (Exception)
             {

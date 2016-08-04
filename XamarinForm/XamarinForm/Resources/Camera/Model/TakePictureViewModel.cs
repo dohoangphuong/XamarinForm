@@ -7,11 +7,12 @@
     using XamarinForm.Common;
 
     using Xamarin.Forms;
-
+    using Java.IO;
     public class TakePictureViewModel : ObservableObject
     {
         private ImageSource picture;
         public byte[] bytePicture;
+        public File file;
 
         public ImageSource Picture
         {
@@ -59,6 +60,7 @@
             if (bytePictureCamera != null)
             {
                 bytePicture = bytePictureCamera;
+               // file = cameraProvider.ConvertByte();
             }
         }
     }

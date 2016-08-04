@@ -37,12 +37,12 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Data\CustomController.cs" />
+    <Compile Include="Model\FILEDINHKEM.cs" />
     <Compile Include="Data\TPhanAnhController.cs" />
     <Compile Include="Model\DM_PHUONG.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\FILEDINHKEM.cs" />
     <Compile Include="Model\PhanAnhModel.cs" />
     <Compile Include="Resources\Camera\Common\Annotations.cs" />
     <Compile Include="Resources\Camera\Common\CameraResult.cs" />
