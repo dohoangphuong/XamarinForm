@@ -45,22 +45,8 @@ namespace XamarinForm.Data
         {
             try
             {                
-                string apiBaseUri = "http://192.168.1.250:8088/API/TPhanAnhKenhKhac";
+                string apiBaseUri = "http://192.168.1.250:8088/API/TPhanAnhKenhKhac/Insert";
                 var rs = _CustomController.PostRequest(_CustomController.GetAPIToken(), apiBaseUri, iPhanAnh);
-                return rs;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        public UpdateResult RequestServer(PhanAnhModel iOject)
-        {
-            try
-            {
-                string apiBaseUri = "http://192.168.1.250:8088/API/TPhanAnhKenhKhac";
-                var rs = _CustomController.PostRequest(_CustomController.GetAPIToken(), apiBaseUri, iOject);
                 return rs;
             }
             catch (Exception)

@@ -27,7 +27,6 @@ namespace XamarinForm.View
         {
             try
             {
-                Constants.phanAnh = new PhanAnhModel();
                 DateTime CurrenTime = DateTime.Now;
                 string fileName;
 
@@ -52,7 +51,7 @@ namespace XamarinForm.View
                 fileDinhKemModel.FileExtension = Path.GetExtension(soureCamera.file.Name).Substring(1);
                 fileDinhKemModel.FielUrl = "Upload/PhanAnh/";
 
-                Constants.phanAnh.FileDinhKem.Add(fileDinhKemModel);
+                Constants.phanAnh.lstFileDinhKem.Add(fileDinhKemModel);
                 var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(Constants.phanAnh);
 
                 //quay lại
