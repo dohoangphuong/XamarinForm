@@ -26,19 +26,6 @@ namespace XamarinForm.Droid.Dependencies
 
         private static TaskCompletionSource<CameraResult> tcs;
 
-        public static File File
-        {
-            get
-            {
-                return file;
-            }
-
-            set
-            {
-                file = value;
-            }
-        }
-
         public Task<CameraResult> TakePictureAsync()
         {
             Intent intent = new Intent(MediaStore.ActionImageCapture);
@@ -97,6 +84,13 @@ namespace XamarinForm.Droid.Dependencies
 
                 return bytes;
             }
+        }
+
+        public File FileImage()
+        {
+            if (file != null)
+                return file;
+            return null;
         }
     }
 }

@@ -60,7 +60,7 @@
             if (bytePictureCamera != null)
             {
                 bytePicture = bytePictureCamera;
-               // file = cameraProvider.ConvertByte();
+                file = cameraProvider.FileImage();
             }
         }
     }

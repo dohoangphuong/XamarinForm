@@ -133,7 +133,7 @@ namespace XamarinForm.View
                     Constants.phanAnh.NguoiBao_DienThoai = entPhone.Text;
                     Constants.phanAnh.PortalID = Constants.PortailID;
                     Constants.phanAnh.MaKenhTiepNhan = Constants.MaKenhTiepNhan;
-                    var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(Constants.phanAnh);
+                   // var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(Constants.phanAnh);
                     Constants.phanAnh = new PhanAnhModel();
                     await Navigation.PushAsync(new PageTakePhoto());
                 }

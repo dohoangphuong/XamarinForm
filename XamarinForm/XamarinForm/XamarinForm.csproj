@@ -75,7 +75,7 @@
     <Compile Include="View\Page3Xaml.xaml.cs">
       <DependentUpon>Page3Xaml.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PageTakePhoto.xaml.cs">
+    <Compile Include="View_1022\PageTakePhoto.xaml.cs">
       <DependentUpon>PageTakePhoto.xaml</DependentUpon>
     </Compile>
     <Compile Include="View_1022\PageLayAnh.xaml.cs">
@@ -171,7 +171,7 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\PageTakePhoto.xaml">
+    <EmbeddedResource Include="View_1022\PageTakePhoto.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
