@@ -18,6 +18,12 @@ namespace XamarinForm.View
         public PageThemPhanAnh()
         {
             Padding = new Thickness(20, 40, 20, 20);
+            var toolbarItem = new ToolbarItem
+            {
+                Text = "Tiếp tục"
+            };
+            toolbarItem.Clicked += ToolbarItem_Clicked;
+            ToolbarItems.Add(toolbarItem);
             //Icon = "hamburger.png";
             Title = "Thêm phản ánh";
             Label header = new Label
@@ -80,11 +86,20 @@ namespace XamarinForm.View
                     entAddres,
                     lbDeatail,
                     editDeatail,
-                    btnNext
+                  //  btnNext
                 }
             };
 
         }
+
+        async private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Constants.phanAnh = new PhanAnhModel();
+            Constants.phanAnh.NoiDungPhanAnh = editDeatail.Text; ;
+            Constants.phanAnh.Duong = entAddres.Text;
+            await Navigation.PushAsync(new PageThongTinNguoiDung());
+        }
+
         async void btnNextClick(object sender, EventArgs e)
         {
             Constants.phanAnh = new PhanAnhModel();

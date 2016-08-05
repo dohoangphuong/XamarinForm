@@ -21,6 +21,12 @@ namespace XamarinForm.View
             Padding = new Thickness(20, 40, 20, 20);
             //Icon = "hamburger.png";
             Title = "Thông tin người dùng";
+            var toolbarItem = new ToolbarItem
+            {
+                Text = "Tiếp tục"
+            };
+            toolbarItem.Clicked += ToolbarItem_Clicked;
+            ToolbarItems.Add(toolbarItem);
 
             Label header = new Label
             {
@@ -109,10 +115,40 @@ namespace XamarinForm.View
                     entEmail,
                     lbPhone,
                     entPhone,
-                    btnNext
+                  //  btnNext
                 }
             };
         }
+
+        async private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            //await Navigation.PushModalAsync(new PageLayAnh());
+            //Navigation.InsertPageBefore(new PageLayAnh(), this);
+            //await Navigation.PopAsync();
+            if (entEmail.Text == null || entFullName.Text == null || entPhone.Text == null)
+            {
+                lbMessageError.Text = "* Vui lòng nhập đầy đủ";
+            }
+            else
+            {
+                if (entEmail.Text.Trim() == "" || entFullName.Text.Trim() == "" || entPhone.Text.Trim() == "")
+                {
+                    lbMessageError.Text = "* Vui lòng nhập đầy đủ";
+                }
+                else
+                {
+                    lbMessageError.Text = "";
+                    Constants.phanAnh.NguoiBao_Email = entEmail.Text;
+                    Constants.phanAnh.NguoiBao_HoTen = entFullName.Text;
+                    Constants.phanAnh.NguoiBao_DienThoai = entPhone.Text;
+                    Constants.phanAnh.PortalID = Constants.PortailID;
+                    Constants.phanAnh.MaKenhTiepNhan = Constants.MaKenhTiepNhan;
+
+                    await Navigation.PushAsync(new PageLayAnh());
+                }
+            }
+        }
+
         async void btnNextClick(object sender, EventArgs e)
         {
             //await Navigation.PushModalAsync(new PageLayAnh());

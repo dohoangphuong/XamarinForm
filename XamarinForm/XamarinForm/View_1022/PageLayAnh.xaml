@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinForm.View.PageLayAnh"
              Title="Hình ảnh phản ánh">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Hoàn tất" Clicked="btnSaveClick" />
+  </ContentPage.ToolbarItems>
   <ContentPage.Content>
     <StackLayout VerticalOptions="FillAndExpand"
                    HorizontalOptions="FillAndExpand"
@@ -12,6 +15,12 @@
              VerticalOptions="Center"
              HorizontalOptions="Center" x:Name="MyLabel"
              FontSize="30" FontAttributes="Bold"/>
+      <Label Text=""
+             VerticalOptions="Center"
+             HorizontalOptions="Center" 
+             x:Name="lbMessageError"
+             FontSize="20" 
+             TextColor="Red"/>
       <Button
         Text="Máy ảnh"
         x:Name="btnUsingCamera"
@@ -25,14 +34,6 @@
         FontSize = "20"
         BorderWidth = "7"
         VerticalOptions ="Center"/>
-
-      <Button
-       Text="HOÀN TẤT"
-       x:Name="btnSave"
-       FontSize = "20"
-       BorderWidth = "7"
-       VerticalOptions ="Center"
-       Clicked="btnSaveClick"/>
 
       <Image
         x:Name="imgShow"
