@@ -12,10 +12,6 @@ namespace XamarinForm.View
 {
     public partial class PageThemPhanAnh : ContentPage
     {
-        Label lbMessageError;
-        Entry entFullName;
-        Entry entEmail;
-        Entry entPhone;
         Editor editDeatail;
         Entry entAddres;
 
@@ -32,56 +28,6 @@ namespace XamarinForm.View
                 HorizontalOptions = LayoutOptions.Center
             };
 
-            lbMessageError = new Label()
-            {
-                FontSize = 20,
-                TextColor = Color.Red,
-                HorizontalOptions = LayoutOptions.Center
-            };
-
-            Label lbFullName = new Label()
-            {
-                Text = "Họ tên (*)",
-                FontSize = 20,
-            };
-
-            entFullName = new Entry
-            {
-                Keyboard = Keyboard.Text,
-                Placeholder = "Nhập họ tên",
-                VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
-            };
-
-
-            Label lbEmail = new Label()
-            {
-                Text = "Email (*)",
-                FontSize = 20,
-            };
-
-            entEmail = new Entry
-            {
-                Keyboard = Keyboard.Email,
-                Placeholder = "Nhập Email",
-                VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
-            };
-
-            Label lbPhone = new Label()
-            {
-                Text = "Số điện thoại (*)",
-                FontSize = 20,
-            };
-
-            entPhone = new Entry
-            {
-                Keyboard = Keyboard.Telephone,
-                Placeholder = "Nhập số điện thoại",
-                VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
-            };
-            
             Label lbAddres = new Label()
             {
                 Text = "Vị trí sự cố (*)",
@@ -90,7 +36,8 @@ namespace XamarinForm.View
             entAddres = new Entry
             {
                 Keyboard = Keyboard.Text,
-                Placeholder = "Nhập vị trí",
+                //Placeholder = "Nhập vị trí",
+                Text = "12 Paster, Q1",
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = 20
             };
@@ -103,11 +50,11 @@ namespace XamarinForm.View
             editDeatail = new Editor
             {
                 Keyboard = Keyboard.Text,
+                //Placeholder = "Nhập nội dung phản ánh",
+                Text = "Cháy nhà nè ba con cô bác",
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 FontSize = 20,
             };
-
-
 
             Button btnNext = new Button
             {
@@ -119,7 +66,6 @@ namespace XamarinForm.View
                 VerticalOptions = LayoutOptions.EndAndExpand
             };
 
-
             btnNext.Clicked += btnNextClick;
 
             // Build the page.
@@ -128,15 +74,6 @@ namespace XamarinForm.View
                 Children =
                 {
                     header,
-                    //--------------------
-                    //Màn hình nội dung phản ánh
-                    lbMessageError,
-                    lbFullName,
-                    entFullName,
-                    lbEmail,
-                    entEmail,
-                    lbPhone,
-                    entPhone,
                     //--------------------
                     //Màn hình nội dung phản ánh
                     lbAddres,
@@ -150,31 +87,11 @@ namespace XamarinForm.View
         }
         async void btnNextClick(object sender, EventArgs e)
         {
-            if (entEmail.Text == null || entFullName.Text == null || entPhone.Text == null || editDeatail.Text == null || entAddres.Text == null)
-            {
-                lbMessageError.Text = "* Vui lòng nhập đầy đủ";
-            }
-            else
-            {
-                if (entEmail.Text.Trim() == "" || entFullName.Text.Trim() == "" || entPhone.Text.Trim() == "" || editDeatail.Text.Trim() == "" || entAddres.Text.Trim() == "")
-                {
-                    lbMessageError.Text = "* Vui lòng nhập đầy đủ";
-                }
-                else
-                {
-                    lbMessageError.Text = "";
-                    Constants.phanAnh.NguoiBao_Email = entEmail.Text;
-                    Constants.phanAnh.NguoiBao_HoTen = entFullName.Text;
-                    Constants.phanAnh.NguoiBao_DienThoai = entPhone.Text;
-                    Constants.phanAnh.PortalID = Constants.PortailID;
-                    Constants.phanAnh.MaKenhTiepNhan = Constants.MaKenhTiepNhan;
-                    //Nội dung phản ánh
-                    Constants.phanAnh.NoiDungPhanAnh = editDeatail.Text; ;
-                    Constants.phanAnh.Duong = entAddres.Text;
-
-                    await Navigation.PushAsync(new PageTakePhoto());
-                }
-            }
+            Constants.phanAnh = new PhanAnhModel();
+            Constants.phanAnh.NoiDungPhanAnh = editDeatail.Text; ;
+            Constants.phanAnh.Duong = entAddres.Text;
+            
+            await Navigation.PushAsync(new PageThongTinNguoiDung());
         }
     }
 }

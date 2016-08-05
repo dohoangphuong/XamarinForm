@@ -46,7 +46,8 @@ namespace XamarinForm.View
             entFullName = new Entry
             {
                 Keyboard = Keyboard.Text,
-                Placeholder = "Nhập họ tên",
+                //Placeholder = "Nhập họ tên",
+                Text="Hoàng Phương",
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = 20
             };
@@ -61,7 +62,8 @@ namespace XamarinForm.View
             entEmail = new Entry
             {
                 Keyboard = Keyboard.Email,
-                Placeholder = "Nhập Email",
+                //Placeholder = "Nhập Email",
+                Text="hp@gmail.com",
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = 20
             };
@@ -75,7 +77,8 @@ namespace XamarinForm.View
             entPhone = new Entry
             {
                 Keyboard = Keyboard.Telephone,
-                Placeholder = "Nhập số điện thoại",
+                //Placeholder = "Nhập số điện thoại",
+                Text="0123456789",
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = 20
             };
@@ -133,9 +136,8 @@ namespace XamarinForm.View
                     Constants.phanAnh.NguoiBao_DienThoai = entPhone.Text;
                     Constants.phanAnh.PortalID = Constants.PortailID;
                     Constants.phanAnh.MaKenhTiepNhan = Constants.MaKenhTiepNhan;
-                   // var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(Constants.phanAnh);
-                    Constants.phanAnh = new PhanAnhModel();
-                    await Navigation.PushAsync(new PageTakePhoto());
+                   
+                    await Navigation.PushAsync(new PageLayAnh());
                 }
             }
         }

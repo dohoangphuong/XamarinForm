@@ -1,92 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Java.IO;
+using System;
+using System.IO;
+using System.Reflection;
 
 using Xamarin.Forms;
+using XamarinForm.Common;
+using XamarinForm.Model;
+using XamarinForm.Models;
+using XamarinForm.ViewModels;
 
 namespace XamarinForm.View
 {
     public partial class PageLayAnh : ContentPage
     {
+        TakePictureViewModel soureCamera;
+        
         public PageLayAnh()
         {
-            Padding = new Thickness(20, 40, 20, 20);
-            //Icon = "hamburger.png";
-            Title = "Hình ảnh phản ánh";
-            Label header = new Label
-            {
-                Text = "HÌNH ẢNH PHẢN ÁNH",
-                FontSize = 30,
-                FontAttributes = FontAttributes.Bold,
-                HorizontalOptions = LayoutOptions.Center
-            };
-
-            Button btnUsingCamera = new Button
-            {
-                Text = "Máy Ảnh",
-                FontSize = 20,
-                Font = Font.SystemFontOfSize(NamedSize.Large),
-                BorderWidth = 7,
-                VerticalOptions = LayoutOptions.Center
-            };
-            btnUsingCamera.Clicked += btnUsingCameraClick;
-
-            Button btnOpenImage = new Button
-            {
-                Text = "Mở Ảnh",
-                FontSize = 20,
-                Font = Font.SystemFontOfSize(NamedSize.Large),
-                BorderWidth = 7,
-                VerticalOptions = LayoutOptions.Center
-            };
-            btnOpenImage.Clicked += btnOpenImageClick;
-
-            Image imgMyImage = new Image
-            {
-
-            };
-
-            Button btnSave = new Button
-            {
-                Text = "Hoàn Tất",
-                FontSize = 20,
-                Font = Font.SystemFontOfSize(NamedSize.Large),
-                BorderWidth = 7,
-                VerticalOptions = LayoutOptions.Center
-            };
-            btnSave.Clicked += btnSaveClick;
-
-            // Build the page.
-            this.Content = new StackLayout
-            {
-                Children =
-                {
-                    header,
-                    btnUsingCamera,
-                    btnOpenImage,
-                    imgMyImage,
-                    btnSave
-                }
-            };
-        }
-
-        async void btnUsingCameraClick(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new MainPage());
-        }
-
-        async void btnOpenImageClick(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new MainPage());
+            InitializeComponent();
+            soureCamera = new TakePictureViewModel(DependencyService.Get<ICameraProvider>());
+            BindingContext = soureCamera;
         }
 
         async void btnSaveClick(object sender, EventArgs e)
         {
+            Constants.phanAnh = new PhanAnhModel();
+            DateTime CurrenTime = DateTime.Now;
+            string fileName;
+
+            //Nội dung phản ánh
+            //Constants.phanAnh.NoiDungPhanAnh = "Cháy nhà quá trời luon ba con";
+            //Constants.phanAnh.Duong = "Paster";
+            //Constants.phanAnh.NguoiBao_Email = "hp.codoc@yahoo.com";
+            //Constants.phanAnh.NguoiBao_HoTen = "Hoàng Phương";
+            //Constants.phanAnh.NguoiBao_Duong = "Hàm Nghi";
+            //Constants.phanAnh.NguoiBao_DienThoai = "0168687929";
+            //Constants.phanAnh.PortalID = Constants.PortailID;
+            //Constants.phanAnh.MaKenhTiepNhan = Constants.MaKenhTiepNhan;
+
+            //File đính kèm
+            FILEDINHKEM fileDinhKemModel = new FILEDINHKEM();
+            byte[] byteStream = soureCamera.bytePicture;
+            fileDinhKemModel.arrByte = byteStream;
+            //Lấy tên công thêm giờ giây phút            
+            fileName = CurrenTime.ToString("HH mm ss") + "_" + soureCamera.file.Name;
+            fileName = fileName.Replace(" ", "-");
+            fileDinhKemModel.FileName = fileName;
+            fileDinhKemModel.FileExtension = Path.GetExtension(soureCamera.file.Name).Substring(1);
+            fileDinhKemModel.FielUrl = "Upload/PhanAnh/";
+            
+            Constants.phanAnh.FileDinhKem.Add(fileDinhKemModel);
+            var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(Constants.phanAnh);
+
+            //quay lại
+            Constants.phanAnh = new PhanAnhModel();
             await Navigation.PushModalAsync(new MainPage());
-            //await Navigation.PopToRootAsync();
-            //await Navigation.PopAsync(new MainPage());
         }
     }
 }

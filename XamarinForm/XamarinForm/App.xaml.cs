@@ -26,7 +26,7 @@ namespace XamarinForm
 
             //MainPage = new NavigationPage(new Page1Xaml());
             //MainPage = new PageMainMaster();
-            //MainPage = new NavigationPage(new PageTakePhoto());
+            //MainPage = new NavigationPage(new PageLayAnh());
             //MainPage = new NavigationPage(new PageThemPhanAnh());
         }
 
