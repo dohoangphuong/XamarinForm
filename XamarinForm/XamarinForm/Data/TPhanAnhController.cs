@@ -5,7 +5,6 @@ using System.Net.Http.Headers;
 using System.Text;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using XamarinForm.Model;
 using XamarinForm.Models;
 
 namespace XamarinForm.Data
@@ -13,7 +12,7 @@ namespace XamarinForm.Data
     public class TPhanAnhController
     {
         CustomController _CustomController = new CustomController();
-        public List<DM_QUAN> GetQuan()
+        public List<DM_QUAN> GetDistrict()
         {
             try
             {
@@ -27,7 +26,7 @@ namespace XamarinForm.Data
             }
         }
 
-        public List<DM_PHUONG> GetTown(string iIdDistrict)
+        public List<DM_PHUONG> GetWard(string iIdDistrict)
         {
             try
             {
@@ -41,10 +40,27 @@ namespace XamarinForm.Data
             }
         }
 
+        public List<PhanAnhModel> GetListReflect()
+        {
+            try
+            {
+                //searchModel = new TPhanAnhSearchModel(Poral.Mvc.Models.Common.GetFirstOfMonth(), DateTime.Now, "", "", true, "", User.UserID, "", "", "1", pIndex, dsLV);
+                TPhanAnhSearchModel searchModel = new TPhanAnhSearchModel(null, null, "", "", true, "", -1, "", "", "1", 0, null);
+
+                string apiBaseUri = "http://192.168.1.250:8088/API/TPhanAnh/GetAll";
+                var rs = _CustomController.PostRequest<PhanAnhModel>(_CustomController.GetAPIToken(), apiBaseUri, searchModel);
+                return (List<PhanAnhModel>)rs.ClassResult;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public UpdateResult SendRequestPhanAnh(PhanAnhModel iPhanAnh)
         {
             try
-            {                
+            {
                 string apiBaseUri = "http://192.168.1.250:8088/API/TPhanAnhKenhKhac/Insert";
                 var rs = _CustomController.PostRequest(_CustomController.GetAPIToken(), apiBaseUri, iPhanAnh);
                 return rs;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace XamarinForm.Model
+namespace XamarinForm.Models
 {
     public class PhanAnhModel
     {

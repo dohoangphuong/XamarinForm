@@ -6,7 +6,6 @@ using System.Reflection;
 
 using Xamarin.Forms;
 using XamarinForm.Common;
-using XamarinForm.Model;
 using XamarinForm.Models;
 using XamarinForm.ViewModels;
 

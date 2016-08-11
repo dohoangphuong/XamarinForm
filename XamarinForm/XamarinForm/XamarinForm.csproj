@@ -37,13 +37,17 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Data\CustomController.cs" />
-    <Compile Include="Model\FILEDINHKEM.cs" />
+    <Compile Include="Models\Common.cs" />
+    <Compile Include="Models\DM_LINHVUC.cs" />
+    <Compile Include="Models\FILEDINHKEM.cs" />
     <Compile Include="Data\TPhanAnhController.cs" />
-    <Compile Include="Model\DM_PHUONG.cs" />
+    <Compile Include="Models\DM_PHUONG.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\PhanAnhModel.cs" />
+    <Compile Include="Models\PhanAnhModel.cs" />
+    <Compile Include="Models\Reflect.cs" />
+    <Compile Include="Models\TPhanAnhSearchModel.cs" />
     <Compile Include="Resources\Camera\Common\Annotations.cs" />
     <Compile Include="Resources\Camera\Common\CameraResult.cs" />
     <Compile Include="Resources\Camera\Common\ICameraProvider.cs" />
@@ -55,14 +59,14 @@
     <Compile Include="View\DanhSachPage.xaml.cs">
       <DependentUpon>DanhSachPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\DM_QUAN.cs" />
-    <Compile Include="Model\ListResult.cs" />
-    <Compile Include="Model\PagingResult.cs" />
-    <Compile Include="Model\UpdateResult.cs" />
+    <Compile Include="Models\DM_QUAN.cs" />
+    <Compile Include="Models\ListResult.cs" />
+    <Compile Include="Models\PagingResult.cs" />
+    <Compile Include="Models\UpdateResult.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\MasterPageItem.cs" />
+    <Compile Include="Models\MasterPageItem.cs" />
     <Compile Include="View\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
     </Compile>
@@ -74,6 +78,12 @@
     </Compile>
     <Compile Include="View\Page3Xaml.xaml.cs">
       <DependentUpon>Page3Xaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageGetListReflect.xaml.cs">
+      <DependentUpon>PageGetListReflect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageListView.xaml.cs">
+      <DependentUpon>PageListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View_1022\PageLayAnh.xaml.cs">
       <DependentUpon>PageLayAnh.xaml</DependentUpon>
@@ -177,6 +187,14 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PageMainMaster.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PageListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PageGetListReflect.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

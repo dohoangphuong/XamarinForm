@@ -6,8 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using XamarinForm.Data;
-using XamarinForm.Model;
 
 namespace XamarinForm.View
 {

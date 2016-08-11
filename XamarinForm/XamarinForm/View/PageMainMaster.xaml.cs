@@ -1,6 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
-using XamarinForm.Model;
+using XamarinForm.Models;
 
 namespace XamarinForm.View
 {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using XamarinForm.Data;
-using XamarinForm.Model;
+using XamarinForm.Models;
 
 namespace XamarinForm.View
 {
@@ -120,7 +120,7 @@ namespace XamarinForm.View
         async void btnDistrictClick(object sender, EventArgs args)
         {
             TPhanAnhController _TPhanAnhController = new TPhanAnhController();
-            List<DM_QUAN> lstQuan = _TPhanAnhController.GetQuan();
+            List<DM_QUAN> lstQuan = _TPhanAnhController.GetDistrict();
             lstDistrict.ItemsSource = lstQuan;
             //await Navigation.PushModalAsync(new ThemPhanAnhPage());
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XamarinForm.Data;
-using XamarinForm.Model;
+using XamarinForm.Models;
 
 namespace XamarinForm
 {

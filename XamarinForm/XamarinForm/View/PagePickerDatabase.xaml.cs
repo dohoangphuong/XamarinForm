@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamarinForm;
 using XamarinForm.Data;
-using XamarinForm.Model;
+using XamarinForm.Models;
 
 namespace XamarinForm.View
 {
@@ -86,7 +86,7 @@ namespace XamarinForm.View
         async void btnDistrictClick(object sender, EventArgs args)
         {
             TPhanAnhController _TPhanAnhController = new TPhanAnhController();
-            List<DM_QUAN> lstQuan = _TPhanAnhController.GetQuan();
+            List<DM_QUAN> lstQuan = _TPhanAnhController.GetDistrict();
             foreach (DM_QUAN itemlstQuan in lstQuan)
             {
                 pickerDistrict.Items.Add(itemlstQuan.TenQuan);

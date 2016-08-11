@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace XamarinForm.Model
+namespace XamarinForm.Models
 {
 	public class MasterPageItem
 	{

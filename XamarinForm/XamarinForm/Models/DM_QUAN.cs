@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XamarinForm.Model
+namespace XamarinForm.Models
 {
     public class DM_QUAN
     {        
