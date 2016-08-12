@@ -44,7 +44,7 @@ namespace XamarinForm.View
             {
                 Text = "Autosized cell",
                 TextColor = Color.White,
-                BackgroundColor = Color.Blue
+                BackgroundColor = Color.Blue,
             }, 0, 1);
 
             grid.Children.Add(new BoxView

@@ -70,5 +70,18 @@ namespace XamarinForm.Data
                 return null;
             }
         }
+
+        public List<DM_LINHVUC> GetListLinhVuc()
+        {
+            try
+            {
+                List<DM_LINHVUC> lstLinhVuc = (List<DM_LINHVUC>)_CustomController.GetRequest<DM_LINHVUC>(_CustomController.GetAPIToken(), "/API/DmLinhVuc/Get/?portalId=0").ClassResult;
+                return lstLinhVuc;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

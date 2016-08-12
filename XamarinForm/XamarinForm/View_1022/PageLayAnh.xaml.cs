@@ -41,16 +41,20 @@ namespace XamarinForm.View
 
                 //File đính kèm
                 FILEDINHKEM fileDinhKemModel = new FILEDINHKEM();
-                byte[] byteStream = soureCamera.bytePicture;
-                fileDinhKemModel.arrByte = byteStream;
-                //Lấy tên công thêm giờ giây phút            
-                fileName = CurrenTime.ToString("HH mm ss") + "_" + soureCamera.file.Name;
-                fileName = fileName.Replace(" ", "-");
-                fileDinhKemModel.FileName = fileName;
-                fileDinhKemModel.FileExtension = Path.GetExtension(soureCamera.file.Name).Substring(1);
-                fileDinhKemModel.FielUrl = "Upload/PhanAnh/";
+                if (soureCamera.bytePicture != null)
+                {
+                    byte[] byteStream = soureCamera.bytePicture;
+                    fileDinhKemModel.arrByte = byteStream;
+                    //Lấy tên công thêm giờ giây phút            
+                    //fileName = CurrenTime.ToString("HH mm ss") + "_" + soureCamera.file.Name;
+                    fileName = CurrenTime.ToString("yyyy mm dd HH mm ss") + "_" + soureCamera.file.Name;
+                    fileName = fileName.Replace(" ", "-");
+                    fileDinhKemModel.FileName = fileName;
+                    fileDinhKemModel.FileExtension = Path.GetExtension(soureCamera.file.Name).Substring(1);
+                    fileDinhKemModel.FielUrl = "Upload/PhanAnh/";
 
-                Constants.phanAnh.lstFileDinhKem.Add(fileDinhKemModel);
+                    Constants.phanAnh.lstFileDinhKem.Add(fileDinhKemModel);
+                }
                 var returnResult = Constants._TPhanAnhController.SendRequestPhanAnh(Constants.phanAnh);
 
                 //quay lại
