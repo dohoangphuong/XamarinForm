@@ -11,18 +11,16 @@ namespace XamarinForm.View
 {
     public partial class PageGetListReflect : ContentPage
     {
+        List<PhanAnhModel> listPhanAnhModel=new List<PhanAnhModel>();
         public PageGetListReflect()
         {
             // InitializeComponent();
             //Padding = new Thickness(20, 40, 20, 20);
             this.Padding = new Thickness(10, Device.OnPlatform(30, 0, 0), 30, 50);
             int fMax = 30;
-            var toolbarItem = new ToolbarItem
-            {
-                Text = "Danh sách phản ánh"
-            };
+            Title = "Danh sách phản ánh";
 
-            var listDist = Constants._TPhanAnhController.GetListReflect();
+            listPhanAnhModel = Constants._TPhanAnhController.GetListReflect();
             Label header = new Label
             {
                 Text = "DANH SÁCH PHẢN ÁNH",
@@ -33,18 +31,18 @@ namespace XamarinForm.View
 
             // Define some data.
             List<Reflect> listReflect = new List<Reflect>();
-            foreach (var fdist in listDist)
+            for (int i = 0; i < listPhanAnhModel.Count(); i++)
             {
-                string fDetail = fdist.NoiDungPhanAnh, fName= fdist.NguoiBao_HoTen;
+                string fDetail = listPhanAnhModel[i].NoiDungPhanAnh, fName = listPhanAnhModel[i].NguoiBao_HoTen;
                 if (fDetail != null && fDetail.Length > fMax)
                 {
-                    fDetail = fdist.NoiDungPhanAnh.Substring(0, fMax) + "...";
+                    fDetail = listPhanAnhModel[i].NoiDungPhanAnh.Substring(0, fMax) + "...";
                 }
                 if (fName != null && fName.Length > fMax)
                 {
-                    fName = fdist.NguoiBao_HoTen.Substring(0, fMax) + "...";
+                    fName = listPhanAnhModel[i].NguoiBao_HoTen.Substring(0, fMax) + "...";
                 }
-                listReflect.Add(new Reflect(fName, fDetail, null));
+                listReflect.Add(new Reflect(i, fName, fDetail, null));
             }
 
             // Create the ListView.
@@ -123,9 +121,10 @@ namespace XamarinForm.View
             };
         }
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        async private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            Reflect RelectSelect = (Reflect)e.SelectedItem;
+            await Navigation.PushAsync(new PageDetailReflect(RelectSelect, listPhanAnhModel[RelectSelect.ID]));
         }
     }
 }

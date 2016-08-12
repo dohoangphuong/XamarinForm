@@ -35,6 +35,22 @@ namespace XamarinForm.Models
         
         public string NguoiBao_DienThoai { get; set; }
 
+        public string TenLinhVuc { get; set; }
+
+        public string LoaiPhanAnhID { get; set; }
+
+        public string LinhVucID { get; set; }
+
+        public DateTime? NgayNhan { get; set; }
+
+        public string GioNhan { get; set; }
+
+        public DateTime? NgayGioHoanTat { get; set; }
+
+        public string TenPhuong { get; set; }
+
+        public string TenQuan { get; set; }
+
         public bool Active { get; set; }
 
         public int? PortalID { get; set; }

@@ -79,8 +79,14 @@
     <Compile Include="View\Page3Xaml.xaml.cs">
       <DependentUpon>Page3Xaml.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PageDetailReflect.xaml.cs">
+      <DependentUpon>PageDetailReflect.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PageGetListReflect.xaml.cs">
       <DependentUpon>PageGetListReflect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageGridDemo.xaml.cs">
+      <DependentUpon>PageGridDemo.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PageListView.xaml.cs">
       <DependentUpon>PageListView.xaml</DependentUpon>
@@ -195,6 +201,14 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PageGetListReflect.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PageDetailReflect.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PageGridDemo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

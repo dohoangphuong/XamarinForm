@@ -16,7 +16,7 @@ namespace XamarinForm.Data
         {
             try
             {
-                string apiBaseUri = "http://192.168.1.250:8088/API/DmQuan/Get?portalId=0";
+                string apiBaseUri = Constants.apiBaseUri + "API/DmQuan/Get?portalId=0";
                 var rs = _CustomController.GetRequest<DM_QUAN>(_CustomController.GetAPIToken(), apiBaseUri);
                 return (List<DM_QUAN>)rs.ClassResult;
             }
@@ -30,7 +30,7 @@ namespace XamarinForm.Data
         {
             try
             {
-                string apiBaseUri = Constants.apiBaseUri + "/API/DmPhuong/Get?portalId=0" + "&quanId=" + iIdDistrict;
+                string apiBaseUri = Constants.apiBaseUri + "API/DmPhuong/Get?portalId=0" + "&quanId=" + iIdDistrict;
                 var rs = _CustomController.GetRequest<DM_PHUONG>(_CustomController.GetAPIToken(), apiBaseUri);
                 return (List<DM_PHUONG>)rs.ClassResult;
             }
@@ -47,7 +47,7 @@ namespace XamarinForm.Data
                 //searchModel = new TPhanAnhSearchModel(Poral.Mvc.Models.Common.GetFirstOfMonth(), DateTime.Now, "", "", true, "", User.UserID, "", "", "1", pIndex, dsLV);
                 TPhanAnhSearchModel searchModel = new TPhanAnhSearchModel(null, null, "", "", true, "", -1, "", "", "1", 0, null);
 
-                string apiBaseUri = "http://192.168.1.250:8088/API/TPhanAnh/GetAll";
+                string apiBaseUri = Constants.apiBaseUri + "API/TPhanAnh/GetAll";
                 var rs = _CustomController.PostRequest<PhanAnhModel>(_CustomController.GetAPIToken(), apiBaseUri, searchModel);
                 return (List<PhanAnhModel>)rs.ClassResult;
             }
@@ -61,7 +61,7 @@ namespace XamarinForm.Data
         {
             try
             {
-                string apiBaseUri = "http://192.168.1.250:8088/API/TPhanAnhKenhKhac/Insert";
+                string apiBaseUri = Constants.apiBaseUri + "API / TPhanAnhKenhKhac/Insert";
                 var rs = _CustomController.PostRequest(_CustomController.GetAPIToken(), apiBaseUri, iPhanAnh);
                 return rs;
             }
