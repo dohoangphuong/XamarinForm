@@ -88,6 +88,9 @@
     <Compile Include="View\PageGridDemo.xaml.cs">
       <DependentUpon>PageGridDemo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PageHome.xaml.cs">
+      <DependentUpon>PageHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PageListView.xaml.cs">
       <DependentUpon>PageListView.xaml</DependentUpon>
     </Compile>
@@ -209,6 +212,10 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PageGridDemo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PageHome.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

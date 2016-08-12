@@ -22,7 +22,7 @@ namespace XamarinForm
         public App()
         {
             //MainPage = new XamarinForm.View.MainPage();
-            MainPage = new NavigationPage(new PageGridDemo());
+            MainPage = new NavigationPage(new PageHome());
             //MainPage = new NavigationPage(new PageListView());
             //MainPage = new NavigationPage(new Page1Xaml());
             //MainPage = new PageMainMaster();
