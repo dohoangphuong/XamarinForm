@@ -13,14 +13,17 @@ namespace XamarinForm.View
     {
         List<PhanAnhModel> listPhanAnhModel=new List<PhanAnhModel>();
         public PageGetListReflect()
-        {
+        { }
+        public PageGetListReflect(Reflect fReject, DM_LINHVUC fLinhVuc)
+        { 
             // InitializeComponent();
             //Padding = new Thickness(20, 40, 20, 20);
             this.Padding = new Thickness(10, Device.OnPlatform(30, 0, 0), 30, 50);
             int fMax = 30;
             Title = "Danh sách phản ánh";
 
-            listPhanAnhModel = Constants._TPhanAnhController.GetListReflect();
+            //Vẫn còn thiếu xót trong việc lọc theo lĩnh vực
+            listPhanAnhModel = Constants._TPhanAnhController.GetListReflect(fLinhVuc.LinhVucID);
             Label header = new Label
             {
                 Text = "DANH SÁCH PHẢN ÁNH",
@@ -49,7 +52,7 @@ namespace XamarinForm.View
             ListView listView = new ListView
             {
                 //setting
-                Header = "Phản ánh",
+                Header = fReject.Detail,
                 ItemsSource = listReflect,
 
 

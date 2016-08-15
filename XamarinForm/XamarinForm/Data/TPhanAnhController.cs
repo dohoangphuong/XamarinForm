@@ -40,7 +40,7 @@ namespace XamarinForm.Data
             }
         }
 
-        public List<PhanAnhModel> GetListReflect()
+        public List<PhanAnhModel> GetListReflect(string fLinhVuc)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace XamarinForm.Data
         {
             try
             {
-                string apiBaseUri = Constants.apiBaseUri + "API / TPhanAnhKenhKhac/Insert";
+                string apiBaseUri = Constants.apiBaseUri + "API/TPhanAnhKenhKhac/Insert";
                 var rs = _CustomController.PostRequest(_CustomController.GetAPIToken(), apiBaseUri, iPhanAnh);
                 return rs;
             }

@@ -14,11 +14,9 @@ namespace XamarinForm.View
         List<DM_LINHVUC> listPhanAnhModel = new List<DM_LINHVUC>();
         public PageListLinhVuc()
         {
-            // InitializeComponent();
-            //Padding = new Thickness(20, 40, 20, 20);
             this.Padding = new Thickness(10, Device.OnPlatform(30, 0, 0), 30, 50);
-            int fMax = 30;
-            Title = "Danh sách phản ánh";
+            int fMax = 70;
+            Title = "Danh sách lĩnh vực";
 
             listPhanAnhModel = Constants._TPhanAnhController.GetListLinhVuc();
             Label header = new Label
@@ -33,19 +31,19 @@ namespace XamarinForm.View
             List<Reflect> listReflect = new List<Reflect>();
             for (int i = 0; i < listPhanAnhModel.Count(); i++)
             {
-                string fDetail="";
-                if (listPhanAnhModel[i].TenLinhVuc != null)
+                string fLinhVuc= listPhanAnhModel[i].TenLinhVuc;
+
+                if (listPhanAnhModel[i].TenLinhVuc != null && listPhanAnhModel[i].TenLinhVuc.Length > fMax)
                 {
-                    fDetail = listPhanAnhModel[i].TenLinhVuc;
+                    fLinhVuc = listPhanAnhModel[i].TenLinhVuc.Substring(0, fMax) + "...";
                 }
-                listReflect.Add(new Reflect(i, "123", fDetail, null));
+                listReflect.Add(new Reflect(i, "", fLinhVuc, null));
             }
 
             // Create the ListView.
             ListView listView = new ListView
             {
                 //setting
-                Header = "Phản ánh",
                 ItemsSource = listReflect,
 
 
@@ -61,15 +59,7 @@ namespace XamarinForm.View
                         FontAttributes = FontAttributes.Bold,
                     };
                     lbDetail.SetBinding(Label.TextProperty, "Detail");
-
-                    BoxView boxView = new BoxView();
-
-                    // boxView.SetBinding(Image., "FavoriteColor");                      
-
-                    //BoxView boxView = new BoxView();
-                    //boxView.SetBinding(BoxView.ColorProperty, "FavoriteColor");
-
-                    // Return an assembled ViewCell.
+                    
                     return new ViewCell
                     {
                         View = new StackLayout
@@ -97,14 +87,13 @@ namespace XamarinForm.View
             listView.ItemSelected += ListView_ItemSelected;
             listView.RowHeight = 70;
             listView.SeparatorColor = Color.Green;
-            //listView.HasUnevenRows = false;
 
             // Build the page.
             this.Content = new StackLayout
             {
                 Children =
                 {
-                    header,
+                   // header,
                     listView
                 }
             };
@@ -113,7 +102,7 @@ namespace XamarinForm.View
         async private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Reflect RelectSelect = (Reflect)e.SelectedItem;
-            //await Navigation.PushAsync(new PageDetailReflect(RelectSelect, listPhanAnhModel[RelectSelect.ID]));
+            await Navigation.PushAsync(new PageGetListReflect(RelectSelect, listPhanAnhModel[RelectSelect.ID]));
         }
     }
 }

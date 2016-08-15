@@ -21,6 +21,7 @@ namespace XamarinForm.View
             Button btnAddReflect = new Button
             {
                 Text = "THÊM PHẢN ÁNH",
+                FontAttributes = FontAttributes.Bold,
                 FontSize = 15,
                 BackgroundColor = Color.FromHex("#3297E9"),
             };
@@ -29,6 +30,7 @@ namespace XamarinForm.View
             Button btnShowReflect=new Button
             {
                 Text = "TRA CỨU PHẢN ÁNH",
+                FontAttributes = FontAttributes.Bold,
                 FontSize = 15,
                 BackgroundColor = Color.FromHex("#3297E9"),
             };
@@ -37,6 +39,7 @@ namespace XamarinForm.View
             Button btnReport = new Button
             {
                 Text = "THỐNG KÊ",
+                FontAttributes = FontAttributes.Bold,
                 FontSize = 15,
                 BackgroundColor = Color.FromHex("#3297E9"),
 
@@ -46,6 +49,7 @@ namespace XamarinForm.View
             Button btnHelp = new Button
             {
                 Text = "GIÚP ĐỠ",
+                FontAttributes = FontAttributes.Bold,
                 FontSize = 15,
                 BackgroundColor = Color.FromHex("#3297E9"),
             };
@@ -59,15 +63,15 @@ namespace XamarinForm.View
 
                 RowDefinitions =//dòng
                 {
-                    new RowDefinition { Height = new GridLength(100, GridUnitType.Absolute) },
+                    new RowDefinition { Height = new GridLength(70, GridUnitType.Absolute) },
                     new RowDefinition { Height = new GridLength(30, GridUnitType.Absolute) },
-                    new RowDefinition { Height = new GridLength(100, GridUnitType.Absolute) },
+                    new RowDefinition { Height = new GridLength(70, GridUnitType.Absolute) },
                 },
                 ColumnDefinitions =//cột
                 {
-                    new ColumnDefinition { Width = new GridLength(170, GridUnitType.Absolute)},
+                    new ColumnDefinition { Width = new GridLength(100, GridUnitType.Absolute)},
                     new ColumnDefinition { Width = new GridLength(30, GridUnitType.Absolute) },
-                    new ColumnDefinition { Width = new GridLength(170, GridUnitType.Absolute) }
+                    new ColumnDefinition { Width = new GridLength(100, GridUnitType.Absolute) }
                 }
             };
 
