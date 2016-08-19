@@ -97,6 +97,9 @@
     <Compile Include="View\PageListView.xaml.cs">
       <DependentUpon>PageListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PageTestTable.xaml.cs">
+      <DependentUpon>PageTestTable.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View_1022\PageLayAnh.xaml.cs">
       <DependentUpon>PageLayAnh.xaml</DependentUpon>
     </Compile>
@@ -223,6 +226,10 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PageListLinhVuc.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PageTestTable.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

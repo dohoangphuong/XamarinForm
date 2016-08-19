@@ -40,12 +40,12 @@ namespace XamarinForm.Data
             }
         }
 
-        public List<PhanAnhModel> GetListReflect(string fLinhVuc)
+        public List<PhanAnhModel> GetListReflect(List<DM_LINHVUC> fLinhVuc)
         {
             try
             {
                 //searchModel = new TPhanAnhSearchModel(Poral.Mvc.Models.Common.GetFirstOfMonth(), DateTime.Now, "", "", true, "", User.UserID, "", "", "1", pIndex, dsLV);
-                TPhanAnhSearchModel searchModel = new TPhanAnhSearchModel(null, null, "", "", true, "", -1, "", "", "1", 0, null);
+                TPhanAnhSearchModel searchModel = new TPhanAnhSearchModel(null, null, "", "", true, "", -1, "", "", "1", 0, fLinhVuc);
 
                 string apiBaseUri = Constants.apiBaseUri + "API/TPhanAnh/GetAll";
                 var rs = _CustomController.PostRequest<PhanAnhModel>(_CustomController.GetAPIToken(), apiBaseUri, searchModel);
@@ -75,7 +75,7 @@ namespace XamarinForm.Data
         {
             try
             {
-                List<DM_LINHVUC> lstLinhVuc = (List<DM_LINHVUC>)_CustomController.GetRequest<DM_LINHVUC>(_CustomController.GetAPIToken(), "/API/DmLinhVuc/Get/?portalId=0").ClassResult;
+                var lstLinhVuc = (List<DM_LINHVUC>)_CustomController.GetRequest<DM_LINHVUC>(_CustomController.GetAPIToken(), "/API/DmLinhVuc/Get/?portalId=0").ClassResult;
                 return lstLinhVuc;
             }
             catch (Exception)

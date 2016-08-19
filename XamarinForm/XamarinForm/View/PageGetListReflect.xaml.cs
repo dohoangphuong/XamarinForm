@@ -23,7 +23,9 @@ namespace XamarinForm.View
             Title = "Danh sách phản ánh";
 
             //Vẫn còn thiếu xót trong việc lọc theo lĩnh vực
-            listPhanAnhModel = Constants._TPhanAnhController.GetListReflect(fLinhVuc.LinhVucID);
+            var iLinhVuc = new List<DM_LINHVUC>();
+            iLinhVuc.Add(fLinhVuc);
+            listPhanAnhModel = Constants._TPhanAnhController.GetListReflect(iLinhVuc);
             Label header = new Label
             {
                 Text = "DANH SÁCH PHẢN ÁNH",
