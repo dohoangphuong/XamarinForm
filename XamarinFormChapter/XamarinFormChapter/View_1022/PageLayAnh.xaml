@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinFormChapter.View.PageLayAnh"
+             Title="Hình ảnh phản ánh">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Hoàn tất" Clicked="btnSaveClick" />
+  </ContentPage.ToolbarItems>
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   Orientation="Vertical"
+                   Spacing="15">
+      <Label Text="HÌNH ẢNH PHẢN ÁNH"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" x:Name="MyLabel"
+             FontSize="30" FontAttributes="Bold"/>
+      <Label Text=""
+             VerticalOptions="Center"
+             HorizontalOptions="Center" 
+             x:Name="lbMessageError"
+             FontSize="20" 
+             TextColor="Red"/>
+      <Button
+        Text="Máy ảnh"
+        x:Name="btnUsingCamera"
+        Command="{Binding TakePicture}"
+        FontSize = "20"
+        BorderWidth = "7"
+        VerticalOptions ="Center"/>
+      <Button
+        Text="Chọn ảnh"
+        x:Name="btnOpenImage"
+        FontSize = "20"
+        BorderWidth = "7"
+        VerticalOptions ="Center"/>
+
+      <Image
+        x:Name="imgShow"
+        Source="{Binding Picture}"/>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
