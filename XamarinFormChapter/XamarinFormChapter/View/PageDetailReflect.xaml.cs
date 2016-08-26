@@ -55,6 +55,13 @@ namespace XamarinFormChapter.View
             {
                 lbAddres.Text = "Địa chỉ: " + fPhanAnhModel.Duong;
             }
+
+            Image imgTile = new Image
+            {
+                Aspect = Aspect.AspectFit,
+                Source = fReflect.SourceImage,
+            };
+
             Label lbTitleDetail = new Label()
             {
                 FontSize = 16,
@@ -75,11 +82,12 @@ namespace XamarinFormChapter.View
             {
                 Children =
                 {
-                    header,
+                   // header,
                     //--------------------
                     lbType,
                     lbName,
                     lbAddres,
+                    imgTile,
                     lbTitleDetail,
                     lbDetail,
                 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Android;
+using Android.Content.Res;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +15,8 @@ namespace XamarinFormChapter.View
     {
         List<PhanAnhModel> listPhanAnhModel=new List<PhanAnhModel>();
         public PageGetListReflect()
-        { }
+        {
+        }
         public PageGetListReflect(Reflect fReject, DM_LINHVUC fLinhVuc)
         { 
             // InitializeComponent();
@@ -33,9 +36,11 @@ namespace XamarinFormChapter.View
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center
             };
-
+            string fPathImage;
+            
             // Define some data.
             List<Reflect> listReflect = new List<Reflect>();
+            
             for (int i = 0; i < listPhanAnhModel.Count(); i++)
             {
                 string fDetail = listPhanAnhModel[i].NoiDungPhanAnh, fName = listPhanAnhModel[i].NguoiBao_HoTen;
@@ -47,8 +52,22 @@ namespace XamarinFormChapter.View
                 {
                     fName = listPhanAnhModel[i].NguoiBao_HoTen.Substring(0, fMax) + "...";
                 }
-                //if(listPhanAnhModel.)
-                listReflect.Add(new Reflect(i, fName, fDetail, null));
+
+                if(listPhanAnhModel[i].lstFileDinhKem.Count()>0)
+                {
+                        //imageTileRe = new Image { Aspect = Aspect.AspectFit };
+                        //imageTileRe.Source = ImageSource.FromUri(new Uri("https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/14051607_1336980602986320_3749886989887332520_n.jpg?oh=f9d24708db3532f01ba0493cee34b3c8&oe=5840999E"));// "https://xamarin.com/content/images/pages/forms/example-app.png"));
+                        if (listPhanAnhModel[i].lstFileDinhKem[0].FileName.Length > 3)
+                            fPathImage = Constants.sourceImageUri + listPhanAnhModel[i].lstFileDinhKem[0].FielUrl + " / " + listPhanAnhModel[i].lstFileDinhKem[0].FileName;
+                    else
+                        fPathImage = "icon.png";
+                }
+                else
+                {
+                    fPathImage = "icon.png";  
+                }
+
+                listReflect.Add(new Reflect(i, fName, fDetail, null, fPathImage));
             }
 
             // Create the ListView.
@@ -57,7 +76,6 @@ namespace XamarinFormChapter.View
                 //setting
                 Header = fReject.Detail,
                 ItemsSource = listReflect,
-
 
                 // Define template for displaying each item.
                 // (Argument of DataTemplate constructor is called for 
@@ -78,13 +96,12 @@ namespace XamarinFormChapter.View
                         };
                         lbDetail.SetBinding(Label.TextProperty, "Detail");
 
-                        Image imageTile = new Image();
-                        imageTile.Source = "banner.jpg";
-
-                        // boxView.SetBinding(Image., "FavoriteColor");                      
-
-                        //BoxView boxView = new BoxView();
-                        //boxView.SetBinding(BoxView.ColorProperty, "FavoriteColor");
+                        Image imageTile = new Image
+                        {
+                            Aspect = Aspect.AspectFit,
+                            HeightRequest = 40,
+                        };
+                        imageTile.SetBinding(Image.SourceProperty, "SourceImage");                        
 
                         // Return an assembled ViewCell.
                         return new ViewCell
@@ -95,7 +112,7 @@ namespace XamarinFormChapter.View
                                 Orientation = StackOrientation.Horizontal,
                                 Children =
                                 {
-                            //  imageTile,
+                              imageTile,
                                 new StackLayout
                                 {
                                     VerticalOptions = LayoutOptions.Center,
@@ -110,8 +127,9 @@ namespace XamarinFormChapter.View
                             }
                         };
                     })
-            };
 
+            };
+            
             listView.ItemSelected += ListView_ItemSelected;
             listView.RowHeight = 70;
             listView.SeparatorColor = Color.Green;
@@ -122,7 +140,7 @@ namespace XamarinFormChapter.View
             {
                 Children =
                 {
-                    header,
+                  //  header,
                     listView
                 }
             };
@@ -132,6 +150,6 @@ namespace XamarinFormChapter.View
         {
             Reflect RelectSelect = (Reflect)e.SelectedItem;
             await Navigation.PushAsync(new PageDetailReflect(RelectSelect, listPhanAnhModel[RelectSelect.ID]));
-        }
+        }    
     }
 }

@@ -65,6 +65,9 @@
     <Compile Include="View\PageDetailReflect.xaml.cs">
       <DependentUpon>PageDetailReflect.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PageError.xaml.cs">
+      <DependentUpon>PageError.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PageGetListReflect.xaml.cs">
       <DependentUpon>PageGetListReflect.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,9 @@
     </Compile>
     <Compile Include="View\PageListLinhVuc.xaml.cs">
       <DependentUpon>PageListLinhVuc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageTestListViewDynamix.xaml.cs">
+      <DependentUpon>PageTestListViewDynamix.xaml</DependentUpon>
     </Compile>
     <Compile Include="View_1022\PageLayAnh.xaml.cs">
       <DependentUpon>PageLayAnh.xaml</DependentUpon>
@@ -115,7 +121,12 @@
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="View\PageError.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -160,6 +171,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\PageDetailReflect.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\PageTestListViewDynamix.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

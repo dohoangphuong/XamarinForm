@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using XamarinFormChapter.Data;
 using XamarinFormChapter.View;
 
 namespace XamarinFormChapter
@@ -21,16 +22,24 @@ namespace XamarinFormChapter
 
         public App()
         {
-            //MainPage = new XamarinFormChapter.View.MainPage();
-            MainPage = new NavigationPage(new PageHome());
-            // MainPage = new NavigationPage(new PageGetListReflect());
-            //MainPage = new NavigationPage(new Page1Xaml());
-            //MainPage = new PageMainMaster();
-            //MainPage = new MainPage();
-            //MainPage = new NavigationPage(new PageTestTable());
-            //MainPage = new NavigationPage(new PageLayAnh());
-            // MainPage = new NavigationPage(new PageListLinhVuc());
-            //MainPage = new NavigationPage(new PageListLinhVuc());
+            CustomController controller = new CustomController();
+            if (controller.GetAPIToken() != null)
+            {
+                //MainPage = new XamarinFormChapter.View.MainPage();
+                MainPage = new NavigationPage(new PageHome());
+                //MainPage = new NavigationPage(new PageTestListViewDynamix());
+                //MainPage = new NavigationPage(new Page1Xaml());
+                //MainPage = new PageMainMaster();
+                //MainPage = new MainPage();
+                //MainPage = new NavigationPage(new PageTestTable());
+                //MainPage = new NavigationPage(new PageLayAnh());
+                // MainPage = new NavigationPage(new PageListLinhVuc());
+                //MainPage = new NavigationPage(new PageListLinhVuc());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new PageError());
+            }
         }
 
         protected override void OnStart()

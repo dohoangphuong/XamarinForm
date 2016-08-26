@@ -78,7 +78,7 @@ namespace XamarinFormChapter.View
             {
                 Children =
                 {
-                    header,
+                    //header,
                     //--------------------
                     //Màn hình nội dung phản ánh
                     lbAddres,

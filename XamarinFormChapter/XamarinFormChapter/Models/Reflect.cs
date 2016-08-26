@@ -9,17 +9,27 @@ namespace XamarinFormChapter.Models
 {
     public class Reflect
     {
-        public Reflect(int iID, string iName, string iDetail, Image iFavoriteColor)
+        public Reflect(int iID, string iName, string iDetail, Image iTileImage)
         {
             this.ID = iID;
             this.Name = iName;
             this.Detail = iDetail;
-            this.FavoriteColor = iFavoriteColor;
+            this.TileImage = iTileImage;
+        }
+
+        public Reflect(int iID, string iName, string iDetail, Image iTileImage, string iSourceImage)
+        {
+            this.ID = iID;
+            this.Name = iName;
+            this.Detail = iDetail;
+            this.TileImage = iTileImage;
+            this.SourceImage = iSourceImage;
         }
 
         public int ID { get; set; }
         public string Name { private set; get; }
         public string Detail { private set; get; }
-        public Image FavoriteColor { private set; get; }
+        public Image TileImage { private set; get ; }
+        public string SourceImage { private set; get; }
     };
 }
