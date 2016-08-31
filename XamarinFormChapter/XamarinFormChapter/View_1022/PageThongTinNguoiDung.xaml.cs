@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace XamarinFormChapter.View
+namespace XamarinFormChapter.Views
 {
     public partial class PageThongTinNguoiDung : ContentPage
     {

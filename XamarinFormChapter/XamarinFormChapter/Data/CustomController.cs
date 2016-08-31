@@ -142,7 +142,7 @@ namespace XamarinFormChapter.Data
             }
             catch (Exception ex)
             {
-                return "";
+                return null;
             }
         }
     }

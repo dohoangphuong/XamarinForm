@@ -5,7 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 using XamarinFormChapter.Data;
-using XamarinFormChapter.View;
+using XamarinFormChapter.Views;
 
 namespace XamarinFormChapter
 {
@@ -19,27 +19,29 @@ namespace XamarinFormChapter
         // MainPage = new NavigationPage(new PageHome()): Page home của 1022
 
         //----------------------------------------------------------------------------------------------
-
+        public static double ScreenHeight;
+        public static double ScreenWidth;
         public App()
         {
-            CustomController controller = new CustomController();
-            if (controller.GetAPIToken() != null)
-            {
-                //MainPage = new XamarinFormChapter.View.MainPage();
-                MainPage = new NavigationPage(new PageHome());
-                //MainPage = new NavigationPage(new PageTestListViewDynamix());
-                //MainPage = new NavigationPage(new Page1Xaml());
-                //MainPage = new PageMainMaster();
-                //MainPage = new MainPage();
-                //MainPage = new NavigationPage(new PageTestTable());
-                //MainPage = new NavigationPage(new PageLayAnh());
-                // MainPage = new NavigationPage(new PageListLinhVuc());
-                //MainPage = new NavigationPage(new PageListLinhVuc());
-            }
-            else
-            {
-                MainPage = new NavigationPage(new PageError());
-            }
+            MainPage = new NavigationPage(new PageMaps());
+            //CustomController controller = new CustomController();
+            //if (controller.GetAPIToken() != null)
+            //{
+            //    //MainPage = new XamarinFormChapter.View.MainPage();
+            //     MainPage = new NavigationPage(new PageHome());
+            //    //MainPage = new NavigationPage(new PageTestListViewDynamix());
+            //    //MainPage = new NavigationPage(new Page1Xaml());
+            //    //MainPage = new PageMainMaster();
+            //    //MainPage = new MainPage();
+            //    //MainPage = new NavigationPage(new PageTestTable());
+            //    //MainPage = new NavigationPage(new PageLayAnh());
+            //    // MainPage = new NavigationPage(new PageListLinhVuc());
+            //    //MainPage = new NavigationPage(new PageListLinhVuc());
+            //}
+            //else
+            //{
+            //    MainPage = new NavigationPage(new PageError());
+            //}
         }
 
         protected override void OnStart()

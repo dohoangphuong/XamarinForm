@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamarinFormChapter.Models;
 
-namespace XamarinFormChapter.View
+namespace XamarinFormChapter.Views
 {
     public partial class PageThemPhanAnh : ContentPage
     {

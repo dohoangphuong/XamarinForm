@@ -7,7 +7,7 @@ using XamarinFormChapter.Common;
 using XamarinFormChapter.Models;
 using XamarinFormChapter.ViewModels;
 
-namespace XamarinFormChapter.View
+namespace XamarinFormChapter.Views
 {
     public partial class PageLayAnh : ContentPage
     {
