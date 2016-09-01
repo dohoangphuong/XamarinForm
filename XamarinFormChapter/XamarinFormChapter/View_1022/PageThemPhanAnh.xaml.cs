@@ -12,7 +12,7 @@ namespace XamarinFormChapter.Views
     public partial class PageThemPhanAnh : ContentPage
     {
         Editor editDeatail;
-        Entry entAddres;
+        static public Entry entAddres;
 
         public PageThemPhanAnh()
         {
@@ -105,7 +105,7 @@ namespace XamarinFormChapter.Views
             //Constants.phanAnh.NoiDungPhanAnh = editDeatail.Text; ;
             //Constants.phanAnh.Duong = entAddres.Text;
             
-            await Navigation.PushAsync(new PageMap());
+            await Navigation.PushAsync(new PageMap(entAddres.Text));
         }
     }
 }

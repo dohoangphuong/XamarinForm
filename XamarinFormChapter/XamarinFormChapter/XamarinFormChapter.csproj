@@ -64,6 +64,7 @@
     <Compile Include="ResourcesPortable\Camera\Common\ObservableObject.cs" />
     <Compile Include="ResourcesPortable\Camera\Model\TakePictureViewModel.cs" />
     <Compile Include="Models\CustomMap.cs" />
+    <Compile Include="Views\async.cs" />
     <Compile Include="Views\PageDetailReflect.xaml.cs">
       <DependentUpon>PageDetailReflect.xaml</DependentUpon>
     </Compile>
