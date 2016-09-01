@@ -30,6 +30,7 @@ namespace XamarinFormChapter
                 //MainPage = new XamarinFormChapter.View.MainPage();
                 // MainPage = new NavigationPage(new PageMaps());
                 MainPage = new NavigationPage(new PageMap());
+               // MainPage = new NavigationPage(new PageTestRelativeLayout());
                 //MainPage = new NavigationPage(new PageHome());
                 //MainPage = new NavigationPage(new PageTestListViewDynamix());
                 //MainPage = new NavigationPage(new Page1Xaml());

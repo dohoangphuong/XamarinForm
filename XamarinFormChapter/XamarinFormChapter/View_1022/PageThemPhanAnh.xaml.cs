@@ -63,7 +63,7 @@ namespace XamarinFormChapter.Views
 
             Button btnNext = new Button
             {
-                Text = "Tiếp tục",
+                Text = "Bản đồ",
                 FontSize = 20,
                 Font = Font.SystemFontOfSize(NamedSize.Large),
                 //BorderWidth = 1,
@@ -85,7 +85,7 @@ namespace XamarinFormChapter.Views
                     entAddres,
                     lbDeatail,
                     editDeatail,
-                  //  btnNext
+                    btnNext
                 }
             };
 
@@ -101,11 +101,11 @@ namespace XamarinFormChapter.Views
 
         async void btnNextClick(object sender, EventArgs e)
         {
-            Constants.phanAnh = new PhanAnhModel();
-            Constants.phanAnh.NoiDungPhanAnh = editDeatail.Text; ;
-            Constants.phanAnh.Duong = entAddres.Text;
+            //Constants.phanAnh = new PhanAnhModel();
+            //Constants.phanAnh.NoiDungPhanAnh = editDeatail.Text; ;
+            //Constants.phanAnh.Duong = entAddres.Text;
             
-            await Navigation.PushAsync(new PageThongTinNguoiDung());
+            await Navigation.PushAsync(new PageMap());
         }
     }
 }

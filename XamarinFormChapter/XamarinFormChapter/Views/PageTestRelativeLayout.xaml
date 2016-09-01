@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  x:Class="XamarinFormChapter.Views.PageTestRelativeLayout"
+  BackgroundColor="Maroon"
+  Title="RelativeLayout">
+    <ContentPage.Content>
+      <ScrollView>
+        <StackLayout x:Name="stackName"
+                      VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Spacing="15">
+          <RelativeLayout>
+            <BoxView Color="Red" x:Name="redBox"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Height,Factor=.15,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+            Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+            Type=RelativeToParent,Property=Height,Factor=.8,Constant=0}" />
+            <!--Constant: Khoảng cách tính từ lề vào bắt đầu vẽ-->
+            <Entry Text="35" TextColor="White" BackgroundColor="Maroon"
+             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=40}"
+             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1, Constant=0}"
+             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.8,Constant=0}"
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
+          </RelativeLayout>
+        </StackLayout>
+      </ScrollView>
+    </ContentPage.Content>
+  </ContentPage>

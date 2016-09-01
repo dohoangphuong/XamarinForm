@@ -4,7 +4,41 @@
              xmlns:local="clr-namespace:XamarinFormChapter;assembly=XamarinFormChapter"
 			       x:Class="XamarinFormChapter.Views.PageMap">
   <ContentPage.Content>  
-      <StackLayout VerticalOptions="FillAndExpand"
+     <ScrollView>
+        <StackLayout x:Name="stackName"
+                      VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Spacing="15">
+          <RelativeLayout>
+            <local:CustomMap
+            x:Name="customMap"
+            MapType="Street"
+            WidthRequest="{x:Static local:App.ScreenWidth}"
+            HeightRequest="{x:Static local:App.ScreenHeight}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Height,Factor=.15,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+            Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+            Type=RelativeToParent,Property=Height,Factor=.8,Constant=0}" />
+            <!--Constant: Khoảng cách tính từ lề vào bắt đầu vẽ-->
+            <RelativeLayout  Padding="5,0,0,0">
+          <Button x:Name="btnSearch" FontSize="14" Text="Search:" TextColor="White" Clicked="btnSearch_Click"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=30}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=10}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=.25,Constant=0}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
+          <Entry x:Name="entSearch" Text="Hà Nội" TextColor="White" BackgroundColor="Maroon"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=30}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3, Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.75,Constant=0}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
+        </RelativeLayout>
+        </RelativeLayout>
+        </StackLayout>
+      </ScrollView>
+      <!--<StackLayout VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
                      Spacing="15">      
@@ -15,12 +49,12 @@
                FontSize="20"
                TextColor="Red"
                BackgroundColor="Transparent"
-               Margin="5, 20, 5, 10" />
+              Margin="5, 20, 5, 0" />
          <local:CustomMap
             x:Name="customMap"
             MapType="Street"
             WidthRequest="{x:Static local:App.ScreenWidth}"
             HeightRequest="{x:Static local:App.ScreenHeight}" />
-    </StackLayout>
+    </StackLayout>-->
   </ContentPage.Content>
 </ContentPage>
