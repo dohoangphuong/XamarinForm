@@ -17,12 +17,15 @@
             WidthRequest="{x:Static local:App.ScreenWidth}"
             HeightRequest="{x:Static local:App.ScreenHeight}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
-            Property=Height,Factor=.15,Constant=0}"
+            Property=Height,Factor=0,Constant=0}"
                 RelativeLayout.WidthConstraint="{ConstraintExpression
             Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
                 RelativeLayout.HeightConstraint="{ConstraintExpression
-            Type=RelativeToParent,Property=Height,Factor=.8,Constant=0}" />
+            Type=RelativeToParent,Property=Height,Factor=1,Constant=0}" />
             <!--Constant: Khoảng cách tính từ lề vào bắt đầu vẽ-->
+            <!--Factor: Kích thước của vật so với màn hình tỉ lệ 1.0-->
+            <!--XConstraint: Vị trí của vật bắt đầu + WidthConstraint: Kích thước của vật-->
+            <!--Nếu XConstraint + WidthConstraint số factor < 1 thì sẽ thụt vào như entry-->
             <RelativeLayout  Padding="5,0,0,0">
           <Button x:Name="btnSearch" FontSize="14" Text="Search:" TextColor="White" Clicked="btnSearch_Click"
             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=30}"
@@ -32,7 +35,7 @@
           <Entry x:Name="entSearch" Text="Hà Nội" TextColor="White" BackgroundColor="Maroon"
             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=30}"
             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3, Constant=0}"
-            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.75,Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.67,Constant=0}"
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
         </RelativeLayout>
         </RelativeLayout>
