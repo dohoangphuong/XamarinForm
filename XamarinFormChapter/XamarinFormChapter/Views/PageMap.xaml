@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinFormChapter;assembly=XamarinFormChapter"
+			       x:Class="XamarinFormChapter.Views.PageMap">
+  <ContentPage.Content>  
+      <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Spacing="15">      
+        <Entry Text=""
+               x:Name="entSearch"
+               VerticalOptions="Center"
+               HorizontalOptions="FillAndExpand"
+               FontSize="20"
+               TextColor="Red"
+               BackgroundColor="Transparent"
+               Margin="5, 20, 5, 10" />
+         <local:CustomMap
+            x:Name="customMap"
+            MapType="Street"
+            WidthRequest="{x:Static local:App.ScreenWidth}"
+            HeightRequest="{x:Static local:App.ScreenHeight}" />
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

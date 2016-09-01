@@ -10,6 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Maps.Android;
 using XamarinFormChapter.Models;
+using XamarinFormChapter;
 
 [assembly: ExportRenderer(typeof(CustomMap), typeof(CustomMapRenderer))]
 namespace XamarinFormChapter.Droid

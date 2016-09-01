@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Xamarin.Forms.Maps;
+using XamarinFormChapter.Models;
 
-namespace XamarinFormChapter.Models
+namespace XamarinFormChapter
 {
 	public class CustomMap : Map
 	{

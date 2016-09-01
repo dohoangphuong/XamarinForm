@@ -79,6 +79,9 @@
     <Compile Include="Views\PageListLinhVuc.xaml.cs">
       <DependentUpon>PageListLinhVuc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PageMap.xaml.cs">
+      <DependentUpon>PageMap.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PageMaps.cs" />
     <Compile Include="Views\PageTestListViewDynamix.xaml.cs">
       <DependentUpon>PageTestListViewDynamix.xaml</DependentUpon>
@@ -184,6 +187,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\PageError.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\PageMap.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

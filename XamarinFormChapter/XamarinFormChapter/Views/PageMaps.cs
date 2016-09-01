@@ -12,39 +12,49 @@ namespace XamarinFormChapter.Views
 {
     public class PageMaps : ContentPage
     {
-        Double  dbLatitude =0, dbLong=0;
+        Double dbLatitude = 10.772088, dbLong = 106.698419;
+        CustomMap customMap;
+        CustomPin pin;
+
         public PageMaps()
         {
-            var customMap = new CustomMap
+            customMap = new CustomMap
             {
                 MapType = MapType.Street,
                 WidthRequest = App.ScreenWidth,
                 HeightRequest = App.ScreenHeight
             };
 
-            Search(); 
+            
 
-            var pin = new CustomPin
-            {
-                Pin = new Pin
-                {
-                    Type = PinType.Place,
-                    Position = new Position(dbLatitude, dbLong),
-                    Label = "Xamarin San Francisco Office",
-                    Address = "394 Pacific Ave, San Francisco CA"
-                },
-                Id = "Xamarin",
-                Url = "http://xamarin.com/about/"
-            };
+            //pin = new CustomPin
+            //{
+            //    Pin = new Pin
+            //    {
+            //        Type = PinType.Place,
+            //        Position = new Position(dbLatitude, dbLong),
+            //        Label = "Xamarin San Francisco Office",
+            //        Address = "394 Pacific Ave, San Francisco CA"
+            //    },
+            //    Id = "Xamarin",
+            //    Url = "http://xamarin.com/about/"
+            //};
 
-            customMap.CustomPins = new List<CustomPin> { pin };
-            customMap.Pins.Add(pin.Pin);
-            customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(dbLatitude, dbLong), Distance.FromMiles(1.0)));
+            //customMap.CustomPins = new List<CustomPin> { pin };
+            //customMap.Pins.Add(pin.Pin);
+            //customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(dbLatitude, dbLong), Distance.FromMiles(1.0)));
 
-           
-            //Giao diện
-            Content = customMap;
 
+            ////Giao diện
+            ////this.Content = new StackLayout
+            ////{
+            ////    Children =
+            ////    {
+            ////        customMap
+            ////    }
+            ////};
+            //Content = customMap;
+            Search();
 
         }
 
@@ -59,7 +69,35 @@ namespace XamarinFormChapter.Views
             {
                 dbLatitude = position.Latitude;
                 dbLong = position.Longitude;
-               // geocodedOutputLabel.Text += position.Latitude + ", " + position.Longitude + "\n";
+
+                pin = new CustomPin
+                {
+                    Pin = new Pin
+                    {
+                        Type = PinType.Place,
+                        Position = new Position(dbLatitude, dbLong),
+                        Label = "Hà Nội",
+                        Address = "394 Pacific Ave, San Francisco CA"
+                    },
+                    Id = "Hà Nội",
+                    Url = "http://xamarin.com/about/"
+                };
+
+                customMap.CustomPins = new List<CustomPin> { pin };
+                customMap.Pins.Add(pin.Pin);
+                customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(dbLatitude, dbLong), Distance.FromMiles(1.0)));
+
+
+                //Giao diện
+                //this.Content = new StackLayout
+                //{
+                //    Children =
+                //    {
+                //        customMap
+                //    }
+                //};
+                //Content = customMap;
+                //Content += new TextCell();
             }
         }
     }
