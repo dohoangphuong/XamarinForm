@@ -11,6 +11,8 @@ using Xamarin.Forms.Maps;
 using Xamarin.Forms.Maps.Android;
 using XamarinFormChapter.Models;
 using XamarinFormChapter;
+using MonoTouch.MapKit;
+using MonoTouch.UIKit;
 
 [assembly: ExportRenderer(typeof(CustomMap), typeof(CustomMapRenderer))]
 namespace XamarinFormChapter.Droid
@@ -18,9 +20,12 @@ namespace XamarinFormChapter.Droid
     public class CustomMapRenderer : MapRenderer, GoogleMap.IInfoWindowAdapter, IOnMapReadyCallback
     {
         GoogleMap map;
-        List<CustomPin> customPins;
+        private List<CustomPin> customPins;
         bool isDrawn;
+        private Marker MapMarkerAll;
+        
 
+        //Search
         protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<View> e)
         {
             base.OnElementChanged(e);
@@ -28,6 +33,7 @@ namespace XamarinFormChapter.Droid
             if (e.OldElement != null)
             {
                 map.InfoWindowClick -= OnInfoWindowClick;
+
             }
 
             if (e.NewElement != null)
@@ -52,18 +58,50 @@ namespace XamarinFormChapter.Droid
             if (e.PropertyName.Equals("VisibleRegion") && !isDrawn)
             {
                 map.Clear();
-
+                if (MapMarkerAll != null)
+                    MapMarkerAll.Remove();
                 foreach (var pin in customPins)
                 {
                     var marker = new MarkerOptions();
                     marker.SetPosition(new LatLng(pin.Pin.Position.Latitude, pin.Pin.Position.Longitude));
                     marker.SetTitle(pin.Pin.Label);
                     marker.SetSnippet(pin.Pin.Address);
-                    marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
-
-                    map.AddMarker(marker);
+                    marker.InvokeIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
+                    //marker.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
+                    // marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
+                    
+                    MapMarkerAll = map.AddMarker(marker);
                 }
                 isDrawn = true;
+            }
+            else
+            {
+                if (e.PropertyName.Equals("VisibleRegion") && isDrawn)
+                {
+                    var fNewCustomPins = (CustomMap)sender;
+
+                    if (fNewCustomPins.CustomPins[0].Id != customPins[0].Id)
+                    {
+                        customPins[0] = fNewCustomPins.CustomPins[0];
+                    
+                        map.Clear();
+                        if (MapMarkerAll != null)
+                            MapMarkerAll.Remove();
+                        foreach (var pin in customPins)
+                        {
+                            var marker = new MarkerOptions();
+                            marker.SetPosition(new LatLng(pin.Pin.Position.Latitude, pin.Pin.Position.Longitude));
+                            marker.SetTitle(pin.Pin.Label);
+                            marker.SetSnippet(pin.Pin.Address);
+                            marker.InvokeIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRed));
+                            //marker.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
+                            //marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
+
+                            MapMarkerAll = map.AddMarker(marker);
+                        }
+                        customPins = new List<CustomPin> { fNewCustomPins.CustomPins[0] };
+                    }
+                }
             }
         }
 
@@ -145,6 +183,13 @@ namespace XamarinFormChapter.Droid
             {
                 if (pin.Pin.Position == position)
                 {
+                    return pin;
+                }
+                else
+                {
+                    pin.Pin.Position = position;
+                   // MapMarkerAll = annotation;
+                    pin.Id = annotation.Id;
                     return pin;
                 }
             }

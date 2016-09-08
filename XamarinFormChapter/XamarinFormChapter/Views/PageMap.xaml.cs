@@ -18,7 +18,7 @@ namespace XamarinFormChapter.Views
         {
             InitializeComponent();
             entSearch.Text = iSoureSearch;
-            var pin = new CustomPin
+            pin = new CustomPin
             {
 
                 Pin = new Pin
@@ -36,14 +36,13 @@ namespace XamarinFormChapter.Views
             customMap.CustomPins = new List<CustomPin> { pin };
             customMap.Pins.Add(pin.Pin);
             customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(10.7731044, 106.6977803), Distance.FromMiles(1.0)));
-
-            //Search(iSoureSearch);
+            
         }
         public PageMap()
         {
             InitializeComponent();
 
-            var pin = new CustomPin
+            pin = new CustomPin
             {
 
                 Pin = new Pin
@@ -71,7 +70,10 @@ namespace XamarinFormChapter.Views
         public void btnSearch_Click(object sender, EventArgs e)
         {
             Search(entSearch.Text);
-            PageThemPhanAnh.entAddres.Text = entSearch.Text;
+            SearchNuber2(entSearch.Text);
+            //Search(entSearch.Text);
+            //Nhớ sửa lại bỏ //
+            //PageThemPhanAnh.entAddres.Text = entSearch.Text;
         }
 
         public async void Search(string fSourSearch)
@@ -83,7 +85,8 @@ namespace XamarinFormChapter.Views
                 geoCoder = new Geocoder();
                 string address = fSourSearch;
                 var approximateLocations = await geoCoder.GetPositionsForAddressAsync(address);
-                foreach (var position in approximateLocations)
+                var position = approximateLocations.ElementAt(0);
+                //foreach (var position in approximateLocations)
                 {
                     dbLatitude = position.Latitude;
                     dbLong = position.Longitude;
@@ -94,16 +97,49 @@ namespace XamarinFormChapter.Views
                         {
                             Type = PinType.Place,
                             Position = new Position(dbLatitude, dbLong),
-                            Label = fSourSearch,
+                            Label = "Vị trí phản ánh",
                             Address = fSourSearch,
                         },
-                        Id = fSourSearch,
+                        Id = dbLatitude.ToString() + dbLong.ToString(),
                         Url = "http://xamarin.com/about/"
                     };
-
                     customMap.CustomPins = new List<CustomPin> { pin };
-                    customMap.Pins.Add(pin.Pin);
                     customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(dbLatitude, dbLong), Distance.FromMiles(1.0)));
+
+
+                }
+            }
+        }
+        public async void SearchNuber2(string fSourSearch)
+        {
+            if (entSearch.Text.Trim() != "")
+            {
+                Geocoder geoCoder;
+
+                geoCoder = new Geocoder();
+                string address = fSourSearch;
+                var approximateLocations = await geoCoder.GetPositionsForAddressAsync(address);
+                var position = approximateLocations.ElementAt(0);
+                //foreach (var position in approximateLocations)
+                {
+                    dbLatitude = position.Latitude;
+                    dbLong = position.Longitude;
+
+                    pin = new CustomPin
+                    {
+                        Pin = new Pin
+                        {
+                            Type = PinType.Place,
+                            Position = new Position(dbLatitude, dbLong),
+                            Label = "Vị trí phản ánh",
+                            Address = fSourSearch,
+                        },
+                        Id = dbLatitude.ToString() + dbLong.ToString(),
+                        Url = "http://xamarin.com/about/"
+                    };
+                    customMap.CustomPins = new List<CustomPin> { pin };
+                    //customMap.Pins.RemoveAt(0);
+                    customMap.Pins.Add(pin.Pin);
 
                 }
             }

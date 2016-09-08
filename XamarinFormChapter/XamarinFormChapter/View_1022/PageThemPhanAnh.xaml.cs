@@ -42,7 +42,7 @@ namespace XamarinFormChapter.Views
             {
                 Keyboard = Keyboard.Text,
                 //Placeholder = "Nhập vị trí",
-                Text = "12 Paster, Q1",
+                Text = "12 Paster, Q.1, Hồ Chí Minh",
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = 20
             };
