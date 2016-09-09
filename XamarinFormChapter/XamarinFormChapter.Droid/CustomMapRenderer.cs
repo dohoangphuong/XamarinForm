@@ -33,7 +33,7 @@ namespace XamarinFormChapter.Droid
             if (e.OldElement != null)
             {
                 map.InfoWindowClick -= OnInfoWindowClick;
-
+                map.MapClick -= googleMap_MapClick;
             }
 
             if (e.NewElement != null)
@@ -48,11 +48,20 @@ namespace XamarinFormChapter.Droid
         {
             map = googleMap;
             map.InfoWindowClick += OnInfoWindowClick;
+            if (map != null)
+                map.MapClick += googleMap_MapClick;
             map.SetInfoWindowAdapter(this);
+        }
+
+        void googleMap_MapClick(object sender, GoogleMap.MapClickEventArgs e)
+        {
+            var sd = DependencyService.Get<IModelMap>();
+            sd.SetPositionMap(new Position(e.Point.Latitude, e.Point.Longitude));
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+
             base.OnElementPropertyChanged(sender, e);
 
             if (e.PropertyName.Equals("VisibleRegion") && !isDrawn)
@@ -195,6 +204,7 @@ namespace XamarinFormChapter.Droid
             }
             return null;
         }
+        
     }
 }
 

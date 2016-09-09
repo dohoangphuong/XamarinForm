@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using XamarinFormChapter.Models;
+using XamarinFormChapter.Views;
 
+[assembly: Dependency(typeof(PageMap))]
 namespace XamarinFormChapter.Views
 {
-    public partial class PageMap : ContentPage
+    public partial class PageMap : ContentPage, IModelMap
     {
         Double dbLatitude = 10.772088, dbLong = 106.698419;
         CustomPin pin;
@@ -64,13 +66,13 @@ namespace XamarinFormChapter.Views
 
         private void btnSave_Click(object sender, SelectedItemChangedEventArgs e)
         {
-
+            
         }
         
         public void btnSearch_Click(object sender, EventArgs e)
         {
             Search(entSearch.Text);
-            SearchNuber2(entSearch.Text);
+            SearchSetMarker(entSearch.Text);
             //Search(entSearch.Text);
             //Nhớ sửa lại bỏ //
             //PageThemPhanAnh.entAddres.Text = entSearch.Text;
@@ -78,7 +80,7 @@ namespace XamarinFormChapter.Views
 
         public async void Search(string fSourSearch)
         {
-            if (entSearch.Text.Trim() != "")
+            if (fSourSearch.Trim() != "")
             {
                 Geocoder geoCoder;
 
@@ -110,9 +112,9 @@ namespace XamarinFormChapter.Views
                 }
             }
         }
-        public async void SearchNuber2(string fSourSearch)
+        public async void SearchSetMarker(string fSourSearch)
         {
-            if (entSearch.Text.Trim() != "")
+            if (fSourSearch.Trim() != "")
             {
                 Geocoder geoCoder;
 
@@ -133,6 +135,82 @@ namespace XamarinFormChapter.Views
                             Position = new Position(dbLatitude, dbLong),
                             Label = "Vị trí phản ánh",
                             Address = fSourSearch,
+                        },
+                        Id = dbLatitude.ToString() + dbLong.ToString(),
+                        Url = "http://xamarin.com/about/"
+                    };
+                    customMap.CustomPins = new List<CustomPin> { pin };
+                    //customMap.Pins.RemoveAt(0);
+                    customMap.Pins.Add(pin.Pin);
+
+                }
+            }
+        }
+
+        public Position GetPositionMap()
+        {
+            return new Position(dbLatitude, dbLong);
+        }
+
+        public async void SetPositionMap(Position iPosition)
+        {
+            Search2(iPosition);
+            SearchSetMarker2(iPosition);
+        }
+
+        public async void Search2(Position iPosition)
+        {
+          //  if (fSourSearch.Trim() != "")
+            {
+                Geocoder geoCoder;
+
+                geoCoder = new Geocoder();
+                var approximateLocations = await geoCoder.GetAddressesForPositionAsync(iPosition);
+                var position = approximateLocations.ElementAt(0);
+                //foreach (var position in approximateLocations)
+                {
+                    dbLatitude = iPosition.Latitude;
+                    dbLong = iPosition.Longitude;
+
+                    pin = new CustomPin
+                    {
+                        Pin = new Pin
+                        {
+                            Type = PinType.Place,
+                            Position = new Position(dbLatitude, dbLong),
+                            Label = "Vị trí phản ánh",
+                            Address = position,
+                        },
+                        Id = dbLatitude.ToString() + dbLong.ToString(),
+                        Url = "http://xamarin.com/about/"
+                    };
+                    customMap.CustomPins = new List<CustomPin> { pin };
+                    customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(dbLatitude, dbLong), Distance.FromMiles(1.0)));
+                }
+            }
+        }
+        public async void SearchSetMarker2(Position iPosition)
+        {
+           // if (fSourSearch.Trim() != "")
+            {
+                Geocoder geoCoder;
+
+                geoCoder = new Geocoder();
+                var approximateLocations = await geoCoder.GetAddressesForPositionAsync(iPosition);
+                var position = approximateLocations.ElementAt(0);
+                //foreach (var position in approximateLocations)
+                {
+                    dbLatitude = iPosition.Latitude;
+                    dbLong = iPosition.Longitude;
+
+                    pin = new CustomPin
+                    {
+                        Pin = new Pin
+                        {
+                            Type = PinType.Place,
+                            Position = new Position(dbLatitude, dbLong),
+                            Label = "Vị trí phản ánh",
+                            Address = position,
                         },
                         Id = dbLatitude.ToString() + dbLong.ToString(),
                         Url = "http://xamarin.com/about/"

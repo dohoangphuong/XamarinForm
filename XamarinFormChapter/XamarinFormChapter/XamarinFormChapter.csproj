@@ -50,6 +50,7 @@
     <Compile Include="Models\DM_PHUONG.cs" />
     <Compile Include="Models\DM_QUAN.cs" />
     <Compile Include="Models\FILEDINHKEM.cs" />
+    <Compile Include="Models\IModelMap.cs" />
     <Compile Include="Models\ListResult.cs" />
     <Compile Include="Models\MasterPageItem.cs" />
     <Compile Include="Models\PagingResult.cs" />
@@ -64,7 +65,6 @@
     <Compile Include="ResourcesPortable\Camera\Common\ObservableObject.cs" />
     <Compile Include="ResourcesPortable\Camera\Model\TakePictureViewModel.cs" />
     <Compile Include="Models\CustomMap.cs" />
-    <Compile Include="Views\async.cs" />
     <Compile Include="Views\PageDetailReflect.xaml.cs">
       <DependentUpon>PageDetailReflect.xaml</DependentUpon>
     </Compile>
