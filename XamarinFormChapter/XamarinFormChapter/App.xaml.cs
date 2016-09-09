@@ -23,7 +23,7 @@ namespace XamarinFormChapter
         public static double ScreenWidth;
         public App()
         {
-            MainPage = new NavigationPage(new PageMap());
+            MainPage = new NavigationPage(PageMap.Instance);
 
             //CustomController controller = new CustomController();
             //if (controller.GetAPIToken() != null)

@@ -9,13 +9,27 @@ using Xamarin.Forms.Maps;
 using XamarinFormChapter.Models;
 using XamarinFormChapter.Views;
 
-[assembly: Dependency(typeof(PageMap))]
+//[assembly: Dependency(typeof(PageMap))]
 namespace XamarinFormChapter.Views
 {
-    public partial class PageMap : ContentPage, IModelMap
+    public partial class PageMap : ContentPage//, IModelMap
     {
         Double dbLatitude = 10.772088, dbLong = 106.698419;
         CustomPin pin;
+
+        private static PageMap instance;
+        public static PageMap Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new PageMap();
+                }
+                return instance;
+            }
+        }
+
         public PageMap(string iSoureSearch)
         {
             InitializeComponent();
@@ -152,9 +166,9 @@ namespace XamarinFormChapter.Views
             return new Position(dbLatitude, dbLong);
         }
 
-        public async void SetPositionMap(Position iPosition)
+        public void SetPositionMap(Position iPosition)
         {
-            Search2(iPosition);
+            //Search2(iPosition);
             SearchSetMarker2(iPosition);
         }
 

@@ -13,6 +13,7 @@ using XamarinFormChapter.Models;
 using XamarinFormChapter;
 using MonoTouch.MapKit;
 using MonoTouch.UIKit;
+using XamarinFormChapter.Views;
 
 [assembly: ExportRenderer(typeof(CustomMap), typeof(CustomMapRenderer))]
 namespace XamarinFormChapter.Droid
@@ -22,6 +23,7 @@ namespace XamarinFormChapter.Droid
         GoogleMap map;
         private List<CustomPin> customPins;
         bool isDrawn;
+        bool ClickTitle=false;
         private Marker MapMarkerAll;
         
 
@@ -55,8 +57,13 @@ namespace XamarinFormChapter.Droid
 
         void googleMap_MapClick(object sender, GoogleMap.MapClickEventArgs e)
         {
-            var sd = DependencyService.Get<IModelMap>();
-            sd.SetPositionMap(new Position(e.Point.Latitude, e.Point.Longitude));
+            //var sd = DependencyService.Get<IModelMap>();
+            //  isDrawn = false;
+            // sd.SetPositionMap(new Position(e.Point.Latitude, e.Point.Longitude));
+            // map.MoveCamera(CameraUpdateFactory.NewLatLngZoom(new LatLng(e.Point.Latitude, e.Point.Longitude), 14.0f));
+            map.Clear();
+            PageMap s = PageMap.Instance;
+            s.SetPositionMap(new Position(e.Point.Latitude, e.Point.Longitude));
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -64,7 +71,7 @@ namespace XamarinFormChapter.Droid
 
             base.OnElementPropertyChanged(sender, e);
 
-            if (e.PropertyName.Equals("VisibleRegion") && !isDrawn)
+            if (e.PropertyName.Equals("VisibleRegion") && !isDrawn && !ClickTitle)
             {
                 map.Clear();
                 if (MapMarkerAll != null)
@@ -75,43 +82,46 @@ namespace XamarinFormChapter.Droid
                     marker.SetPosition(new LatLng(pin.Pin.Position.Latitude, pin.Pin.Position.Longitude));
                     marker.SetTitle(pin.Pin.Label);
                     marker.SetSnippet(pin.Pin.Address);
-                    marker.InvokeIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
+                    marker.InvokeIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRed));
                     //marker.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
                     // marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
                     
                     MapMarkerAll = map.AddMarker(marker);
                 }
+               // ClickTitle = false;
                 isDrawn = true;
             }
             else
             {
-                if (e.PropertyName.Equals("VisibleRegion") && isDrawn)
+                if (e.PropertyName.Equals("VisibleRegion") && isDrawn && !ClickTitle)
                 {
                     var fNewCustomPins = (CustomMap)sender;
 
                     if (fNewCustomPins.CustomPins[0].Id != customPins[0].Id)
                     {
                         customPins[0] = fNewCustomPins.CustomPins[0];
-                    
-                        map.Clear();
-                        if (MapMarkerAll != null)
-                            MapMarkerAll.Remove();
-                        foreach (var pin in customPins)
-                        {
-                            var marker = new MarkerOptions();
-                            marker.SetPosition(new LatLng(pin.Pin.Position.Latitude, pin.Pin.Position.Longitude));
-                            marker.SetTitle(pin.Pin.Label);
-                            marker.SetSnippet(pin.Pin.Address);
-                            marker.InvokeIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRed));
-                            //marker.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
-                            //marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
-
-                            MapMarkerAll = map.AddMarker(marker);
-                        }
-                        customPins = new List<CustomPin> { fNewCustomPins.CustomPins[0] };
+                       
                     }
+
+                    map.Clear();
+                    if (MapMarkerAll != null)
+                        MapMarkerAll.Remove();
+                    foreach (var pin in customPins)
+                    {
+                        var marker = new MarkerOptions();
+                        marker.SetPosition(new LatLng(pin.Pin.Position.Latitude, pin.Pin.Position.Longitude));
+                        marker.SetTitle(pin.Pin.Label);
+                        marker.SetSnippet(pin.Pin.Address);
+                        marker.InvokeIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRed));
+                        //marker.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
+                        //marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
+
+                        MapMarkerAll = map.AddMarker(marker);
+                    }
+                    customPins = new List<CustomPin> { fNewCustomPins.CustomPins[0] };
                 }
             }
+            ClickTitle = false;
         }
 
         protected override void OnLayout(bool changed, int l, int t, int r, int b)
@@ -121,6 +131,7 @@ namespace XamarinFormChapter.Droid
             if (changed)
             {
                 isDrawn = false;
+                ClickTitle = false;
             }
         }
 
@@ -174,6 +185,7 @@ namespace XamarinFormChapter.Droid
                 {
                     infoSubtitle.Text = marker.Snippet;
                 }
+                ClickTitle = true;
 
                 return view;
             }
