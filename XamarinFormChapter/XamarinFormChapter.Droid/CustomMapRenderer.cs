@@ -57,10 +57,6 @@ namespace XamarinFormChapter.Droid
 
         void googleMap_MapClick(object sender, GoogleMap.MapClickEventArgs e)
         {
-            //var sd = DependencyService.Get<IModelMap>();
-            //  isDrawn = false;
-            // sd.SetPositionMap(new Position(e.Point.Latitude, e.Point.Longitude));
-            // map.MoveCamera(CameraUpdateFactory.NewLatLngZoom(new LatLng(e.Point.Latitude, e.Point.Longitude), 14.0f));
             map.Clear();
             PageMap s = PageMap.Instance;
             s.SetPositionMap(new Position(e.Point.Latitude, e.Point.Longitude));
@@ -83,12 +79,9 @@ namespace XamarinFormChapter.Droid
                     marker.SetTitle(pin.Pin.Label);
                     marker.SetSnippet(pin.Pin.Address);
                     marker.InvokeIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRed));
-                    //marker.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
-                    // marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
                     
                     MapMarkerAll = map.AddMarker(marker);
                 }
-               // ClickTitle = false;
                 isDrawn = true;
             }
             else
@@ -99,8 +92,7 @@ namespace XamarinFormChapter.Droid
 
                     if (fNewCustomPins.CustomPins[0].Id != customPins[0].Id)
                     {
-                        customPins[0] = fNewCustomPins.CustomPins[0];
-                       
+                        customPins[0] = fNewCustomPins.CustomPins[0];                       
                     }
 
                     map.Clear();

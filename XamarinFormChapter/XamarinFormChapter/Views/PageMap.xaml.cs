@@ -16,7 +16,6 @@ namespace XamarinFormChapter.Views
     {
         Double dbLatitude = 10.772088, dbLong = 106.698419;
         CustomPin pin;
-
         private static PageMap instance;
         public static PageMap Instance
         {
@@ -33,6 +32,7 @@ namespace XamarinFormChapter.Views
         public PageMap(string iSoureSearch)
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             entSearch.Text = iSoureSearch;
             pin = new CustomPin
             {
@@ -41,12 +41,10 @@ namespace XamarinFormChapter.Views
                 {
                     Type = PinType.Place,
                     Position = new Position(37.79752, -122.40183),
-                    Label = "Xamarin San Francisco Office",
-                    Address = "394 Pacific Ave, San Francisco CA",
-
+                    Label = "Hồ Chí Minh",
+                    Address = "Hồ Chí Minh",
                 },
                 Id = "Xamarin",
-                Url = "http://xamarin.com/about/"
             };
 
             customMap.CustomPins = new List<CustomPin> { pin };
@@ -57,7 +55,7 @@ namespace XamarinFormChapter.Views
         public PageMap()
         {
             InitializeComponent();
-
+            NavigationPage.SetHasNavigationBar(this, false);
             pin = new CustomPin
             {
 
@@ -65,12 +63,11 @@ namespace XamarinFormChapter.Views
                 {
                     Type = PinType.Place,
                     Position = new Position(37.79752, -122.40183),
-                    Label = "Xamarin San Francisco Office",
-                    Address = "394 Pacific Ave, San Francisco CA",
+                    Label = "Hồ Chí Minh",
+                    Address = "Hồ Chí Minh",
 
                 },
                 Id = "Xamarin",
-                Url = "http://xamarin.com/about/"
             };
 
             customMap.CustomPins = new List<CustomPin> { pin };
@@ -87,7 +84,7 @@ namespace XamarinFormChapter.Views
         {
             Search(entSearch.Text);
             SearchSetMarker(entSearch.Text);
-            //Search(entSearch.Text);
+           
             //Nhớ sửa lại bỏ //
             //PageThemPhanAnh.entAddres.Text = entSearch.Text;
         }
@@ -117,7 +114,6 @@ namespace XamarinFormChapter.Views
                             Address = fSourSearch,
                         },
                         Id = dbLatitude.ToString() + dbLong.ToString(),
-                        Url = "http://xamarin.com/about/"
                     };
                     customMap.CustomPins = new List<CustomPin> { pin };
                     customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(dbLatitude, dbLong), Distance.FromMiles(1.0)));
@@ -151,7 +147,6 @@ namespace XamarinFormChapter.Views
                             Address = fSourSearch,
                         },
                         Id = dbLatitude.ToString() + dbLong.ToString(),
-                        Url = "http://xamarin.com/about/"
                     };
                     customMap.CustomPins = new List<CustomPin> { pin };
                     //customMap.Pins.RemoveAt(0);
@@ -196,7 +191,6 @@ namespace XamarinFormChapter.Views
                             Address = position,
                         },
                         Id = dbLatitude.ToString() + dbLong.ToString(),
-                        Url = "http://xamarin.com/about/"
                     };
                     customMap.CustomPins = new List<CustomPin> { pin };
                     customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(dbLatitude, dbLong), Distance.FromMiles(1.0)));
@@ -205,7 +199,6 @@ namespace XamarinFormChapter.Views
         }
         public async void SearchSetMarker2(Position iPosition)
         {
-           // if (fSourSearch.Trim() != "")
             {
                 Geocoder geoCoder;
 
@@ -227,10 +220,9 @@ namespace XamarinFormChapter.Views
                             Address = position,
                         },
                         Id = dbLatitude.ToString() + dbLong.ToString(),
-                        Url = "http://xamarin.com/about/"
+                        //Url = "http://xamarin.com/about/"
                     };
                     customMap.CustomPins = new List<CustomPin> { pin };
-                    //customMap.Pins.RemoveAt(0);
                     customMap.Pins.Add(pin.Pin);
 
                 }

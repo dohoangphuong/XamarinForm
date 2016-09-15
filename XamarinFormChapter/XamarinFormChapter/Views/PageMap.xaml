@@ -28,12 +28,12 @@
             <!--XConstraint: Vị trí của vật bắt đầu + WidthConstraint: Kích thước của vật-->
             <!--Nếu XConstraint + WidthConstraint số factor < 1 thì sẽ thụt vào như entry-->
             <RelativeLayout  Padding="5,0,0,0">
-          <Button x:Name="btnSearch" FontSize="14" Text="Search:" TextColor="White" Clicked="btnSearch_Click"
+          <Button x:Name="btnSearch" FontSize="14" Text="Tìm kiếm" Clicked="btnSearch_Click" BackgroundColor="White"
             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=30}"
             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=10}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=.25,Constant=0}"
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=50}" />
-          <Entry x:Name="entSearch" Text="121 Paster, Hồ Chí Minh" TextColor="White" BackgroundColor="Maroon"
+          <Entry x:Name="entSearch" Text="121 Paster, Hồ Chí Minh" BackgroundColor="White"
             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0,Constant=30}"
             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3, Constant=0}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.67,Constant=0}"
