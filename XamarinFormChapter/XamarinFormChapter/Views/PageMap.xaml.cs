@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoreLocation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -89,14 +90,16 @@ namespace XamarinFormChapter.Views
             //PageThemPhanAnh.entAddres.Text = entSearch.Text;
         }
 
+
         public async void Search(string fSourSearch)
         {
             if (fSourSearch.Trim() != "")
             {
                 Geocoder geoCoder;
 
+
                 geoCoder = new Geocoder();
-                string address = fSourSearch;
+                string address = fSourSearch.Trim();
                 var approximateLocations = await geoCoder.GetPositionsForAddressAsync(address);
                 var position = approximateLocations.ElementAt(0);
                 //foreach (var position in approximateLocations)
