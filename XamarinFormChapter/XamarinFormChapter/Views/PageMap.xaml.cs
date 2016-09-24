@@ -1,4 +1,13 @@
-﻿using CoreLocation;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+
+//using Xamarin.Forms;
+//using Xamarin.Forms.Maps;
+//using XamarinFormChapter.Models;
+//using XamarinFormChapter.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +57,7 @@ namespace XamarinFormChapter.Views
                 Id = "Xamarin",
             };
 
-            customMap.CustomPins = new List<CustomPin> { pin };
+            customMap.CustomPins = pin;
             customMap.Pins.Add(pin.Pin);
             customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(10.7731044, 106.6977803), Distance.FromMiles(1.0)));
             
@@ -71,7 +80,7 @@ namespace XamarinFormChapter.Views
                 Id = "Xamarin",
             };
 
-            customMap.CustomPins = new List<CustomPin> { pin };
+            customMap.CustomPins = pin;
             customMap.Pins.Add(pin.Pin);
             customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(10.7731044, 106.6977803), Distance.FromMiles(1.0)));
         }
@@ -97,7 +106,6 @@ namespace XamarinFormChapter.Views
             {
                 Geocoder geoCoder;
 
-
                 geoCoder = new Geocoder();
                 string address = fSourSearch.Trim();
                 var approximateLocations = await geoCoder.GetPositionsForAddressAsync(address);
@@ -118,10 +126,9 @@ namespace XamarinFormChapter.Views
                         },
                         Id = dbLatitude.ToString() + dbLong.ToString(),
                     };
-                    customMap.CustomPins = new List<CustomPin> { pin };
+                    customMap.CustomPins = pin;
                     customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(dbLatitude, dbLong), Distance.FromMiles(1.0)));
-
-
+                    
                 }
             }
         }
@@ -151,7 +158,7 @@ namespace XamarinFormChapter.Views
                         },
                         Id = dbLatitude.ToString() + dbLong.ToString(),
                     };
-                    customMap.CustomPins = new List<CustomPin> { pin };
+                    customMap.CustomPins = pin;
                     //customMap.Pins.RemoveAt(0);
                     customMap.Pins.Add(pin.Pin);
 
@@ -195,7 +202,7 @@ namespace XamarinFormChapter.Views
                         },
                         Id = dbLatitude.ToString() + dbLong.ToString(),
                     };
-                    customMap.CustomPins = new List<CustomPin> { pin };
+                    customMap.CustomPins = pin;
                     customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(dbLatitude, dbLong), Distance.FromMiles(1.0)));
                 }
             }
@@ -225,7 +232,7 @@ namespace XamarinFormChapter.Views
                         Id = dbLatitude.ToString() + dbLong.ToString(),
                         //Url = "http://xamarin.com/about/"
                     };
-                    customMap.CustomPins = new List<CustomPin> { pin };
+                    customMap.CustomPins = pin;
                     customMap.Pins.Add(pin.Pin);
 
                 }

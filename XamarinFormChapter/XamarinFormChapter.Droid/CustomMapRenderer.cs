@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Android.Content;
@@ -21,11 +21,11 @@ namespace XamarinFormChapter.Droid
     public class CustomMapRenderer : MapRenderer, GoogleMap.IInfoWindowAdapter, IOnMapReadyCallback
     {
         GoogleMap map;
-        private List<CustomPin> customPins;
+        private CustomPin customPins;
         bool isDrawn;
-        bool ClickTitle=false;
+        bool ClickTitle = false;
         private Marker MapMarkerAll;
-        
+
 
         //Search
         protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<View> e)
@@ -72,16 +72,16 @@ namespace XamarinFormChapter.Droid
                 map.Clear();
                 if (MapMarkerAll != null)
                     MapMarkerAll.Remove();
-                foreach (var pin in customPins)
-                {
-                    var marker = new MarkerOptions();
-                    marker.SetPosition(new LatLng(pin.Pin.Position.Latitude, pin.Pin.Position.Longitude));
-                    marker.SetTitle(pin.Pin.Label);
-                    marker.SetSnippet(pin.Pin.Address);
-                    marker.InvokeIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRed));
-                    
-                    MapMarkerAll = map.AddMarker(marker);
-                }
+
+                //Add Pin into map
+                var marker = new MarkerOptions();
+                marker.SetPosition(new LatLng(customPins.Pin.Position.Latitude, customPins.Pin.Position.Longitude));
+                marker.SetTitle(customPins.Pin.Label);
+                marker.SetSnippet(customPins.Pin.Address);
+                marker.InvokeIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRed));
+
+                MapMarkerAll = map.AddMarker(marker);
+                //--------------------------------------
                 isDrawn = true;
             }
             else
@@ -90,27 +90,26 @@ namespace XamarinFormChapter.Droid
                 {
                     var fNewCustomPins = (CustomMap)sender;
 
-                    if (fNewCustomPins.CustomPins[0].Id != customPins[0].Id)
+                    if (fNewCustomPins.CustomPins.Id != customPins.Id)
                     {
-                        customPins[0] = fNewCustomPins.CustomPins[0];                       
+                        customPins = fNewCustomPins.CustomPins;
                     }
 
                     map.Clear();
                     if (MapMarkerAll != null)
                         MapMarkerAll.Remove();
-                    foreach (var pin in customPins)
-                    {
-                        var marker = new MarkerOptions();
-                        marker.SetPosition(new LatLng(pin.Pin.Position.Latitude, pin.Pin.Position.Longitude));
-                        marker.SetTitle(pin.Pin.Label);
-                        marker.SetSnippet(pin.Pin.Address);
-                        marker.InvokeIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRed));
-                        //marker.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
-                        //marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
 
-                        MapMarkerAll = map.AddMarker(marker);
-                    }
-                    customPins = new List<CustomPin> { fNewCustomPins.CustomPins[0] };
+                    //Add Pin into map
+                    var marker = new MarkerOptions();
+                    marker.SetPosition(new LatLng(customPins.Pin.Position.Latitude, customPins.Pin.Position.Longitude));
+                    marker.SetTitle(customPins.Pin.Label);
+                    marker.SetSnippet(customPins.Pin.Address);
+                    marker.InvokeIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRed));
+                    //marker.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
+                    //marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
+
+                    MapMarkerAll = map.AddMarker(marker);
+                    //customPins = fNewCustomPins.CustomPins;
                 }
             }
             ClickTitle = false;
@@ -192,23 +191,22 @@ namespace XamarinFormChapter.Droid
         CustomPin GetCustomPin(Marker annotation)
         {
             var position = new Position(annotation.Position.Latitude, annotation.Position.Longitude);
-            foreach (var pin in customPins)
+
+            if (customPins.Pin.Position == position)
             {
-                if (pin.Pin.Position == position)
-                {
-                    return pin;
-                }
-                else
-                {
-                    pin.Pin.Position = position;
-                   // MapMarkerAll = annotation;
-                    pin.Id = annotation.Id;
-                    return pin;
-                }
+                return customPins;
+            }
+            else
+            {
+                customPins.Pin.Position = position;
+                customPins.Pin.Address = annotation.Title;
+                customPins.Pin.Label = "Vị trí phản ánh";
+                // MapMarkerAll = annotation;
+                customPins.Id = annotation.Id;
+                return customPins;
             }
             return null;
         }
-        
     }
 }
 

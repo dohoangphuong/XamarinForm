@@ -83,7 +83,7 @@ namespace XamarinFormChapter.Views
                     Url = "http://xamarin.com/about/"
                 };
 
-                customMap.CustomPins = new List<CustomPin> { pin };
+                customMap.CustomPins = pin;
                 customMap.Pins.Add(pin.Pin);
                 customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(dbLatitude, dbLong), Distance.FromMiles(1.0)));
 
