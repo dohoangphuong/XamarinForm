@@ -1,42 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="#FFDAFF7F"
-    android:padding="8dp">
-  <LinearLayout
-       android:id="@+id/Text"
-       android:orientation="vertical"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:paddingLeft="10dip">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="@android:drawable/editbox_background">
     <ImageView
-          android:id="@+id/Image"
-          android:layout_width="48dp"
-          android:layout_height="48dp"
-          android:padding="5dp"
-          android:src="@drawable/icon"
-          android:layout_alignParentLeft="true" />
-  </LinearLayout>
-  <LinearLayout
-      android:id="@+id/Text"
-      android:orientation="vertical"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:paddingLeft="10dip">
-    <TextView
-        android:id="@+id/Text1"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:id="@+id/iconView"
+        android:layout_marginLeft="3dp" />
+    <LinearLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#FF7F3300"
-        android:textSize="20dip"
-        android:textStyle="italic" />
-    <TextView
-        android:id="@+id/Text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14dip"
-        android:textColor="#FF267F00"
-        android:paddingLeft="10dip" />
-  </LinearLayout>
-</RelativeLayout>
+        android:layout_height="60dp"
+        android:id="@+id/linearLayout1"
+        android:gravity="center|left">
+        <TextView
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+</LinearLayout>

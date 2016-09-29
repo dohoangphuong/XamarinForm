@@ -14,8 +14,8 @@ namespace TNPA.Droid
 {
     public class TableItem
     {
-        public string Heading { get; set; }
-        public string SubHeading { get; set; }
+        public string Name { get; set; }
+        public string ImageSource { get; set; }
         public int ImageResourceId { get; set; }
     }
 }

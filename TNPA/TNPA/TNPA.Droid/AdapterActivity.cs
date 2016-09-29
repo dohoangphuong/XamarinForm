@@ -41,9 +41,8 @@ namespace TNPA.Droid
             View view = convertView;
             if (view == null) // no view to re-use, create new
                 view = context.LayoutInflater.Inflate(Resource.Layout.PageItemLinhVuc, null);
-            view.FindViewById<TextView>(Resource.Id.Text1).Text = item.Heading;
-            view.FindViewById<TextView>(Resource.Id.Text2).Text = item.SubHeading;
-            view.FindViewById<ImageView>(Resource.Id.Image).SetImageResource(item.ImageResourceId);
+            view.FindViewById<TextView>(Resource.Id.txtName).Text = item.Name;
+            view.FindViewById<ImageView>(Resource.Id.iconView).SetImageResource(item.ImageResourceId);
             return view;
         }
     }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace TNPA.Droid
 {
-    [Activity(Label = "ListViewActivity", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "ListViewActivity", MainLauncher = false, Icon = "@drawable/icon")]
     public class ListViewActivity : Activity
     {
         ListView listView;
@@ -23,11 +23,16 @@ namespace TNPA.Droid
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.PageTraCuu); // loads the HomeScreen.axml as this activity's view
 
-            TableItem table = new TableItem();
-            table.Heading = "Phuong";
-            table.SubHeading = "Noi dung";
-            table.ImageResourceId = (int)Resource.Drawable.logo;
-            tableItems.Add(table);
+            
+            List<string> listString = new List<string>{ "Phương", "Hoàng", "Bông", "Hoa" };
+            for (int i = 0; i < listString.Count(); i++)
+            {
+                TableItem table = new TableItem();
+                table.Name = listString[i];
+                table.ImageSource = "Noi dung";
+                table.ImageResourceId = (int)Resource.Drawable.Icon;
+                tableItems.Add(table);
+            }
             listView = FindViewById<ListView>(Resource.Id.List); // get reference to the ListView in the layout
                                                                  // populate the listview with data
             listView.Adapter = new AdapterActivity(this, tableItems);
@@ -37,7 +42,7 @@ namespace TNPA.Droid
         {
             var listView = sender as ListView;
             var t = tableItems[e.Position];
-            Android.Widget.Toast.MakeText(this, t.Heading, Android.Widget.ToastLength.Short).Show();
+            Android.Widget.Toast.MakeText(this, t.Name, Android.Widget.ToastLength.Short).Show();
         }
     }
 }
