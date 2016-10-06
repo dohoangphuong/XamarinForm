@@ -1,0 +1,9 @@
+﻿<resources>
+  <color name="window_background">#FFF5F5F5</color>
+  <color name="button_pressed">#ff8a00</color>
+  <color name="button_focused">#ff8a00</color>
+  <color name="button_default">#1c76bb</color>
+  <color name="edittext_pressed">#7f8c8d</color>
+  <color name="edittext_focused">#7f8c8d</color>
+  <color name="edittext_default">#95a5a6</color>
+</resources>

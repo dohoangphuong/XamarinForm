@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btnGetMap"
+                    android:layout_alignParentRight="true"
+                    android:drawableStart="@drawable/map"
+                    android:padding="7dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/button_state" />
+                <EditText
+                    android:id="@+id/txtViTri"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@id/btnGetMap"
+                    android:layout_centerVertical="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp"
+                    android:paddingLeft="5dp"
+                    android:hint="@string/vitri"
+                    android:singleLine="true"
+                    android:background="@drawable/edittext_state"
+                    android:maxLines="1" />
+            </RelativeLayout>
+            <EditText
+                android:id="@+id/txtNoiDung"
+                android:inputType="textMultiLine"
+                android:hint="@string/noidung"
+                android:background="@drawable/edittext_state"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:lines="8"
+                android:minLines="6"
+                android:gravity="top|left"
+                android:maxLines="10"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:scrollbars="vertical" />
+            <LinearLayout
+                android:id="@+id/imageLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="10dp" />
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/button_default">
+                <Button
+                    android:id="@+id/btnCamera"
+                    android:drawableLeft="@drawable/map"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:text="@string/btn_themanh" />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+<!--Nút gửi ở cuối-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/btnGui"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_state"
+            android:text="@string/btn_gui" />
+    </LinearLayout>
+</RelativeLayout>

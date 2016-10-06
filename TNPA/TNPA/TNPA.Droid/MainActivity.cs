@@ -3,49 +3,51 @@
 using Android.App;
 using Android.Widget;
 using Android.OS;
-
+using Android.Support.V7.App;
+using Android.Content;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 namespace TNPA.Droid
 {
-    [Activity(Label = "1022App", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
+	[Activity (MainLauncher = false, Icon = "@drawable/icon",Theme = "@style/Theme.NoActionBar")]
+    public class MainActivity : AppCompatActivity
     {
-        public static double ScreenHeight;
-        public static double ScreenWidth;
-        protected override void OnCreate(Bundle bundle)
-        {
-            base.OnCreate(bundle);
+		protected override void OnCreate (Bundle bundle)
+		{
+			base.OnCreate (bundle);
+            SetContentView (Resource.Layout.Main);
 
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.PageHome);
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
 
-            //getActionBar().setDisplayHomeAsUpEnabled(true);
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button btnThemMoi = FindViewById<Button>(Resource.Id.btnThemMoi);
+
+            Button btnThemMoi = FindViewById<Button> (Resource.Id.btnThemMoi);
+            Button btnCaiDat = FindViewById<Button>(Resource.Id.btnCaiDat);
             Button btnTraCuu = FindViewById<Button>(Resource.Id.btnTraCuu);
             Button btnThongKe = FindViewById<Button>(Resource.Id.btnThongKe);
-
-            btnThemMoi.Click += delegate
-            {
-                //button.Text = string.Format ("{0} clicks!", count++);
-                StartActivity(typeof(TabPageActivity));
+            Button btnTroGiup = FindViewById<Button>(Resource.Id.btnTroGiup);
+            btnThemMoi.Click += delegate {
+                StartActivity("PhanAnhActivity");
             };
-
-            btnTraCuu.Click += delegate
-            {
-                //button.Text = string.Format ("{0} clicks!", count++);
-                StartActivity(typeof(ListViewActivity));
+            btnCaiDat.Click += delegate {
+                StartActivity("CaiDatActivity");
             };
-
-            btnThongKe.Click += delegate
-            {
-                //button.Text = string.Format ("{0} clicks!", count++);
-                StartActivity(typeof(TestActivity));
+            btnTraCuu.Click += delegate {
+                StartActivity("LinhVucActivity");
             };
-
+            btnThongKe.Click += delegate {
+                StartActivity("PhanAnhActivity");
+            };
+            btnTroGiup.Click += delegate {
+                StartActivity("CaiDatActivity");
+            };
         }
-
-    }
+        private void StartActivity(string name)
+        {
+            Intent intent = new Intent(this, typeof(TabsActivity));
+            intent.PutExtra("tabName", name);
+            StartActivity(intent);
+        }
+	}
 }
 
 

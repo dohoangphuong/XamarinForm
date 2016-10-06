@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="@android:drawable/editbox_background">
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:id="@+id/iconView"
+        android:layout_marginLeft="3dp" />
+    <LinearLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/linearLayout1"
+        android:gravity="center|left">
+        <TextView
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+</LinearLayout>

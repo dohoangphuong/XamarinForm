@@ -1,5 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">TNPA.Droid</string>
+  <string name="app_name_full">Tiếp nhận phản ánh</string>
+  <string name="phananh">PHẢN ÁNH</string>
+  <string name="tracuu">TRA CỨU</string>
+  <string name="caidat">CÀI ĐẶT</string>
+  <string name="thongke">THỐNG KÊ</string>
+  <string name="trogup">TRỢ GIÚP</string>
+  <string name="dangtai">đang tải</string>
+  
+  <!--Trang góp ý phản ánh-->
+  <string name="vitri">Vị trí phản ánh</string>
+  <string name="noidung">Nội dung phản ánh</string>
+  <string name="btn_themanh">Thêm hình ảnh</string>
+  <string name="btn_gui">GỬI</string>
+  <string name="chupanh">Chụp ảnh</string>
+  <string name="thuvienanh">Chọn từ thư viên</string>
+  <string name="nhapthieu">Vui lòng nhập đầy đủ thông tin</string>
+  <string name="huybo">Hủy bỏ</string>
+  
+  <!--Trang cài đặt-->
+  <string name="hoten">Họ và tên</string>
+  <string name="sdt">Số điện thoại</string>
+  <string name="diachi">Địa chỉ</string>
+  <string name="btn_xacnhan">Xác nhận</string>
+  
 </resources>
