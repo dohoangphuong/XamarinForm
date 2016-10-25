@@ -4,11 +4,15 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>e90099f0-3b9f-4c00-ba5f-e094a48322d8</ProjectGuid>
+    <ProjectGuid>{E90099F0-3B9F-4C00-BA5F-E094A48322D8}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>TNPA.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>TNPA.iOS</AssemblyName>
+    <SccProjectName>"%24/SOURCE/MOBILE/TNPA/TNPA/TNPA.iOS", PGCBAAAA</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Microsoft Visual SourceSafe</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>

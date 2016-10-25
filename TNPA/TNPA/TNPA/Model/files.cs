@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace TNPA.Model
 {
-    public class files
+    public class Files
     {
         public int FileID { get; set; }
 
@@ -18,12 +18,10 @@ namespace TNPA.Model
 
         public string QuyTrinhID { get; set; }
 
-        public string FileUrl { get; set; }
+        public string FielUrl { get; set; }
 
         public string FileExtension { get; set; }
 
         public byte[] arrByte { get; set; }
-
-        public byte[] FileContent { get; set; }
     }
 }

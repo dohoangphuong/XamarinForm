@@ -63,4 +63,20 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 4
+		SccProjectName0 = \u0022$/SOURCE/MOBILE/TNPA\u0022,\u0020QKYAAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = false
+		SccProjectUniqueName1 = TNPA\\TNPA.Droid\\TNPA.Droid.csproj
+		SccProjectName1 = \u0022$/SOURCE/MOBILE/TNPA/TNPA/TNPA.Droid\u0022,\u0020KBZAAAAA
+		SccLocalPath1 = TNPA\\TNPA.Droid
+		SccProjectUniqueName2 = TNPA\\TNPA.iOS\\TNPA.iOS.csproj
+		SccProjectName2 = \u0022$/SOURCE/MOBILE/TNPA/TNPA/TNPA.iOS\u0022,\u0020PGCBAAAA
+		SccLocalPath2 = TNPA\\TNPA.iOS
+		SccProjectUniqueName3 = TNPA\\TNPA\\TNPA.csproj
+		SccProjectName3 = \u0022$/SOURCE/MOBILE/TNPA/TNPA/TNPA\u0022,\u0020AAZAAAAA
+		SccLocalPath3 = TNPA\\TNPA
+	EndGlobalSection
 EndGlobal

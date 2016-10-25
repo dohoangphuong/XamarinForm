@@ -6,20 +6,53 @@
     android:background="#d9c79f"
     android:minWidth="25px"
     android:minHeight="25px">
-  <Button
-        android:text="Biểu đồ"
+    <Button
+        android:text="CẬP NHẬT BIỂU ĐỒ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnPieSeries" />
-    <Button
-        android:text="Pie Chart"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnGrafico3" />
-  
-  <oxyplot.xamarin.android.PlotView
-      android:id="@+id/plot_view"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      />
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Ngày bắt đầu" />
+        <Button
+            android:id="@+id/btnEnd"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Ngày kết thúc" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Text"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtStart"
+            android:padding="7dp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold" />
+        <TextView
+            android:text="Text"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtEnd"
+            android:padding="7dp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <oxyplot.xamarin.android.PlotView
+        android:id="@+id/plot_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

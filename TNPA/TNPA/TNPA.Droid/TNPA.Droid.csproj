@@ -18,6 +18,10 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <SccProjectName>"%24/SOURCE/MOBILE/TNPA/TNPA/TNPA.Droid", KBZAAAAA</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Microsoft Visual SourceSafe</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +44,10 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GlideAssembly, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Components\GlideComponent-3.7.0\lib\android\GlideAssembly.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -84,8 +92,16 @@
       <HintPath>..\..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Basement.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Gcm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.GooglePlayServices.Gcm.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Gcm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.GooglePlayServices.Maps, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.GooglePlayServices.Maps.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Maps.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Measurement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.GooglePlayServices.Measurement.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Measurement.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -95,28 +111,34 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdapterActivity.cs" />
-    <Compile Include="BitmapHelpers.cs" />
-    <Compile Include="CaiDatActivity.cs" />
-    <Compile Include="ChartActivity.cs" />
-    <Compile Include="ChartPieActivity.cs" />
-    <Compile Include="ChiTietPhanAnhActivity.cs" />
-    <Compile Include="ChiTietPhanAnhAdapter.cs" />
-    <Compile Include="customProgress.cs" />
-    <Compile Include="DanhSachPhanAnhActivity.cs" />
-    <Compile Include="LinhVucAdapter.cs" />
-    <Compile Include="LinhVucActivity.cs" />
-    <Compile Include="ListViewActivity.cs" />
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="MapActivity.cs" />
-    <Compile Include="DanhSachPhanAnhAdapter.cs" />
-    <Compile Include="ModelTableItem.cs" />
+    <Compile Include="Activitys\CaiDatActivity.cs" />
+    <Compile Include="Activitys\ChartPieActivity.cs" />
+    <Compile Include="Activitys\ChiTietLichSuActivity.cs" />
+    <Compile Include="Activitys\ChiTietPhanAnhActivity.cs" />
+    <Compile Include="Activitys\DanhSachPhanAnhActivity.cs" />
+    <Compile Include="Activitys\DatePickerFragment.cs" />
+    <Compile Include="Activitys\LichSuActivity.cs" />
+    <Compile Include="Activitys\LinhVucActivity.cs" />
+    <Compile Include="Activitys\MainActivity.cs" />
+    <Compile Include="Activitys\MapActivity.cs" />
+    <Compile Include="Activitys\PhanAnhActivity.cs" />
+    <Compile Include="Activitys\SplashActivity.cs" />
+    <Compile Include="Activitys\TabsActivity.cs" />
+    <Compile Include="Activitys\ThongTinActivity.cs" />
+    <Compile Include="Activitys\ThongTinUngDungActivity.cs" />
+    <Compile Include="Activitys\TroGiupActivity.cs" />
+    <Compile Include="Adapters\CaiDatAdapter.cs" />
+    <Compile Include="Adapters\ChiTietPhanAnhAdapter.cs" />
+    <Compile Include="Adapters\DanhSachPhanAnhAdapter.cs" />
+    <Compile Include="Adapters\LinhVucAdapter.cs" />
+    <Compile Include="Configs\BitmapHelpers.cs" />
+    <Compile Include="Configs\Config.cs" />
+    <Compile Include="Configs\OnActionExpandListener.cs" />
+    <Compile Include="DanhSachPhanhAnhViewHolder .cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PhanAnhActivity.cs" />
-    <Compile Include="TabPageActivity.cs" />
-    <Compile Include="TabsActivity.cs" />
-    <Compile Include="TestActivity.cs" />
+    <Compile Include="Services\MyGcmListenerService.cs" />
+    <Compile Include="Services\RegistrationIntentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -125,7 +147,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\gopy.axml">
+    <AndroidResource Include="Resources\layout\phananh.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\map.axml">
@@ -143,16 +165,7 @@
     <AndroidResource Include="Resources\layout\customprogress.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\phananh.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\phananhView.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\chitietphananh.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\chitietphananhFragment.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\tabs.axml">
@@ -170,17 +183,22 @@
     <AndroidResource Include="Resources\layout\toolbar.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\PageItemLinhVuc.axml" />
-    <AndroidResource Include="Resources\layout\PageMainTab.axml" />
-    <AndroidResource Include="Resources\layout\PageTab.axml" />
-    <AndroidResource Include="Resources\layout\PageThongKe.axml" />
-    <AndroidResource Include="Resources\layout\PageTraCuu.axml" />
-    <AndroidResource Include="Resources\layout\PageGopy.axml" />
-    <AndroidResource Include="Resources\layout\PageHome.axml" />
-    <AndroidResource Include="Resources\layout\ChartPie.axml">
+    <AndroidResource Include="Resources\layout\PageChartPie.axml" />
+    <AndroidResource Include="Resources\layout\danhsachphananhView.axml" />
+    <AndroidResource Include="Resources\layout\danhsachphananh.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\PageChartPie.axml">
+    <AndroidResource Include="Resources\layout\chitietphananhView.axml" />
+    <AndroidResource Include="Resources\layout\thongtin.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\trogiup.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\lichsu.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\thongtinungdung.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -316,13 +334,13 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <XamarinComponentReference Include="GlideComponent">
+      <Visible>False</Visible>
+      <Version>3.7.0</Version>
+    </XamarinComponentReference>
     <XamarinComponentReference Include="googleplayservices-maps">
       <Visible>False</Visible>
       <Version>29.0.0.2</Version>
-    </XamarinComponentReference>
-    <XamarinComponentReference Include="oxyplot">
-      <Visible>False</Visible>
-      <Version>2015.1.744</Version>
     </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup>
@@ -374,7 +392,28 @@
     <AndroidResource Include="Resources\drawable\ic_trogiup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\gopy.png" />
+    <AndroidResource Include="Resources\menu\timkiem.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\placeholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\search_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\progress_bar_footer.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\anim\trans_fade_in.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\anim\trans_fade_out.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.4.0.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.4.0.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

@@ -13,11 +13,11 @@ namespace TNPA
 {
     public class CustomService
     {
-        // string apiBaseUri = "http://192.168.1.20:8088/";
-        string apiBaseUri = "http://14.161.19.250:8088/";
-        string userName = "hp.codoc@yahoo.com.vn";
-        string password = "P@ssw0rd";
-
+        //private static readonly string apiBaseUri = "http://192.168.1.20:8088/";
+        private static readonly string apiBaseUri = "http://14.161.19.250:8088/";
+        private static readonly string userName = "hp.codoc@yahoo.com.vn";
+        private static readonly string password = "P@ssw0rd";
+        private static readonly int _timeoutSeconds = 60;
         public async Task<ListResult> GetRequest<T>(string requestPath)
         {
             List<T> list = null;
@@ -30,7 +30,8 @@ namespace TNPA
                     client.BaseAddress = new Uri(apiBaseUri);
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    HttpResponseMessage response = await client.GetAsync(requestPath);
+                    client.Timeout = TimeSpan.FromSeconds(_timeoutSeconds);
+                    HttpResponseMessage response = await client.GetAsync(requestPath).ConfigureAwait(false);
                     response.EnsureSuccessStatusCode();
                     if (response.IsSuccessStatusCode)
                     {
@@ -48,6 +49,58 @@ namespace TNPA
             return listResult;
         }
 
+        public async Task<object> GetRequestToObject<T>(string requestPath)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    //setup client
+                    client.BaseAddress = new Uri(apiBaseUri);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    HttpResponseMessage response = await client.GetAsync(requestPath).ConfigureAwait(false);
+                    response.EnsureSuccessStatusCode();
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseData = await response.Content.ReadAsStringAsync();
+                        return JsonConvert.DeserializeObject<T>(responseData);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return null;
+        }
+        public async Task<byte[]> GetFile(string requestPath)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    //setup client
+                    client.BaseAddress = new Uri(apiBaseUri);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    HttpResponseMessage response = await client.GetAsync(requestPath).ConfigureAwait(false);
+                    response.EnsureSuccessStatusCode();
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseData = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+                        return Convert.FromBase64String(responseData.Trim('"')); ;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return null;
+        }
+
         public async Task<ListResult> PostRequest<T>(string requestPath, object para)
         {
             ListResult listResult = null;
@@ -58,8 +111,9 @@ namespace TNPA
                     //setup client
                     client.BaseAddress = new Uri(apiBaseUri);
                     client.DefaultRequestHeaders.Accept.Clear();
-                    //make request
+                    client.Timeout = TimeSpan.FromSeconds(_timeoutSeconds);
                     HttpResponseMessage response = await client.PostAsync(requestPath, new StringContent(JsonConvert.SerializeObject(para), Encoding.UTF8, "application/json")).ConfigureAwait(false);
+
                     response.EnsureSuccessStatusCode();
                     if (response.IsSuccessStatusCode)
                     {
@@ -72,7 +126,7 @@ namespace TNPA
             }
             catch (Exception ex)
             {
-
+                
             }
             return listResult;
         }
@@ -91,7 +145,7 @@ namespace TNPA
                     client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
                     //make request
-                    HttpResponseMessage response = await client.PostAsync(apiBaseUri+requestPath, new StringContent(JsonConvert.SerializeObject(para), Encoding.UTF8, "application/json")).ConfigureAwait(false);
+                    HttpResponseMessage response = await client.PostAsync(requestPath, new StringContent(JsonConvert.SerializeObject(para), Encoding.UTF8, "application/json")).ConfigureAwait(false);
                     response.EnsureSuccessStatusCode();
                     if (response.IsSuccessStatusCode)
                     {

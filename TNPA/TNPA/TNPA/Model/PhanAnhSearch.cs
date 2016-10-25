@@ -8,6 +8,8 @@ namespace TNPA.Model
         public DateTime? FromDate { get; set; }
         public DateTime? ToDate { get; set; }
         public string SearchKey { get; set; }
+        public string MaNguonTiepNhan { get; set; }
+        public string MaKenhTiepNhan { get; set; }
         public string LoaiPhanAnhID { get; set; }
         public bool AllDate { get; set; }
         public string DonViNhanID { get; set; }

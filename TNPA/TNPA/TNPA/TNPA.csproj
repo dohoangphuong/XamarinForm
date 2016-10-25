@@ -11,6 +11,10 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <SccProjectName>"%24/SOURCE/MOBILE/TNPA/TNPA/TNPA", AAZAAAAA</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Microsoft Visual SourceSafe</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,10 +37,11 @@
   <ItemGroup>
     <Compile Include="CustomService.cs" />
     <Compile Include="LinhVucService.cs" />
-    <Compile Include="Model\Constants.cs" />
     <Compile Include="Model\DmLinhVuc.cs" />
-    <Compile Include="Model\files.cs" />
+    <Compile Include="Model\DmDonVi.cs" />
+    <Compile Include="Model\Files.cs" />
     <Compile Include="Model\ListResult.cs" />
+    <Compile Include="Model\ModelReport.cs" />
     <Compile Include="Model\PagingResult.cs" />
     <Compile Include="Model\PhanAnh.cs" />
     <Compile Include="Model\PhanAnhSearch.cs" />

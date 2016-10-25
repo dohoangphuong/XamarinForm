@@ -14,16 +14,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
             <Button
-                android:id="@+id/btnThemMoi"
-                android:drawableTop="@drawable/phananh"
-                android:text="@string/phananh"
-                android:layout_weight="1"
-                style="@style/button_bg" />
-          <Button
                 android:id="@+id/btnTraCuu"
                 android:drawableTop="@drawable/tracuu"
                 android:text="@string/tracuu"
                 android:layout_weight="1"
+                android:padding="10dp"
+                android:background="#1464b4"
+                style="@style/button_bg" />
+            <Button
+                android:id="@+id/btnThemMoi"
+                android:drawableTop="@drawable/phananh"
+                android:text="@string/phananh"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:background="#004182"
                 style="@style/button_bg" />
         </LinearLayout>
     </LinearLayout>
@@ -33,8 +37,8 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true">
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_weight="1">
             <Button
                 android:id="@+id/btnThongKe"
@@ -42,21 +46,30 @@
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/thongke"
                 android:layout_weight="1"
-                android:text="@string/thongke" />
+                android:padding="10dp"
+                android:text="@string/thongke"
+                android:background="#5a84ad"
+                style="@style/button_small" />
             <Button
                 android:id="@+id/btnCaiDat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/caidat"
                 android:text="@string/caidat"
-                android:layout_weight="1" />
-          <Button
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:background="#5a84ad"
+                style="@style/button_small" />
+            <Button
                 android:id="@+id/btnTroGiup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/trogiup"
                 android:text="@string/trogup"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:background="#889db1"
+                style="@style/button_small" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

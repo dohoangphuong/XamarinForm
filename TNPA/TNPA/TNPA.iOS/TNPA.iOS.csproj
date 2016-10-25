@@ -4,11 +4,15 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>e90099f0-3b9f-4c00-ba5f-e094a48322d8</ProjectGuid>
+    <ProjectGuid>{E90099F0-3B9F-4C00-BA5F-E094A48322D8}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>TNPA.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>TNPAiOS</AssemblyName>
+    <SccProjectName>"%24/SOURCE/MOBILE/TNPA/TNPA/TNPA.iOS", PGCBAAAA</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:Microsoft Visual SourceSafe</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,6 +65,14 @@
     <MtouchDebug>true</MtouchDebug>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OxyPlot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\OxyPlot.Core.1.0.0-unstable1983\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10\OxyPlot.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OxyPlot.Xamarin.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\OxyPlot.Xamarin.iOS.1.0.0-unstable1983\lib\Xamarin.iOS10\OxyPlot.Xamarin.iOS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -123,6 +135,12 @@
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\ITunesArtwork" />
@@ -130,19 +148,78 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="Views\TabImage.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <InterfaceDefinition Include="View\Main.storyboard" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainPageController.cs" />
+    <Compile Include="MainPageController.designer.cs">
+      <DependentUpon>MainPageController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Controllers\CaiDatController.cs" />
+    <Compile Include="Controllers\CaiDatController.designer.cs">
+      <DependentUpon>CaiDatController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ThongKeController.cs" />
+    <Compile Include="Controllers\ThongKeController.designer.cs">
+      <DependentUpon>ThongKeController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\TraCuuController.cs" />
+    <Compile Include="Controllers\TraCuuController.designer.cs">
+      <DependentUpon>TraCuuController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PhanAnhController.cs" />
+    <Compile Include="Controllers\PhanAnhController.designer.cs">
+      <DependentUpon>PhanAnhController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabController.cs" />
+    <Compile Include="TabController.designer.cs">
+      <DependentUpon>TabController.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_caidat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_phananh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_thongke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_tracuu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_trogiup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\progress.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TakePhotoButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using System.Globalization;
 
 namespace TNPA.Model
 {
     public class PhanAnh
     {
+        public string PhanAnhID { get; set; }
+
         public string PhanAnhKenhKhacID { get; set; }
 
         public string MaNguonTiepNhan { get; set; }
@@ -56,40 +57,46 @@ namespace TNPA.Model
         public bool Active { get; set; }
 
         public int? PortalID { get; set; }
-        public List<files> lstFileDinhKem { get; set; }
 
-        public PhanAnh()
-        {
-            lstFileDinhKem = new List<files>();
-            Active = true;
-        }
+        public List<Files> lstFileDinhKem { get; set; }
 
+        public string NoiDungXuLy { get; set; }
+
+        public string QuyTrinhID { get; set; }
+
+        public DmDonVi GetDonViChuyenFromDB { get; set; }
+
+        public DmDonVi GetDonViNhanFromDB { get; set; }
 
         public string thoiGian
         {
             get
             {
-                return NgayNhan + " " + GioNhan;
+                DateTime dateTime = DateTime.ParseExact(GioNhan, "HH:mm:ss",
+                                        CultureInfo.InvariantCulture);
+                return dateTime.ToString("HH:mm")+ " " + NgayNhan.Value.ToString("dd /MM/yyy");
             }
         }
         public string diaChi
         {
             get
             {
-                return SoNha + " " + TenPhuong + " " + TenQuan;
+                return ToTitleCase(SoNha + " " + Duong + " " + TenPhuong + " " + TenQuan).Replace(Environment.NewLine, " ");
             }
         }
         public string tieuDe
         {
             get
             {
+                NoiDungPhanAnh = ToTitleCase(NoiDungPhanAnh);
+
                 if (NoiDungPhanAnh.Length > 100)
                     return NoiDungPhanAnh.Substring(0, 100) + "...";
                 else
                     return NoiDungPhanAnh;
             }
         }
-        public files thumbnails { get; set; }
+        public Files thumbnails { get; set; }
 
         public byte[] thumbnail
         {
@@ -97,13 +104,24 @@ namespace TNPA.Model
             {
                 if (thumbnails != null)
                 {
-                    return thumbnails.FileContent;
+                    return thumbnails.arrByte;
                 }
                 else
                 {
                     return null;
                 }
             }
+        }
+        // viet hoa chua cai dau
+        private string ToTitleCase(string str)
+        {
+            if (str == null)
+                return null;
+
+            if (str.Length > 1)
+                return char.ToUpper(str[0]) + str.Substring(1);
+
+            return str.ToUpper();
         }
     }
 }

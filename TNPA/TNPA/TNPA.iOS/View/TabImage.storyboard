@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="14">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="13">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="14" sceneMemberID="viewController" customClass="TabController" storyboardIdentifier="TabController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="19">
+                        <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="18" kind="relationship" relationship="viewControllers" id="17"/>
+                        <segue id="1161" destination="16" kind="relationship" relationship="viewControllers"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="20" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286" y="147"/>
+        </scene>
+        <scene sceneID="21">
+            <objects>
+                <viewController id="16" sceneMemberID="viewController" customClass="TabController">
+                    <view key="view" contentMode="scaleToFill" id="22">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0" green="0.50196078431372548" blue="0" alpha="1"/>
+                        <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1169">
+                                <rect key="frame" x="84" y="249" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1172">
+                                <rect key="frame" x="190" y="249" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="TRA CỨU" id="23" image="ic_tracuu.png"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="24" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="-191"/>
+        </scene>
+        <scene sceneID="25">
+            <objects>
+                <viewController id="18" sceneMemberID="viewController" customClass="TabController">
+                    <view key="view" contentMode="scaleToFill" id="26">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="1" green="0.6470588235294118" blue="0" alpha="1"/>
+                        <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="PHẢN ÁNH" id="27" image="ic_phananh.png"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="28" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="554"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+    <resources>
+        <image name="main.png" width="750" height="1335"/>
+        <image name="camera.png" width="45" height="45"/>
+        <image name="ic_caidat.png" width="60" height="60"/>
+        <image name="ic_phananh.png" width="60" height="60"/>
+        <image name="ic_thongke.png" width="60" height="60"/>
+        <image name="ic_tracuu.png" width="60" height="60"/>
+        <image name="ic_trogiup.png" width="60" height="60"/>
+        <image name="logo.png" width="188" height="188"/>
+        <image name="map.png" width="30" height="30"/>
+        <image name="progress.gif" width="16" height="16"/>
+        <image name="TakePhotoButton.png" width="143" height="143"/>
+    </resources>
+</document>

@@ -3,7 +3,10 @@
   <style name="Theme.NoActionBar" parent="Base.Theme.NoActionBar">
   </style>
 
-
+  
+  <style name="Theme.Splash" parent="Base.Theme.NoActionBar">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+  </style>
   <style name="Base.Theme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
     <item name="colorPrimary">#2980b9</item>
     <item name="colorPrimaryDark">#333333</item>
@@ -26,11 +29,19 @@
     <item name="android:textColor" >#ffffff</item>
     <item name="android:gravity" >center</item>
     <item name="android:layout_margin" >3dp</item>
-    <item name="android:textSize" >16dp</item>
-    <item name="android:textStyle" >bold</item>
+    <item name="android:textSize" >18dp</item>
+    <item name="android:textStyle" >normal</item>
+    <item name="android:shadowRadius" >2</item>
+  </style>
+  <style name="button_small" >
+    <item name="android:layout_width" >wrap_content</item>
+    <item name="android:layout_height" >wrap_content</item>
+    <item name="android:textColor" >#ffffff</item>
+    <item name="android:gravity" >center</item>
+    <item name="android:layout_margin" >3dp</item>
+    <item name="android:textSize" >14dp</item>
+    <item name="android:textStyle" >normal</item>
     <item name="android:shadowColor" >#000000</item>
-    <item name="android:shadowDx" >1</item>
-    <item name="android:shadowDy" >1</item>
     <item name="android:shadowRadius" >2</item>
   </style>
 </resources>

@@ -1,13 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">TNPA.Droid</string>
+  <string name="app_version">v0.1</string>
   <string name="app_name_full">Tiếp nhận phản ánh</string>
   <string name="phananh">PHẢN ÁNH</string>
   <string name="tracuu">TRA CỨU</string>
   <string name="caidat">CÀI ĐẶT</string>
   <string name="thongke">THỐNG KÊ</string>
   <string name="trogup">TRỢ GIÚP</string>
+  <string name="lichsuphananh">LỊCH SỬ PHẢN ÁNH</string>
+  <string name="chitietphananh">CHI TIẾT PHẢN ÁNH</string>
   <string name="dangtai">đang tải</string>
+  <string name="loi">Lỗi</string>
+  <string name="loidata">Không thể kết nối với server vui lòng kiểm tra lại</string>
+  <string name="dongy">Đồng ý</string>
+  <string name="khongtimthayphananh">Không tìm thấy phản ánh</string>
+  <string name="timkiem">Tìm kiếm</string>
+  <string name="loicaidat">Không có thông tin tài khoản, vui lòng nhập Thông tin tài khoản ở phần cài đặt</string>
   
   <!--Trang góp ý phản ánh-->
   <string name="vitri">Vị trí phản ánh</string>
@@ -18,11 +27,22 @@
   <string name="thuvienanh">Chọn từ thư viên</string>
   <string name="nhapthieu">Vui lòng nhập đầy đủ thông tin</string>
   <string name="huybo">Hủy bỏ</string>
-  
+  <string name="guiphananh">Gửi phản ánh</string>
+  <string name="vuilongcho">Vui lòng chờ</string>
+  <string name="phananhthanhcong">Phản ánh thành công</string>
+  <string name="phananhthatbai">Phản ánh không thành công</string>
+  <string name="timvitri">Đang tìm vị trí hiện tại</string>
+  <string name="timvitriloi">Không thể xác định vị trí hiện tại</string>
+  <string name="xoahinh">Xóa hình</string>
+  <string name="thongbaoxoahinh">Bạn có muốn xóa hình này?</string>
   <!--Trang cài đặt-->
+  <string name="caidattitle">Xác nhận</string>
   <string name="hoten">Họ và tên</string>
   <string name="sdt">Số điện thoại</string>
+  <string name="email">Email</string>
   <string name="diachi">Địa chỉ</string>
   <string name="btn_xacnhan">Xác nhận</string>
   
+  <!-- Trang Trợ Giúp-->
+  <string name="trogiuptitle">Trợ giúp</string>
 </resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:text="@string/hoten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
+            <EditText
+                android:id="@+id/txtHoTen"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:singleLine="true"
+                android:background="@drawable/edittext_state"
+                android:maxLines="1" />
+            <TextView
+                android:text="@string/sdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
+            <EditText
+                android:id="@+id/txtSdt"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:digits="0123456789"
+                android:layout_height="45dp"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:singleLine="true"
+                android:background="@drawable/edittext_state"
+                android:maxLines="1" />
+            <TextView
+                android:text="@string/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
+            <EditText
+                android:id="@+id/txtEmail"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:singleLine="true"
+                android:background="@drawable/edittext_state"
+                android:maxLines="1" />
+            <TextView
+                android:text="@string/diachi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
+            <EditText
+                android:id="@+id/txtDiaChi"
+                android:inputType="textMultiLine"
+                android:background="@drawable/edittext_state"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="5dp"
+                android:lines="3"
+                android:minLines="3"
+                android:gravity="top|left"
+                android:maxLines="5"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:scrollbars="vertical" />
+            <Button
+                android:id="@+id/btnGui"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_state"
+                android:text="@string/btn_xacnhan"
+                android:layout_marginTop="15dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
