@@ -18,6 +18,14 @@ namespace TNPA.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnBieuDo { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnDateEnd { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnDateStart { get; set; }
+
         [Action ("UIButton2303_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIButton2303_TouchUpInside (UIKit.UIButton sender);
@@ -27,6 +35,16 @@ namespace TNPA.iOS
             if (btnBieuDo != null) {
                 btnBieuDo.Dispose ();
                 btnBieuDo = null;
+            }
+
+            if (btnDateEnd != null) {
+                btnDateEnd.Dispose ();
+                btnDateEnd = null;
+            }
+
+            if (btnDateStart != null) {
+                btnDateStart.Dispose ();
+                btnDateStart = null;
             }
         }
     }

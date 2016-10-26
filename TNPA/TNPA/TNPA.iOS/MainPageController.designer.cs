@@ -34,10 +34,6 @@ namespace TNPA.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnTroGiup { get; set; }
 
-        [Action ("BtnThongKe_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void BtnThongKe_TouchUpInside (UIKit.UIButton sender);
-
         void ReleaseDesignerOutlets ()
         {
             if (btnCaiDat != null) {

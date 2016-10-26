@@ -27,8 +27,7 @@ namespace TNPA.iOS
             {
                 _SelectItem = 0;
             };
-
-            ////event click button phan anh
+            
             this.btnPhanAnh.TouchDown += (object btnsender, System.EventArgs ea) =>
             {
                 _SelectItem = 1;
@@ -43,8 +42,7 @@ namespace TNPA.iOS
             {
                 _SelectItem = 3;
             };
-
-
+            
         }
 
         //async void btnTraCuu_Click(object sender, System.EventArgs ea)
@@ -58,7 +56,7 @@ namespace TNPA.iOS
 
 
         /// <summary>
-        /// Hàm này tự động được gọi trước khi chuyển sang màn hình khác: Gọi trước cả hàm TouchUpInside
+        /// Hàm này tự động được gọi trước khi chuyển sang màn hình khác: Gọi trước cả hàm TouchUpInside nhưng sau hàm TouchDown.
         /// Mục đích: Dùng để cập nhật giá trị trước khi chuyển, đã gán root và đường dẫn trên giao diện nên không cần thiết khởi tạo rồi gọi đến 1 controller khác
         /// </summary>
         /// <param name="segue"></param>
@@ -68,9 +66,7 @@ namespace TNPA.iOS
             base.PrepareForSegue(segue, sender);
             var tabController = segue.DestinationViewController as TabController;
 
-            //set the Table View Controller’s list of phone numbers to the
-            // list of dialed phone numbers
-
+            //set item in the tab controller
             if (tabController != null)
             {
                 tabController.SelectedIndex = _SelectItem;
