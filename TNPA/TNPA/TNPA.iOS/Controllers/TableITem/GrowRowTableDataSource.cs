@@ -45,41 +45,12 @@ namespace TNPA.iOS
             //Initialize();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="pathImage">Link ảnh tr</param>
-        /// <returns>Đường dẫn ảnh trên điện thoại</returns>
-        public async Task<string> Download(string pathImage, int count)
-        {
-            var httpClient = new HttpClient();
-            byte[] imageBytes = await httpClient.GetByteArrayAsync(pathImage);
-            await SaveBytesToFileAsync(imageBytes, count.ToString() + "team.jpg");
-            var Image = UIImage.FromFile(localPath);
-            return localPath;
-        }
+            
 
-        async Task SaveBytesToFileAsync(byte[] bytesToSave, string fileName)
-        {
-            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            string localFilename = fileName;
-            localPath = Path.Combine(documentsPath, localFilename);
-
-            if (File.Exists(localPath))
-            {
-                File.Delete(localPath);
-            }
-
-            using (FileStream fs = new FileStream(localPath, FileMode.Create, FileAccess.Write))
-            {
-                await fs.WriteAsync(bytesToSave, 0, bytesToSave.Length);
-            }
-        }
-
-        public async void getData(string pathImage, string title, int count)
+        public async void  getData(string pathImage, string title, int count)
         {
             // Populate database
-            var pathSource = pathImage; //await Download(pathImage, count);// pathImage;//
+            var pathSource = pathImage;
 
             Items.Add(new GrowItem(pathSource, title, count));
         }
@@ -121,14 +92,22 @@ namespace TNPA.iOS
         public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
 			var cell = tableView.DequeueReusableCell (CellID, indexPath) as GrowRowTableCell;
-			var item = Items [indexPath.Row];
 
-            // Setup
-            cell.UpdateCell(item.ImageName, item.Count);
-            cell.Image = UIImage.FromFile(item.ImageName);
-            cell.Title = item.Title;
-			cell.Description = item.Description;
+            //Không có dữ liệu trong list thông tin
+           // if (Items.Count > 0)
+            {
+                var item = Items[indexPath.Row];
 
+                //Không có dữ liệu tiêu đề
+              //  if (item.Title != null)
+                {
+                    // Setup
+                    cell.UpdateCell(item.ImageName, item.Count);
+                   // cell.Image = UIImage.FromFile(item.ImageName);
+                    cell.Title = item.Title;
+                    cell.Description = item.Description;
+                }
+            }
 			return cell;
 		}
 		#endregion

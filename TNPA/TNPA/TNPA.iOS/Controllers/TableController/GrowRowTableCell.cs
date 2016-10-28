@@ -1,4 +1,4 @@
-using Foundation;
+﻿using Foundation;
 using System;
 using System.CodeDom.Compiler;
 using System.IO;
@@ -44,11 +44,19 @@ namespace TNPA.iOS
             Image = await Download(image, count);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pathImage">Link ảnh tr</param>
+        /// /// <param name="count">vị trí của ảnh trong chuổi: tránh việc đặt trùng tên</param>
+        /// <returns>Đường dẫn ảnh trên điện thoại</returns>
         public async Task<UIImage> Download(string pathImage, int count)
         {
             var httpClient = new HttpClient();
             byte[] imageBytes = await httpClient.GetByteArrayAsync(pathImage);
-            await SaveBytesToFileAsync(imageBytes, count.ToString() + "team.jpg");
+            //if (imageBytes.Length <= 0)
+            //    return UIImage.FromFile("logo.png");
+            await SaveBytesToFileAsync(imageBytes, count.ToString() + "phananh.png");           
             return UIImage.FromFile(localPath);             
         }
 

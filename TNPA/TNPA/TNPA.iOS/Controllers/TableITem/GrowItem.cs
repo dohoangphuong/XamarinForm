@@ -25,7 +25,7 @@ namespace TNPA.iOS
             this.Description = description;
         }
 
-            public GrowItem(string imageName, string title, int count)
+        public GrowItem(string imageName, string title, int count)
         {
             // Initialize
             this.ImageName = imageName;

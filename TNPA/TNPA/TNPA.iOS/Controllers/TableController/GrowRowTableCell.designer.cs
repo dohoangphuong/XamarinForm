@@ -11,35 +11,37 @@ using UIKit;
 
 namespace TNPA.iOS
 {
-	[Register ("GrowRowTableCell")]
-	partial class GrowRowTableCell
-	{
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel CellDescription { get; set; }
+    [Register ("GrowRowTableCell")]
+    partial class GrowRowTableCell
+    {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel CellDescription { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView CellImage { get; set; }
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView CellImage { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel CellTitle { get; set; }
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel CellTitle { get; set; }
 
-		void ReleaseDesignerOutlets ()
-		{
-			if (CellDescription != null) {
-				CellDescription.Dispose ();
-				CellDescription = null;
-			}
-			if (CellImage != null) {
-				CellImage.Dispose ();
-				CellImage = null;
-			}
-			if (CellTitle != null) {
-				CellTitle.Dispose ();
-				CellTitle = null;
-			}
-		}
-	}
+        void ReleaseDesignerOutlets ()
+        {
+            if (CellDescription != null) {
+                CellDescription.Dispose ();
+                CellDescription = null;
+            }
+
+            if (CellImage != null) {
+                CellImage.Dispose ();
+                CellImage = null;
+            }
+
+            if (CellTitle != null) {
+                CellTitle.Dispose ();
+                CellTitle = null;
+            }
+        }
+    }
 }

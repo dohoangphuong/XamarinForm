@@ -12,6 +12,7 @@ namespace TNPA.iOS
 	{
         private LinhVucService _service = new LinhVucService();
         private List<DmLinhVuc> _items;
+        bool _result = false;
         #region Computed Properties
         public GrowRowTableDataSource DataSource {
 			get { return TableView.DataSource as GrowRowTableDataSource; }
@@ -39,7 +40,8 @@ namespace TNPA.iOS
             if (result != null)
             {
                 _items = (List<DmLinhVuc>)result.ClassResult;
-                TableView.DataSource = new GrowRowTableDataSource(this, _items);                
+                TableView.DataSource = new GrowRowTableDataSource(this, _items);
+                _result = true;                
             }
             else
             {
@@ -50,6 +52,7 @@ namespace TNPA.iOS
                 };
                 alert.AddButton("OK");
                 alert.Show();
+                _result = false;
             }
         }
         #endregion
@@ -67,9 +70,12 @@ namespace TNPA.iOS
 
             // Initialize table
             OnPostExecute();
-            TableView.Delegate = new GrowRowTableDelegate (this);
-			TableView.EstimatedRowHeight = 50f;
-			TableView.ReloadData ();
+            if(_result)
+            {
+                TableView.Delegate = new GrowRowTableDelegate(this);
+                TableView.EstimatedRowHeight = 70f;
+                TableView.ReloadData();
+            }
 		}
 			
 

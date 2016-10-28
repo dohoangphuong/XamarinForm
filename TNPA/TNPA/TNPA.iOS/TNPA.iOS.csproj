@@ -151,8 +151,8 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <InterfaceDefinition Include="View\Main.storyboard" />
     <None Include="packages.config" />
+    <InterfaceDefinition Include="View\Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\GzipWebClient.cs">

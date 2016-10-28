@@ -24,7 +24,7 @@ namespace TNPA.iOS
 		#region Override Methods
 		public override nfloat EstimatedHeight (UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
-			return 50f;
+			return 70f;
 		}
 
 		public override void RowSelected (UITableView tableView, Foundation.NSIndexPath indexPath)
