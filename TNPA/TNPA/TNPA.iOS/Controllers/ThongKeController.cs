@@ -34,9 +34,9 @@ namespace TNPA.iOS
             btnBieuDo.TouchUpInside += BtnBieuDo_TouchUpInside;
             btnDateStart.TouchUpInside += BtnDateStart_TouchUpInside;
             btnDateEnd.TouchUpInside += BtnDateEnd_TouchUpInside;
-            var result = getDataLinhVuc();
-            if (result!=null)
-				createPieChart();
+
+            //khởi tạo biểu đồ mặt định
+            BtnBieuDo_TouchUpInside(new object(), new EventArgs());
         }
 
         private void getNameButton()
@@ -52,8 +52,8 @@ namespace TNPA.iOS
 
             //Add more ChartComponent for more Slices in Pie Chart
             AllianceChart.PieChart.SameColorLabel = false;
-            AllianceChart.PieChart.TitleFont = UIFont.FromName("HelveticaNeue-Bold", 15f);
-            AllianceChart.PieChart.PercentageFont = UIFont.FromName("HelveticaNeue-Bold", 15f);
+            AllianceChart.PieChart.TitleFont = UIFont.FromName("HelveticaNeue-Regular", 15f);
+            AllianceChart.PieChart.PercentageFont = UIFont.FromName("HelveticaNeue-Regular", 15f);
 
             //Khai báo dữ liệu vào biểu đồ
             getDataChart();
@@ -126,9 +126,21 @@ namespace TNPA.iOS
 
         private async void BtnBieuDo_TouchUpInside(object sender, EventArgs e)
         {
-			var result = await getDataLinhVuc();
+            lbTile.Text = "Đang tải...";
+            var result = await getDataLinhVuc();
 			if(result!=null)
 				createPieChart();
+            //else
+            //{
+            //    lbTile.Text = "Không có lĩnh vực";
+            //    UIAlertView alert = new UIAlertView()
+            //    {
+            //        Title = "Lỗi",
+            //        Message = "Không có lĩnh vực, vui lòng kiểm tra lại"
+            //    };
+            //    alert.AddButton("OK");
+            //    alert.Show();
+            //}
         }
 
         private void getDataChart()
@@ -150,6 +162,7 @@ namespace TNPA.iOS
                 //Nếu có danh sách lĩnh vực mà không có phản ánh nào thì hiển thị thông báo.
                 if (resultNotData)
                 {
+                    lbTile.Text = "Không có phản ánh";
                     // modellP1.Title = Config.scrReportDuLieu;
                     UIAlertView alert = new UIAlertView()
                     {
@@ -161,7 +174,8 @@ namespace TNPA.iOS
                 }
                 //Nếu ngược lại có dữ liệu
                 else
-                {             
+                {
+                    lbTile.Text = "";
                     List<ChartComponent> Components = new List<ChartComponent>();
                     
                     for (int i = 1; i < resultLstLinhVuc.Count; i++)
@@ -175,6 +189,7 @@ namespace TNPA.iOS
             //Nếu không có danh sách lĩnh vực nào
             else
             {
+                lbTile.Text = "Không có lĩnh vực";
                 UIAlertView alert = new UIAlertView()
                 {
                     Title = "Lỗi",

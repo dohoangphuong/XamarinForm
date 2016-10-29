@@ -28,15 +28,15 @@ namespace TNPA.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnThongTin { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextView txtNoiDung { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField txtVitri { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField txtViTri { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
@@ -55,6 +55,11 @@ namespace TNPA.iOS
                 btnThemAnh = null;
             }
 
+            if (btnThongTin != null) {
+                btnThongTin.Dispose ();
+                btnThongTin = null;
+            }
+
             if (txtNoiDung != null) {
                 txtNoiDung.Dispose ();
                 txtNoiDung = null;
@@ -63,11 +68,6 @@ namespace TNPA.iOS
             if (txtVitri != null) {
                 txtVitri.Dispose ();
                 txtVitri = null;
-            }
-
-            if (txtViTri != null) {
-                txtViTri.Dispose ();
-                txtViTri = null;
             }
         }
     }

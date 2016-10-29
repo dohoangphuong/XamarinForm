@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using System;
+using System.Collections.Generic;
 using TNPA.Model;
 using UIKit;
 
@@ -7,10 +8,10 @@ namespace TNPA.iOS
 {
     public partial class PhanAnhController : UIViewController
     {
-
-        private PhanAnh resultPhanAnh = new PhanAnh();
+        
+        private PhanAnh resultPhanAnh;
         private LinhVucService _service = new LinhVucService();
-        public PhanAnhController(IntPtr handle) : base (handle)
+        public PhanAnhController(IntPtr handle) : base(handle)
         {
         }
 
@@ -18,7 +19,62 @@ namespace TNPA.iOS
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
-            
+            btnGui.TouchUpInside += BtnBieuDo_TouchUpInside;
+
+                        
+        }
+
+        private async void BtnBieuDo_TouchUpInside(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNoiDung.Text.Trim()) || string.IsNullOrEmpty(txtVitri.Text.Trim()))
+            {
+                UIAlertView alert = new UIAlertView()
+                {
+                    Title = "Thông báo",
+                    Message = "Vui lòng nhập đầy đủ thông tin trước khi gởi đi"
+                };
+                alert.AddButton("OK");
+                alert.Show();
+            }
+            else
+            {
+                resultPhanAnh = new PhanAnh();
+
+                resultPhanAnh.lstFileDinhKem = new List<Files>();
+                resultPhanAnh.Active = Configs.Active;
+                resultPhanAnh.PortalID = Configs.PortalID;
+                resultPhanAnh.MaKenhTiepNhan = Configs.MaKenhTiepNhan;
+
+                resultPhanAnh.Duong = txtVitri.Text;
+                resultPhanAnh.NoiDungPhanAnh = txtNoiDung.Text;
+
+                resultPhanAnh.NguoiBao_HoTen = "Do Hoang Phuong";
+                resultPhanAnh.NguoiBao_DienThoai = "012345678";
+                resultPhanAnh.NguoiBao_Email = "ABc@gmai.com";
+                resultPhanAnh.NguoiBao_Duong = "120 Paster, Q.1";
+
+                var result = await _service.SendRequestPhanAnh(resultPhanAnh);
+                if (result == null)
+                {
+                    UIAlertView alert = new UIAlertView()
+                    {
+                        Title = "Thông báo",
+                        Message = "Phản ánh chưa được gửi đi, vui lòng kiểm tra lại."
+                    };
+                    alert.AddButton("OK");
+                    alert.Show();
+                }
+                else
+                {
+                    UIAlertView alert = new UIAlertView()
+                    {
+                        Title = "Thông báo",
+                        Message = "Phản ánh đã được gửi thành công."
+                    };
+                    alert.AddButton("OK");
+                    alert.Show();
+                }
+            }
         }
 
         public override void DidReceiveMemoryWarning()

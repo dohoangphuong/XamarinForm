@@ -36,12 +36,6 @@ namespace TNPA.iOS
             if (result != null)
             {
                 _items = (List<DmLinhVuc>)result.ClassResult;
-                foreach (DmLinhVuc item in _items)
-                {
-                    string a= item.TenLinhVuc;
-                    string b = item.GetImageFromDB;
-                    string c = item.GhiChu;
-                }
             }
             else
             {

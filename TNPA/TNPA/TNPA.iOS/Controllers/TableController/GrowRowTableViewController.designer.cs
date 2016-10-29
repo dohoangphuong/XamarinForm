@@ -11,11 +11,11 @@ using UIKit;
 
 namespace TNPA.iOS
 {
-	[Register ("GrowRowTableViewController")]
-	partial class GrowRowTableViewController
-	{
-		void ReleaseDesignerOutlets ()
-		{
-		}
-	}
+    [Register ("GrowRowTableViewController")]
+    partial class GrowRowTableViewController
+    {
+        void ReleaseDesignerOutlets ()
+        {
+        }
+    }
 }

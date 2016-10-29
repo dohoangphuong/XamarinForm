@@ -26,6 +26,10 @@ namespace TNPA.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnDateStart { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lbTile { get; set; }
+
         [Action ("UIButton2303_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIButton2303_TouchUpInside (UIKit.UIButton sender);
@@ -45,6 +49,11 @@ namespace TNPA.iOS
             if (btnDateStart != null) {
                 btnDateStart.Dispose ();
                 btnDateStart = null;
+            }
+
+            if (lbTile != null) {
+                lbTile.Dispose ();
+                lbTile = null;
             }
         }
     }

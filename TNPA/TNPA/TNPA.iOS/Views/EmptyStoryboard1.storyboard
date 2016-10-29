@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3269">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="830">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
     </dependencies>
@@ -37,7 +37,7 @@
                         <segue id="4953" destination="1458" kind="relationship" relationship="viewControllers"/>
                         <segue id="5064" destination="1465" kind="relationship" relationship="viewControllers"/>
                     </connections>
-                    <navigationItem id="3162" key="navigationItem"/>
+                    <navigationItem id="3162" key="navigationItem" title="Nội dung"/>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1031" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,8 +60,8 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="20" y="130" width="374" height="357"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="140" width="374" height="240"/>
                                 </variation>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5149" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
@@ -69,24 +69,9 @@
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0" blue="1" alpha="1"/>
                                 <state key="normal" image="map.png" backgroundImage="map.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="354" y="75" width="40" height="40"/>
-                                    <mask key="constraints">
-                                        <include reference="5222"/>
-                                        <include reference="5223"/>
-                                    </mask>
-                                </variation>
-                                <constraints>
-                                    <constraint id="5222" firstAttribute="width" constant="40"/>
-                                    <constraint id="5223" firstAttribute="height" constant="40"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="5222"/>
-                                        <exclude reference="5223"/>
-                                    </mask>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="354" y="85" width="40" height="40"/>
                                 </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5158" translatesAutoresizingMaskIntoConstraints="NO">
@@ -97,23 +82,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="500" width="163" height="40"/>
-                                    <mask key="constraints">
-                                        <include reference="5235"/>
-                                        <include reference="5236"/>
-                                    </mask>
-                                </variation>
-                                <constraints>
-                                    <constraint id="5235" firstAttribute="width" constant="190"/>
-                                    <constraint id="5236" firstAttribute="height" constant="47">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
-                                    </constraint>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="5235"/>
-                                        <exclude reference="5236"/>
-                                    </mask>
+                                    <rect key="frame" x="140" y="398" width="128" height="47"/>
                                 </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5159" translatesAutoresizingMaskIntoConstraints="NO">
@@ -138,36 +107,14 @@
                                     </mask>
                                 </variation>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="5190" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" placeholder="Địa chỉ phản ánh...">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" borderStyle="roundedRect" minimumFontSize="17" id="5190" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="56" y="76" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="20" y="80" width="324" height="30"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="56" y="76" width="97" height="30"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5232" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="167" y="396" width="46" height="30"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0" blue="1" alpha="1"/>
-                                <state key="normal" title="THÔNG TIN">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="231" y="500" width="163" height="40"/>
-                                    <mask key="constraints">
-                                        <include reference="5243"/>
-                                    </mask>
-                                </variation>
-                                <constraints>
-                                    <constraint id="5243" firstAttribute="height" constant="40"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="5243"/>
-                                    </mask>
-                                </variation>
-                            </button>
                         </subviews>
                         <variation key="default">
                             <mask key="subviews">
@@ -176,27 +123,15 @@
                                 <exclude reference="5158"/>
                                 <exclude reference="5159"/>
                                 <exclude reference="5190"/>
-                                <exclude reference="5232"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="5165"/>
                                 <exclude reference="5166"/>
-                                <exclude reference="5216"/>
-                                <exclude reference="5217"/>
-                                <exclude reference="5219"/>
-                                <exclude reference="5220"/>
-                                <exclude reference="5221"/>
-                                <exclude reference="5225"/>
-                                <exclude reference="5229"/>
-                                <exclude reference="5230"/>
-                                <exclude reference="5231"/>
-                                <exclude reference="5237"/>
-                                <exclude reference="5238"/>
-                                <exclude reference="5240"/>
-                                <exclude reference="5244"/>
-                                <exclude reference="5245"/>
-                                <exclude reference="5246"/>
-                                <exclude reference="5248"/>
+                                <exclude reference="5172"/>
+                                <exclude reference="5173"/>
+                                <exclude reference="5177"/>
+                                <exclude reference="5178"/>
+                                <exclude reference="5179"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -206,69 +141,30 @@
                                 <include reference="5158"/>
                                 <include reference="5159"/>
                                 <include reference="5190"/>
-                                <include reference="5232"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="5165"/>
                                 <include reference="5166"/>
-                                <include reference="5216"/>
-                                <include reference="5217"/>
-                                <include reference="5219"/>
-                                <include reference="5220"/>
-                                <include reference="5221"/>
-                                <include reference="5225"/>
-                                <include reference="5229"/>
-                                <include reference="5230"/>
-                                <include reference="5231"/>
-                                <include reference="5237"/>
-                                <include reference="5238"/>
-                                <include reference="5240"/>
-                                <include reference="5244"/>
-                                <include reference="5245"/>
-                                <include reference="5246"/>
-                                <include reference="5248"/>
+                                <include reference="5172"/>
+                                <include reference="5173"/>
+                                <include reference="5177"/>
+                                <include reference="5178"/>
+                                <include reference="5179"/>
                             </mask>
                         </variation>
                         <constraints>
-                            <constraint id="5165" firstItem="5159" firstAttribute="leading" secondItem="1037" secondAttribute="leading" constant="17">
-                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
-                            </constraint>
-                            <constraint id="5166" firstItem="1037" firstAttribute="bottom" secondItem="5159" secondAttribute="bottom" constant="63">
+                            <constraint id="5165" firstItem="5159" firstAttribute="leading" secondItem="1037" secondAttribute="leading" constant="17"/>
+                            <constraint id="5166" firstItem="1037" firstAttribute="bottom" secondItem="5159" secondAttribute="bottom" constant="63"/>
+                            <constraint id="5172" firstItem="5158" firstAttribute="leading" secondItem="1037" secondAttribute="leading" constant="140">
                                 <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                             </constraint>
-                            <constraint id="5216" firstItem="5190" firstAttribute="leading" secondItem="1037" secondAttribute="leading" constant="20"/>
-                            <constraint id="5217" firstItem="5190" firstAttribute="top" secondItem="1037" secondAttribute="top" constant="76">
-                                <variation key="heightClass=regular-widthClass=compact" constant="80"/>
-                            </constraint>
-                            <constraint id="5219" firstItem="1037" firstAttribute="trailing" secondItem="5190" secondAttribute="trailing" constant="111">
+                            <constraint id="5173" firstItem="1037" firstAttribute="trailing" secondItem="5158" secondAttribute="trailing" constant="146">
                                 <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                             </constraint>
-                            <constraint id="5220" firstItem="1037" firstAttribute="trailing" secondItem="5149" secondAttribute="trailing" constant="20"/>
-                            <constraint id="5221" firstItem="5149" firstAttribute="top" secondItem="1037" secondAttribute="top" constant="85">
-                                <variation key="heightClass=regular-widthClass=compact" constant="75"/>
-                            </constraint>
-                            <constraint id="5225" firstItem="1037" firstAttribute="trailing" secondItem="5148" secondAttribute="trailing" constant="20"/>
-                            <constraint id="5229" firstItem="5148" firstAttribute="leading" secondItem="1037" secondAttribute="leading" constant="20"/>
-                            <constraint id="5230" firstItem="5148" firstAttribute="top" secondItem="5190" secondAttribute="bottom" constant="30">
-                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
-                            </constraint>
-                            <constraint id="5231" firstItem="1822" firstAttribute="top" secondItem="5148" secondAttribute="bottom" constant="357">
-                                <variation key="heightClass=regular-widthClass=compact" constant="200"/>
-                            </constraint>
-                            <constraint id="5237" firstItem="5158" firstAttribute="top" secondItem="5148" secondAttribute="bottom" constant="25">
-                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
-                            </constraint>
-                            <constraint id="5238" firstItem="5158" firstAttribute="leading" secondItem="1037" secondAttribute="leading" constant="20"/>
-                            <constraint id="5240" firstItem="1037" firstAttribute="trailing" secondItem="5232" secondAttribute="trailing" constant="20"/>
-                            <constraint id="5244" firstItem="5232" firstAttribute="top" secondItem="5148" secondAttribute="bottom" constant="25">
-                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
-                            </constraint>
-                            <constraint id="5245" firstItem="5232" firstAttribute="leading" secondItem="5158" secondAttribute="trailing" constant="21">
-                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
-                            </constraint>
-                            <constraint id="5246" firstItem="5158" firstAttribute="width" secondItem="5232" secondAttribute="width"/>
-                            <constraint id="5248" firstItem="1037" firstAttribute="trailing" secondItem="5159" secondAttribute="trailing" constant="23">
-                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            <constraint id="5177" firstItem="5158" firstAttribute="width" secondItem="1037" secondAttribute="width"/>
+                            <constraint id="5178" firstItem="5158" firstAttribute="width" secondItem="1037" secondAttribute="width"/>
+                            <constraint id="5179" firstItem="5159" firstAttribute="top" secondItem="5158" secondAttribute="bottom" constant="188">
+                                <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                             </constraint>
                         </constraints>
                     </view>
@@ -279,7 +175,6 @@
                         <outlet property="btnGui" destination="5159" id="name-outlet-5159"/>
                         <outlet property="txtNoiDung" destination="5148" id="name-outlet-5148"/>
                         <outlet property="txtVitri" destination="5190" id="name-outlet-5190"/>
-                        <outlet property="btnThongTin" destination="5232" id="name-outlet-5232"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1039" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -334,23 +229,12 @@
                                     <action selector="UIButton2303_TouchUpInside:" destination="1458" id="2320" eventType="touchUpInside"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="5201" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center">
-                                <rect key="frame" x="186" y="192" width="42" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="130" y="192" width="118" height="21"/>
-                                </variation>
-                            </label>
                         </subviews>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="2301"/>
                                 <exclude reference="2302"/>
                                 <exclude reference="2303"/>
-                                <exclude reference="5201"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="2311"/>
@@ -362,9 +246,6 @@
                                 <exclude reference="2322"/>
                                 <exclude reference="2323"/>
                                 <exclude reference="2324"/>
-                                <exclude reference="5202"/>
-                                <exclude reference="5205"/>
-                                <exclude reference="5208"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -372,7 +253,6 @@
                                 <include reference="2301"/>
                                 <include reference="2302"/>
                                 <include reference="2303"/>
-                                <include reference="5201"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="2311"/>
@@ -384,9 +264,6 @@
                                 <include reference="2322"/>
                                 <include reference="2323"/>
                                 <include reference="2324"/>
-                                <include reference="5202"/>
-                                <include reference="5205"/>
-                                <include reference="5208"/>
                             </mask>
                         </variation>
                         <constraints>
@@ -407,15 +284,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                             </constraint>
                             <constraint id="2324" firstItem="2302" firstAttribute="width" secondItem="2303" secondAttribute="width"/>
-                            <constraint id="5202" firstItem="5201" firstAttribute="top" secondItem="2302" secondAttribute="bottom" constant="16">
-                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
-                            </constraint>
-                            <constraint id="5205" firstItem="5201" firstAttribute="leading" secondItem="1459" secondAttribute="leading" constant="128">
-                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
-                            </constraint>
-                            <constraint id="5208" firstItem="1459" firstAttribute="trailing" secondItem="5201" secondAttribute="trailing" constant="168">
-                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
-                            </constraint>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" id="1514" title="THỐNG KÊ" image="ic_thongke.png" tag="2"/>
@@ -423,7 +291,6 @@
                         <outlet property="btnBieuDo" destination="2301" id="name-outlet-2301"/>
                         <outlet property="btnDateStart" destination="2302" id="name-outlet-2302"/>
                         <outlet property="btnDateEnd" destination="2303" id="name-outlet-2303"/>
-                        <outlet property="lbTile" destination="5201" id="name-outlet-5201"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1460" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -690,7 +557,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Trang chủ" id="1724"/>
+                    <navigationItem key="navigationItem" title="Home" id="1724"/>
                     <connections>
                         <outlet property="btnTraCuu" destination="1815" id="name-outlet-1815"/>
                         <outlet property="btnPhanAnh" destination="1816" id="name-outlet-1816"/>
@@ -730,7 +597,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GrowCell" rowHeight="68" id="8" customClass="GrowRowTableCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GrowCell" rowHeight="68" id="8" customClass="GrowRowTableCell" restorationIdentifier="GrowRowTableCell">
                                 <rect key="frame" x="0.0" y="22" width="600" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8" id="9">
