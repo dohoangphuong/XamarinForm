@@ -65,15 +65,9 @@
     <MtouchDebug>true</MtouchDebug>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alliance.Charts">
-      <HintPath>..\..\Components\AllianceChart-2.0\lib\ios-unified\Alliance.Charts.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
@@ -133,12 +127,6 @@
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait%402x.png">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\ITunesArtwork" />
@@ -146,113 +134,18 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Views\TabImage.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="packages.config" />
-    <InterfaceDefinition Include="View\Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configs\Configs.cs" />
-    <Compile Include="Controllers\GzipWebClient.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\TableController\GrowRowTableCell.cs" />
-    <Compile Include="Controllers\TableController\GrowRowTableCell.designer.cs">
-      <DependentUpon>GrowRowTableCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\TableController\GrowRowTableView.cs" />
-    <Compile Include="Controllers\TableController\GrowRowTableView.designer.cs">
-      <DependentUpon>GrowRowTableView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\TableController\GrowRowTableViewController.cs" />
-    <Compile Include="Controllers\TableController\GrowRowTableViewController.designer.cs">
-      <DependentUpon>GrowRowTableViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\TableITem\GrowItem.cs" />
-    <Compile Include="Controllers\TableITem\GrowRowTableDataSource.cs" />
-    <Compile Include="Controllers\TableITem\GrowRowTableDelegate.cs" />
-    <Compile Include="Models\App.cs" />
-    <Compile Include="MainPageController.cs" />
-    <Compile Include="MainPageController.designer.cs">
-      <DependentUpon>MainPageController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Controllers\CaiDatController.cs" />
-    <Compile Include="Controllers\CaiDatController.designer.cs">
-      <DependentUpon>CaiDatController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\ThongKeController.cs" />
-    <Compile Include="Controllers\ThongKeController.designer.cs">
-      <DependentUpon>ThongKeController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\TraCuuController.cs" />
-    <Compile Include="Controllers\TraCuuController.designer.cs">
-      <DependentUpon>TraCuuController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\PhanAnhController.cs" />
-    <Compile Include="Controllers\PhanAnhController.designer.cs">
-      <DependentUpon>PhanAnhController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ModalPickerAnimatedDismissed.cs" />
-    <Compile Include="ModalPickerAnimatedTransitioning.cs" />
-    <Compile Include="ModalPickerTransitionDelegate.cs" />
-    <Compile Include="ModalPickerViewController.cs" />
-    <Compile Include="Models\RssParser.cs" />
-    <Compile Include="TabController.cs" />
-    <Compile Include="TabController.designer.cs">
-      <DependentUpon>TabController.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\main.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\camera.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_caidat.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_phananh.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_thongke.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_tracuu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_trogiup.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\map.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\progress.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TakePhotoButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <XamarinComponentReference Include="AllianceChart">
-      <Visible>False</Visible>
-      <Version>2.0</Version>
-    </XamarinComponentReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Images\Placeholder.png" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
